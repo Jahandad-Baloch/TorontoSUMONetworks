@@ -55,7 +55,6 @@ To install SUMO on Windows or macOS, please refer to the [SUMO website](https://
     - Add the SUMO_HOME to your system's PATH environment variable. For example, on Linux:
     ```bash
     export SUMO_HOME="/usr/share/sumo"
-    export PATH="$PATH:$SUMO_HOME/bin"
     ```
 
 5. **Run the Main Script**:
