@@ -1,0 +1,60 @@
+import os
+from scripts.common.network_base import NetworkBase
+
+""" 
+This script is used to manage the SUMO simulation.
+path: scripts/simulation/simulation_manager.py
+"""
+
+
+class SimulationManager(NetworkBase):
+    def __init__(self, config_file: str):
+        """
+        Initialize the simulation executer.
+
+        Args:
+            config_path (str): Path to the configuration file.
+        """
+        super().__init__(config_file)
+        self.prepare_directories()
+
+    
+    def get_simulation_command(self):
+        """Get the simulation command."""
+        sumo_cmd = [
+            "sumo", "-c", str(self.sumo_cfg_file)
+        ]
+
+        if self.simulation_settings['use_gui']:
+            sumo_cmd[0] = sumo_cmd[0] + "-gui"
+
+        if self.simulation_settings['summary_output']:
+            # summary_file = os.path.join(self.simulation_outputs, f"simulation_summary_{self.timestamp}.xml")
+            summary_file = os.path.join(self.simulation_outputs, f"summary_output.xml")
+            sumo_cmd.extend(["--summary-output", str(summary_file)])
+
+        if self.simulation_settings['queue_output']:
+            # queue_file = os.path.join(self.simulation_outputs, f"simulation_queue_{self.timestamp}.xml")
+            queue_file = os.path.join(self.simulation_outputs, f"queue_output.xml")
+            sumo_cmd.extend(["--queue-output", queue_file])
+
+        if self.simulation_settings['full_output']:
+            # output_file = os.path.join(self.simulation_outputs, f"simulation_output_{self.timestamp}.xml")
+            output_file = os.path.join(self.simulation_outputs, f"full_output.xml")
+            sumo_cmd.extend(["--full-output", output_file])
+            
+        return sumo_cmd
+
+
+    def execute_simulation(self):
+        """Execute the SUMO simulation."""
+        self.logger.info("Simulation Execution Started.")
+        command = self.get_simulation_command()
+        self.logger.info(f"Executing command: {' '.join(command) if isinstance(command, list) else command}")
+        self.executor.run_command(command)
+        self.logger.info("Simulation Execution Ended.")
+        self.logger.info(f"\n.......................\n")
+        
+if __name__ == "__main__":
+    simulation_manager = SimulationManager('configurations/main_config.yaml')
+    simulation_manager.execute_simulation()

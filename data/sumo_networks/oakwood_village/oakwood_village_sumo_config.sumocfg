@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+  <input>
+    <net-file value="oakwood_village_arterial.net.xml"/>
+    <route-files value="oakwood_village_routes.rou.xml, oakwood_village_public_transport.rou.xml"/>
+    <additional-files value="oakwood_village_vtype.rou.xml, oakwood_village_public_transport_vtype.rou.xml, oakwood_village_gtfs_stops_routes.add.xml"/>
+  </input>
+  <time>
+    <begin value="28800"/>
+    <end value="34200"/>
+  </time>
+  <report>
+    <no-warnings value="False"/>
+    <duration-log.statistics value="True"/>
+  </report>
+</configuration>

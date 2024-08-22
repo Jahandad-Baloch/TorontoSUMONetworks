@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-08-21 18:22:58.520417 by gtfs2pt.py UNKNOWN
+  options: <doubleminus>gtfs data/raw/ttc-routes-and-schedules/TTC Routes and Schedules Data.zip -n data/sumo_networks/dorset_park/dorset_park_arterial.net.xml <doubleminus>route-output data/sumo_networks/dorset_park/dorset_park_public_transport.rou.xml <doubleminus>additional-output data/sumo_networks/dorset_park/dorset_park_gtfs_stops_routes.add.xml <doubleminus>vtype-output data/sumo_networks/dorset_park/dorset_park_public_transport_vtype.rou.xml <doubleminus>modes bus <doubleminus>date 20240813 -b 28800 -e 34200
+-->
+
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <vType id="bus" vClass="bus"/>
+</additional>

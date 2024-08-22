@@ -1,0 +1,17 @@
+# configurations/traffic_config.yaml
+# This file contains the configuration for the traffic data that will be used in the simulation.
+
+traffic_settings:
+  threshold_value: 0.00016 # 16 meters
+  epsilon_value: 5
+  begin_time: 28800
+  end_time: 34200
+  num_intervals: 6
+  mode: "cars" # "cars", "bike", "peds", "bus", "truck", "other", "all"
+  traffic_volume_file: "raw-data-2020-2029.csv"
+
+# Traffic volume datasets
+traffic_volume_2020s: "raw-data-2020-2029.csv"
+traffic_volume_2010s: "raw-data-2010-2019.csv"
+traffic_volume_2000s: "raw-data-2000-2009.csv"
+traffic_volume_1990s: "raw-data-1990-1999.csv"

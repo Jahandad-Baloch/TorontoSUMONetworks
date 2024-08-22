@@ -1,0 +1,41 @@
+# configurations/main.yaml
+# This file contains the main configuration for the simulation.
+
+# Main configuration file
+imports:
+  - network_config.yaml
+  - datasets_config.yaml
+  - lanes_config.yaml
+  - routing_config.yaml
+  - simulation_config.yaml
+  - paths_config.yaml
+  - traffic_config.yaml
+  - analysis_config.yaml
+
+core:
+  project_name: "Toronto Traffic Simulation"
+  version: "1.0.0"
+
+# Main execution settings
+
+execution_settings:
+  fetch_data: true
+  build_network: true
+  network_extent: "by_neighbourhood" # options "city_wide", "by_ward_name", "by_neighbourhood"
+
+  process_traffic_data: true
+  generate_routes: true
+  compose_sumocfg: true
+  run_simulation: true
+  analyze_results: true
+
+# Logging configurations
+logging:
+  save_logs: true
+  console_output: true
+  log_dir: "logs"
+  log_level: "INFO" # "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
+
+
+
+

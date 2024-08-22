@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-08-21 21:04:57.052421 by gtfs2pt.py UNKNOWN
+<configuration>
+    <gtfs value="data/raw/ttc-routes-and-schedules/TTC Routes and Schedules Data.zip"/>
+    <date value="20240813"/>
+    <modes value="bus"/>
+    <vtype-output value="data/sumo_networks/lawrence_park_south/lawrence_park_south_public_transport_vtype.rou.xml"/>
+    <begin value="28800.0"/>
+    <end value="34200.0"/>
+    <network value="data/sumo_networks/lawrence_park_south/lawrence_park_south_arterial.net.xml"/>
+    <route-output value="data/sumo_networks/lawrence_park_south/lawrence_park_south_public_transport.rou.xml"/>
+    <additional-output value="data/sumo_networks/lawrence_park_south/lawrence_park_south_gtfs_stops_routes.add.xml"/>
+</configuration>
+-->
+
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <busStop id="47508205.2" lane="-444568_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Avenue Rd at Douglas Ave"/>
+    <busStop id="47508205.3" lane="-444568_0" startPos="30.22" endPos="43.22" friendlyPos="true" name="Lawrence Ave West at Avenue Rd East Side"/>
+    <busStop id="47508205.4" lane="-1137885_0" startPos="56.31" endPos="69.31" friendlyPos="true" name="Lawrence Ave West at Rosewell Ave East Side"/>
+    <busStop id="47508205.5" lane="-5102026_0" startPos="34.51" endPos="47.51" friendlyPos="true" name="Lawrence Ave West at Chatsworth Dr"/>
+    <busStop id="47508205.6" lane="-5070621_0" startPos="173.56" endPos="186.56" friendlyPos="true" name="Lawrence Ave West at Greer Rd"/>
+    <busStop id="47508205.7" lane="-1137850_0" startPos="225.22" endPos="238.22" friendlyPos="true" name="Lawrence Ave West at Duplex Ave"/>
+    <busStop id="47508205.8" lane="-9741512_0" startPos="46.98" endPos="59.98" friendlyPos="true" name="Lawrence Ave West at Lorindale Ave East Side"/>
+    <busStop id="47508205.9" lane="10133844_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Lawrence Ave East at Yonge St East Side"/>
+    <busStop id="47508205.10" lane="10133669_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Lawrence Ave East at Weybourne Cres East Side"/>
+    <busStop id="47508205.11" lane="10144696_0" startPos="73.30" endPos="86.30" friendlyPos="true" name="Lawrence Ave East at Mt Pleasant Rd"/>
+    <busStop id="47508205.12" lane="10133781_0" startPos="1.87" endPos="14.87" friendlyPos="true" name="Lawrence Ave East at Dinnick Cres East Side"/>
+    <busStop id="47508205.13" lane="10145060_0" startPos="68.78" endPos="81.78" friendlyPos="true" name="Lawrence Ave East at Ronan Ave"/>
+    <busStop id="47508205.14" lane="10133742_0" startPos="125.30" endPos="138.30" friendlyPos="true" name="Lawrence Ave East at Wanless Cres (West)"/>
+    <busStop id="47508205.15" lane="443954_0" startPos="16.07" endPos="29.07" friendlyPos="true" name="Lawrence Ave East at Wanless Cres (East)"/>
+    <busStop id="47508359.0" lane="-443954_0" startPos="1.06" endPos="14.06" friendlyPos="true" name="Lawrence Ave East at Wanless Cres (East) West Side"/>
+    <busStop id="47508359.1" lane="-1137753_0" startPos="136.95" endPos="149.95" friendlyPos="true" name="Lawrence Ave East at Wanless Cres (West)"/>
+    <busStop id="47508359.2" lane="-10133742_0" startPos="126.38" endPos="139.38" friendlyPos="true" name="Lawrence Ave East at Ronan Ave"/>
+    <busStop id="47508359.3" lane="-10133795_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Lawrence Ave East at Mt Pleasant Rd"/>
+    <busStop id="47508359.4" lane="-10144696_0" startPos="68.14" endPos="81.14" friendlyPos="true" name="Lawrence Ave East at Cardinal Pl"/>
+    <busStop id="47508359.5" lane="-10133844_0" startPos="70.43" endPos="83.43" friendlyPos="true" name="Lawrence Ave at Yonge St - Lawrence Station"/>
+    <busStop id="47508359.6" lane="9741291_0" startPos="70.57" endPos="83.57" friendlyPos="true" name="Lawrence Ave West at Lorindale Ave"/>
+    <busStop id="47508359.7" lane="9741741_0" startPos="52.96" endPos="65.96" friendlyPos="true" name="Lawrence Ave West at Jedburgh Rd"/>
+    <busStop id="47508359.8" lane="1137850_0" startPos="226.13" endPos="239.13" friendlyPos="true" name="Lawrence Ave West at Greer Rd"/>
+    <busStop id="47508359.9" lane="1137885_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Lawrence Ave West at Elm Rd West Side"/>
+    <busStop id="47508360.10" lane="444568_0" startPos="62.06" endPos="75.06" friendlyPos="true" name="Lawrence Ave West at Avenue Rd"/>
+    <busStop id="47508360.11" lane="444568_0" startPos="82.07" endPos="95.07" friendlyPos="true" name="Avenue Rd at Douglas Ave North Side"/>
+    <busStop id="47512381.2" lane="8166365_0" startPos="72.91" endPos="85.91" friendlyPos="true" name="Chaplin Cres at Eglinton Ave West"/>
+    <busStop id="47512414.0" lane="-14023514_0" startPos="15.76" endPos="28.76" friendlyPos="true" name="Chaplin Cres at Russell Hill Rd West Side"/>
+    <busStop id="47512414.1" lane="-8166365_0" startPos="28.85" endPos="41.85" friendlyPos="true" name="Chaplin Cres at Eglinton Ave West"/>
+    <busStop id="47517350.1" lane="-8166365_0" startPos="5.07" endPos="18.07" friendlyPos="true" name="Eglinton Ave West at Chaplin Cres East Side"/>
+    <busStop id="47517350.2" lane="-8168653_0" startPos="17.65" endPos="30.65" friendlyPos="true" name="Eglinton Ave West at Tarlton Rd"/>
+    <busStop id="47517350.3" lane="-8192164_0" startPos="22.83" endPos="35.83" friendlyPos="true" name="Eglinton Ave West at Elmsthorpe Ave"/>
+    <busStop id="47517350.4" lane="-8205774_0" startPos="14.14" endPos="27.14" friendlyPos="true" name="Eglinton Ave West at Avenue Rd East Side"/>
+    <busStop id="47517350.5" lane="-8205774_0" startPos="65.31" endPos="78.31" friendlyPos="true" name="Eglinton Ave West at Oriole Pkwy East Side"/>
+    <busStop id="47517672.0" lane="8202073_0" startPos="19.57" endPos="32.57" friendlyPos="true" name="Eglinton Ave West at Avenue Rd West Side"/>
+    <busStop id="47517672.1" lane="8202883_0" startPos="1.64" endPos="14.64" friendlyPos="true" name="Eglinton Ave West at Braemar Ave West Side"/>
+    <busStop id="47517672.2" lane="8192164_0" startPos="14.37" endPos="27.37" friendlyPos="true" name="Eglinton Ave West at Castle Knock Rd"/>
+    <busStop id="47517672.3" lane="8168653_0" startPos="27.37" endPos="40.37" friendlyPos="true" name="Eglinton Ave West at Heddington Ave"/>
+    <busStop id="47517672.4" lane="8166365_0" startPos="49.68" endPos="62.68" friendlyPos="true" name="Eglinton Ave West at Gilgorm Rd"/>
+    <busStop id="47517678.4" lane="-1138402_0" startPos="158.75" endPos="171.75" friendlyPos="true" name="Eglinton Ave West at Oriole Pkwy"/>
+    <busStop id="47518109.4" lane="8166365_1" startPos="72.91" endPos="85.91" friendlyPos="true" name="Spadina Rd at Eglinton Ave West South Side"/>
+    <busStop id="47527620.3" lane="-444986_0" startPos="34.57" endPos="47.57" friendlyPos="true" name="Opposite 1451 Avenue Rd - Havergal College"/>
+    <busStop id="47527620.4" lane="-8344078_0" startPos="12.51" endPos="25.51" friendlyPos="true" name="Avenue Rd at Otter Cres"/>
+    <busStop id="47527620.5" lane="-8322719_0" startPos="95.90" endPos="107.02" friendlyPos="true" name="Avenue Rd at Glengrove Ave West"/>
+    <busStop id="47527620.6" lane="-8322761_0" startPos="92.26" endPos="105.26" friendlyPos="true" name="Avenue Rd at Glencairn Ave"/>
+    <busStop id="47527620.7" lane="-1138082_0" startPos="2.97" endPos="15.97" friendlyPos="true" name="Avenue Rd at Lytton Blvd"/>
+    <busStop id="47527620.8" lane="-8322270_0" startPos="64.83" endPos="77.83" friendlyPos="true" name="Avenue Rd at Hillhurst Blvd"/>
+    <busStop id="47527620.9" lane="-8322117_0" startPos="65.25" endPos="78.25" friendlyPos="true" name="Avenue Rd at St Clements Ave"/>
+    <busStop id="47527620.10" lane="-1138284_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Avenue Rd at Roselawn Ave South Side"/>
+    <busStop id="47527898.2" lane="8203281_0" startPos="15.88" endPos="28.88" friendlyPos="true" name="Avenue Rd at Eglinton Ave West North Side"/>
+    <busStop id="47527898.3" lane="1138284_0" startPos="62.60" endPos="75.60" friendlyPos="true" name="Avenue Rd at Roselawn Ave"/>
+    <busStop id="47527898.4" lane="4030552_0" startPos="62.21" endPos="75.21" friendlyPos="true" name="Avenue Rd at St Clements Ave"/>
+    <busStop id="47527898.5" lane="8322180_0" startPos="62.95" endPos="75.95" friendlyPos="true" name="Avenue Rd at Hillhurst Blvd"/>
+    <busStop id="47527898.6" lane="1138099_0" startPos="62.05" endPos="75.05" friendlyPos="true" name="Avenue Rd at Lytton Blvd"/>
+    <busStop id="47527898.7" lane="8322761_0" startPos="89.81" endPos="102.81" friendlyPos="true" name="Avenue Rd at Glengrove Ave West"/>
+    <busStop id="47527898.8" lane="8344078_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Avenue Rd at Glenview Ave North Side"/>
+    <busStop id="47527898.9" lane="444986_0" startPos="171.26" endPos="184.26" friendlyPos="true" name="1451 Avenue Rd - Havergal College"/>
+    <busStop id="47527898.10" lane="444986_0" startPos="249.56" endPos="262.51" friendlyPos="true" name="Lawrence Ave West at Avenue Rd West Side"/>
+    <busStop id="47529857.3" lane="-444986_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Avenue Rd at Lawrence Ave West South Side"/>
+    <busStop id="47533843.0" lane="-10133814_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Mt Pleasant Rd at Wanless Ave"/>
+    <busStop id="47533843.1" lane="-10133814_0" startPos="103.76" endPos="116.76" friendlyPos="true" name="Mt Pleasant Rd at Lawrence Ave East"/>
+    <busStop id="47533843.2" lane="-1137805_0" startPos="15.26" endPos="28.26" friendlyPos="true" name="Mt Pleasant Rd at Lawrence Ave East South Side"/>
+    <busStop id="47533843.3" lane="-1137838_0" startPos="107.41" endPos="120.41" friendlyPos="true" name="Mt Pleasant Rd at Lawrence Cres"/>
+    <busStop id="47533843.4" lane="-1137884_0" startPos="42.63" endPos="55.63" friendlyPos="true" name="Mt Pleasant Rd at St Leonards Ave"/>
+    <busStop id="47533843.5" lane="-1137924_0" startPos="46.72" endPos="59.72" friendlyPos="true" name="Mt Pleasant Rd at Glengowan Rd"/>
+    <busStop id="47533843.6" lane="-1137998_0" startPos="75.25" endPos="88.25" friendlyPos="true" name="Mt Pleasant Rd at Stibbard Ave"/>
+    <busStop id="47533886.7" lane="1137998_0" startPos="83.13" endPos="96.13" friendlyPos="true" name="Mt Pleasant Rd at Blythwood Rd"/>
+    <busStop id="47533886.8" lane="1137940_0" startPos="54.69" endPos="67.69" friendlyPos="true" name="Mt Pleasant Rd at Glengowan Rd"/>
+    <busStop id="47533886.9" lane="1137884_0" startPos="42.00" endPos="55.00" friendlyPos="true" name="Mt Pleasant Rd at Dinnick Cres"/>
+    <busStop id="47533886.10" lane="1137838_0" startPos="66.67" endPos="79.67" friendlyPos="true" name="Mt Pleasant Rd at Lawrence Cres"/>
+    <busStop id="47533886.11" lane="1137805_0" startPos="41.10" endPos="54.10" friendlyPos="true" name="Mt Pleasant Rd at Lawrence Ave East"/>
+    <busStop id="47533886.12" lane="10133814_0" startPos="14.16" endPos="27.16" friendlyPos="true" name="Mt Pleasant Rd at Lawrence Ave East North Side"/>
+    <busStop id="47540918.1" lane="444568_0" startPos="95.21" endPos="108.21" friendlyPos="true" name="Lawrence Ave West at Avenue Rd West Side"/>
+    <busStop id="47541706.1" lane="-7762807_0" startPos="29.24" endPos="42.24" friendlyPos="true" name="Yonge St at Lawrence Ave West - Lawrence Station"/>
+    <busStop id="47541706.2" lane="-8566503_0" startPos="91.87" endPos="104.87" friendlyPos="true" name="Yonge St at Chatsworth Dr"/>
+    <busStop id="47541706.3" lane="-10154603_0" startPos="122.33" endPos="135.33" friendlyPos="true" name="Yonge St at Glengrove Ave West"/>
+    <busStop id="47541706.4" lane="-30104882_0" startPos="36.42" endPos="49.42" friendlyPos="true" name="Yonge St at Lytton Blvd"/>
+    <busStop id="47541707.5" lane="-1138090_0" startPos="118.76" endPos="131.76" friendlyPos="true" name="Yonge St at Briar Hill Ave"/>
+    <busStop id="47541760.6" lane="1138090_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Yonge St at Sherwood Ave"/>
+    <busStop id="47541760.7" lane="-30104878_0" startPos="20.77" endPos="33.77" friendlyPos="true" name="Yonge St at Blythwood Rd"/>
+    <busStop id="47541760.8" lane="10257988_0" startPos="79.95" endPos="92.95" friendlyPos="true" name="Yonge St at Glencairn Ave"/>
+    <busStop id="47541760.9" lane="8566492_0" startPos="36.32" endPos="49.32" friendlyPos="true" name="Yonge St at Glengrove Ave East"/>
+    <busStop id="47541760.10" lane="30094596_0" startPos="12.86" endPos="25.86" friendlyPos="true" name="Yonge St at St Edmund's Dr"/>
+    <busStop id="47541760.11" lane="7762807_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Yonge St at Lawrence Ave East North Side - Lawrence Station"/>
+</additional>

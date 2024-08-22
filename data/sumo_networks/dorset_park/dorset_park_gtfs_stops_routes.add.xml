@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-08-21 18:23:02.537291 by gtfs2pt.py UNKNOWN
+<configuration>
+    <gtfs value="data/raw/ttc-routes-and-schedules/TTC Routes and Schedules Data.zip"/>
+    <date value="20240813"/>
+    <modes value="bus"/>
+    <vtype-output value="data/sumo_networks/dorset_park/dorset_park_public_transport_vtype.rou.xml"/>
+    <begin value="28800.0"/>
+    <end value="34200.0"/>
+    <network value="data/sumo_networks/dorset_park/dorset_park_arterial.net.xml"/>
+    <route-output value="data/sumo_networks/dorset_park/dorset_park_public_transport.rou.xml"/>
+    <additional-output value="data/sumo_networks/dorset_park/dorset_park_gtfs_stops_routes.add.xml"/>
+</configuration>
+-->
+
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <busStop id="47511132.0" lane="-108537_0" startPos="17.68" endPos="30.68" friendlyPos="true" name="Midland Ave at Ellesmere Rd South Side"/>
+    <busStop id="47511132.1" lane="-110000_0" startPos="18.36" endPos="31.36" friendlyPos="true" name="Midland Ave at Lawrence Ave East South Side"/>
+    <busStop id="47511292.0" lane="5066262_0" startPos="467.73" endPos="480.73" friendlyPos="true" name="Kennedy Rd at Ellesmere Rd"/>
+    <busStop id="47511292.1" lane="108388_0" startPos="26.36" endPos="39.36" friendlyPos="true" name="Ellesmere Rd at Midland Ave East Side"/>
+    <busStop id="47511340.0" lane="110026_0" startPos="20.26" endPos="33.26" friendlyPos="true" name="Kennedy Rd at Lawrence Ave East East Side"/>
+    <busStop id="47513774.2" lane="-108095_0" startPos="39.31" endPos="52.31" friendlyPos="true" name="Birchmount Rd at Highway 401 - Walkway North of Rolark"/>
+    <busStop id="47513774.3" lane="-108454_0" startPos="253.14" endPos="266.14" friendlyPos="true" name="Birchmount Rd at Rolark Dr"/>
+    <busStop id="47513774.4" lane="-20054775_0" startPos="142.37" endPos="155.37" friendlyPos="true" name="1792 Birchmount Rd"/>
+    <busStop id="47513774.5" lane="-20054774_0" startPos="143.55" endPos="156.55" friendlyPos="true" name="Birchmount Rd at Ellesmere Rd"/>
+    <busStop id="47513774.6" lane="-4684711_0" startPos="18.84" endPos="31.84" friendlyPos="true" name="Birchmount Rd at Canadian Rd"/>
+    <busStop id="47513774.7" lane="-5353633_0" startPos="67.65" endPos="80.65" friendlyPos="true" name="Birchmount Rd at Ellendale Dr"/>
+    <busStop id="47513774.8" lane="-109627_0" startPos="63.34" endPos="76.34" friendlyPos="true" name="Birchmount Rd at Exford Dr"/>
+    <busStop id="47513774.9" lane="-109836_0" startPos="267.97" endPos="280.97" friendlyPos="true" name="Birchmount Rd at Merryfield Dr"/>
+    <busStop id="47513774.10" lane="-5353566_0" startPos="227.69" endPos="240.69" friendlyPos="true" name="1360 Birchmount Rd"/>
+    <busStop id="47513774.11" lane="-110180_0" startPos="56.85" endPos="69.85" friendlyPos="true" name="Birchmount Rd at Lawrence Ave East"/>
+    <busStop id="47513774.12" lane="-110427_0" startPos="328.13" endPos="341.13" friendlyPos="true" name="Birchmount Rd at Modern Rd"/>
+    <busStop id="47513774.13" lane="-110614_0" startPos="123.17" endPos="136.17" friendlyPos="true" name="Birchmount Rd at Flora Dr"/>
+    <busStop id="47513774.14" lane="-110728_0" startPos="123.21" endPos="136.21" friendlyPos="true" name="Birchmount Rd at Crouse Rd"/>
+    <busStop id="47513828.0" lane="110783_0" startPos="75.02" endPos="88.02" friendlyPos="true" name="Birchmount Rd at Crouse Rd"/>
+    <busStop id="47513828.1" lane="110728_0" startPos="133.42" endPos="146.42" friendlyPos="true" name="Birchmount Rd at Flora Dr"/>
+    <busStop id="47513828.2" lane="110496_0" startPos="21.88" endPos="34.88" friendlyPos="true" name="Birchmount Rd at Modern Rd"/>
+    <busStop id="47513828.3" lane="110427_0" startPos="312.88" endPos="325.88" friendlyPos="true" name="Birchmount Rd at Lawrence Ave East"/>
+    <busStop id="47513828.4" lane="5353566_0" startPos="0.30" endPos="13.30" friendlyPos="true" name="Birchmount Rd at Dulverton Rd North Side"/>
+    <busStop id="47513828.5" lane="5353566_0" startPos="367.42" endPos="380.42" friendlyPos="true" name="Birchmount Rd at Merryfield Dr"/>
+    <busStop id="47513828.6" lane="109627_0" startPos="3.87" endPos="16.87" friendlyPos="true" name="Birchmount Rd at Exford Dr North Side"/>
+    <busStop id="47513828.7" lane="5353633_0" startPos="82.82" endPos="95.82" friendlyPos="true" name="Birchmount Rd at Vauxhall Dr"/>
+    <busStop id="47513828.8" lane="12691191_0" startPos="183.48" endPos="196.48" friendlyPos="true" name="Birchmount Rd at Canadian Rd"/>
+    <busStop id="47513828.9" lane="4684710_0" startPos="56.51" endPos="69.51" friendlyPos="true" name="Birchmount Rd at Ellesmere Rd"/>
+    <busStop id="47513828.10" lane="20054775_0" startPos="65.99" endPos="78.99" friendlyPos="true" name="Opposite 1792 Birchmount Rd"/>
+    <busStop id="47513828.11" lane="14070145_0" startPos="52.18" endPos="65.18" friendlyPos="true" name="Birchmount Rd at Rolark Dr"/>
+    <busStop id="47513828.12" lane="108095_0" startPos="99.04" endPos="112.04" friendlyPos="true" name="Birchmount Rd at Highway 401 - Walkway North of Rolark"/>
+    <busStop id="47521609.1" lane="-11034280_0" startPos="17.43" endPos="30.43" friendlyPos="true" name="Kennedy Rd at Antrim Cres South Side"/>
+    <busStop id="47521609.2" lane="-7204415_0" startPos="51.77" endPos="64.77" friendlyPos="true" name="Kennedy Rd at Glamorgan Ave South Side"/>
+    <busStop id="47521609.3" lane="-2809289_0" startPos="109.13" endPos="122.13" friendlyPos="true" name="Kennedy Rd at Ellesmere Rd"/>
+    <busStop id="47521609.4" lane="-5066262_0" startPos="215.64" endPos="228.64" friendlyPos="true" name="1420 Kennedy Rd"/>
+    <busStop id="47521609.5" lane="-5066262_0" startPos="319.34" endPos="332.34" friendlyPos="true" name="1400 Kennedy Rd"/>
+    <busStop id="47521609.6" lane="-6436415_0" startPos="9.47" endPos="22.47" friendlyPos="true" name="Kennedy Rd at Brigstock Rd South Side"/>
+    <busStop id="47521609.7" lane="-6436410_0" startPos="18.68" endPos="31.68" friendlyPos="true" name="Kennedy Rd at Munham Gate"/>
+    <busStop id="47521609.8" lane="-109489_0" startPos="6.37" endPos="19.37" friendlyPos="true" name="Kennedy Rd at Shropshire Dr South Side"/>
+    <busStop id="47521609.9" lane="-7179817_0" startPos="9.72" endPos="22.72" friendlyPos="true" name="Kennedy Rd at Forbes Rd South Side"/>
+    <busStop id="47521609.10" lane="-7179817_0" startPos="211.82" endPos="224.82" friendlyPos="true" name="Kennedy Rd at Wickware Gate"/>
+    <busStop id="47521609.11" lane="-110026_0" startPos="11.49" endPos="24.49" friendlyPos="true" name="Kennedy Rd at Cornwallis Dr South Side"/>
+    <busStop id="47521609.12" lane="-110026_0" startPos="228.32" endPos="241.32" friendlyPos="true" name="Kennedy Rd at Lawrence Ave East"/>
+    <busStop id="47521609.13" lane="-110101_0" startPos="81.64" endPos="94.64" friendlyPos="true" name="Kennedy Rd at Flora Dr"/>
+    <busStop id="47521609.14" lane="-14605392_0" startPos="108.14" endPos="121.14" friendlyPos="true" name="Kennedy Rd at Radnor Ave"/>
+    <busStop id="47521609.15" lane="-30001036_0" startPos="75.61" endPos="88.61" friendlyPos="true" name="Kennedy Rd at Ranstone Gardens"/>
+    <busStop id="47521666.2" lane="-107831_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Progress Ave at Cosentino Dr West Side"/>
+    <busStop id="47521666.3" lane="-107831_0" startPos="207.49" endPos="220.49" friendlyPos="true" name="Progress Ave at Midland Ave"/>
+    <busStop id="47521666.4" lane="-108009_0" startPos="230.37" endPos="243.37" friendlyPos="true" name="80 Progress Ave"/>
+    <busStop id="47521666.5" lane="-14020766_0" startPos="14.47" endPos="27.47" friendlyPos="true" name="Progress Ave at William Kitchen Rd West Side"/>
+    <busStop id="47521845.1" lane="30001036_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Kennedy Rd at Ranstone Gardens"/>
+    <busStop id="47521845.2" lane="110443_0" startPos="204.85" endPos="217.85" friendlyPos="true" name="Kennedy Rd at Radnor Ave"/>
+    <busStop id="47521845.3" lane="14605393_0" startPos="80.49" endPos="93.49" friendlyPos="true" name="Kennedy Rd at Flora Dr"/>
+    <busStop id="47521845.4" lane="110101_0" startPos="72.91" endPos="85.91" friendlyPos="true" name="Kennedy Rd at Lawrence Ave East"/>
+    <busStop id="47521845.5" lane="7179805_0" startPos="5.75" endPos="18.75" friendlyPos="true" name="Kennedy Rd at Cornwallis Dr North Side"/>
+    <busStop id="47521845.6" lane="7179817_0" startPos="215.69" endPos="228.69" friendlyPos="true" name="Kennedy Rd at Forbes Rd"/>
+    <busStop id="47521845.7" lane="3011699_0" startPos="7.01" endPos="20.01" friendlyPos="true" name="Kennedy Rd at Shropshire Dr North Side"/>
+    <busStop id="47521845.8" lane="3011699_0" startPos="179.61" endPos="192.61" friendlyPos="true" name="Kennedy Rd at Munham Gate"/>
+    <busStop id="47521845.9" lane="5066262_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Kennedy Rd at Brigstock Rd"/>
+    <busStop id="47521845.10" lane="2809289_0" startPos="45.15" endPos="58.15" friendlyPos="true" name="Kennedy Rd at Ellesmere Rd North Side"/>
+    <busStop id="47521845.11" lane="7204415_0" startPos="232.49" endPos="245.49" friendlyPos="true" name="Kennedy Rd at Progress Ave"/>
+    <busStop id="47521845.12" lane="11034280_0" startPos="218.88" endPos="231.88" friendlyPos="true" name="Kennedy Rd at Antrim Cres"/>
+    <busStop id="47521854.11" lane="6332605_0" startPos="30.16" endPos="43.16" friendlyPos="true" name="Progress Ave at Kennedy Rd East Side"/>
+    <busStop id="47521854.12" lane="9638338_0" startPos="107.73" endPos="120.73" friendlyPos="true" name="Progress Ave at William Kitchen Rd"/>
+    <busStop id="47521854.13" lane="108009_0" startPos="28.82" endPos="41.82" friendlyPos="true" name="77 Progress Ave"/>
+    <busStop id="47521854.14" lane="108009_0" startPos="302.07" endPos="315.07" friendlyPos="true" name="Progress Ave at Midland Ave"/>
+    <busStop id="47521854.15" lane="107831_0" startPos="191.40" endPos="204.40" friendlyPos="true" name="Progress Ave at Cosentino Dr"/>
+    <busStop id="47528571.3" lane="3497264_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Lawrence Ave East at Underwriters Rd"/>
+    <busStop id="47528571.4" lane="3497264_0" startPos="220.09" endPos="233.09" friendlyPos="true" name="Lawrence Ave East at Birchmount Rd"/>
+    <busStop id="47528571.5" lane="4605094_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Lawrence Ave East at Canlish Rd East Side"/>
+    <busStop id="47528571.6" lane="6436449_0" startPos="136.31" endPos="149.31" friendlyPos="true" name="2239 Lawrence Ave East"/>
+    <busStop id="47528571.7" lane="110025_0" startPos="20.93" endPos="33.93" friendlyPos="true" name="Lawrence Ave East at Kennedy Rd East Side"/>
+    <busStop id="47528571.8" lane="109896_0" startPos="20.55" endPos="33.55" friendlyPos="true" name="Lawrence Ave East at Prudential Dr East Side"/>
+    <busStop id="47528571.9" lane="7155256_0" startPos="37.68" endPos="50.68" friendlyPos="true" name="Lawrence Ave East at Midland Ave East Side"/>
+    <busStop id="47528759.0" lane="-7155256_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Lawrence Ave East at Brockley Dr"/>
+    <busStop id="47528759.1" lane="-13232758_0" startPos="18.80" endPos="31.80" friendlyPos="true" name="Lawrence Ave East at Midland Ave West Side"/>
+    <busStop id="47528759.2" lane="-6436449_0" startPos="23.05" endPos="36.05" friendlyPos="true" name="Lawrence Ave East at Kennedy Rd West Side"/>
+    <busStop id="47528759.3" lane="-6436449_0" startPos="348.32" endPos="361.32" friendlyPos="true" name="2216 Lawrence Ave East"/>
+    <busStop id="47528759.4" lane="-110141_0" startPos="6.96" endPos="19.96" friendlyPos="true" name="Lawrence Ave East at Canlish Rd West Side"/>
+    <busStop id="47528759.5" lane="-6408248_0" startPos="143.85" endPos="156.85" friendlyPos="true" name="Lawrence Ave East at Birchmount Rd"/>
+    <busStop id="47528759.6" lane="-3497264_0" startPos="216.92" endPos="229.92" friendlyPos="true" name="Lawrence Ave East at Howden Rd"/>
+    <busStop id="47529241.0" lane="-7204470_0" startPos="192.24" endPos="205.24" friendlyPos="true" name="2220 Midland Ave"/>
+    <busStop id="47529241.1" lane="-7204470_0" startPos="412.13" endPos="425.13" friendlyPos="true" name="Midland Ave at Progress Ave"/>
+    <busStop id="47529241.2" lane="-108103_0" startPos="3.29" endPos="16.29" friendlyPos="true" name="Midland Ave at Midland Station"/>
+    <busStop id="47529241.3" lane="-7204446_0" startPos="248.18" endPos="261.18" friendlyPos="true" name="Midland Ave at Ellesmere Rd"/>
+    <busStop id="47529241.4" lane="30101478_0" startPos="48.91" endPos="61.91" friendlyPos="true" name="Midland Ave at Midwest Rd (North)"/>
+    <busStop id="47529241.5" lane="-108915_0" startPos="191.10" endPos="204.10" friendlyPos="true" name="1860 Midland Ave"/>
+    <busStop id="47529241.6" lane="-109360_0" startPos="3.01" endPos="16.01" friendlyPos="true" name="Midland Ave at Millbridge Gate South Side"/>
+    <busStop id="47529241.7" lane="-109360_0" startPos="256.70" endPos="269.70" friendlyPos="true" name="1710 Midland Ave"/>
+    <busStop id="47529241.8" lane="-109360_0" startPos="493.25" endPos="506.25" friendlyPos="true" name="Midland Ave at Dorcot Ave"/>
+    <busStop id="47529241.9" lane="-30122713_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Midland Ave at Norbury Cres South Side"/>
+    <busStop id="47529241.10" lane="-30122712_0" startPos="96.11" endPos="109.11" friendlyPos="true" name="Midland Ave at Midwest Rd (South)"/>
+    <busStop id="47529241.11" lane="-5087274_0" startPos="194.02" endPos="207.02" friendlyPos="true" name="Midland Ave at Lawrence Ave East"/>
+    <busStop id="47529241.12" lane="-110000_0" startPos="167.48" endPos="180.48" friendlyPos="true" name="Midland Ave at Prudential Dr"/>
+    <busStop id="47529241.13" lane="-110191_0" startPos="183.90" endPos="196.90" friendlyPos="true" name="Midland Ave at Romulus Dr"/>
+    <busStop id="47529321.0" lane="110191_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Midland Ave at Marcos Blvd"/>
+    <busStop id="47529321.1" lane="110083_0" startPos="89.36" endPos="102.36" friendlyPos="true" name="Midland Ave at Prudential Dr"/>
+    <busStop id="47529321.2" lane="110000_0" startPos="155.83" endPos="168.83" friendlyPos="true" name="Midland Ave at Lawrence Ave East"/>
+    <busStop id="47529321.3" lane="5087274_0" startPos="199.44" endPos="212.44" friendlyPos="true" name="Midland Ave at Treewood St"/>
+    <busStop id="47529321.4" lane="30122713_0" startPos="66.76" endPos="79.76" friendlyPos="true" name="Midland Ave at Norbury Cres"/>
+    <busStop id="47529321.5" lane="9910076_0" startPos="195.89" endPos="208.89" friendlyPos="true" name="Midland Ave at Dorcot Ave"/>
+    <busStop id="47529321.6" lane="109360_0" startPos="244.85" endPos="257.85" friendlyPos="true" name="Opposite 1710 Midland Ave"/>
+    <busStop id="47529321.7" lane="109360_0" startPos="500.57" endPos="513.57" friendlyPos="true" name="Midland Ave at Millbridge Gate"/>
+    <busStop id="47529321.8" lane="108915_0" startPos="330.36" endPos="343.36" friendlyPos="true" name="Midland Ave at Midwest Rd (North)"/>
+    <busStop id="47529321.9" lane="108537_0" startPos="100.91" endPos="113.91" friendlyPos="true" name="Midland Ave at Ellesmere Rd"/>
+    <busStop id="47529321.10" lane="108103_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Midland Ave at Midland Station"/>
+    <busStop id="47529321.11" lane="7204482_0" startPos="138.30" endPos="151.30" friendlyPos="true" name="Midland Ave at Progress Ave"/>
+    <busStop id="47529321.12" lane="7204470_0" startPos="265.30" endPos="278.30" friendlyPos="true" name="2265 Midland Ave"/>
+    <busStop id="47540631.2" lane="108899_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Ellesmere Rd at Principal Rd East Side"/>
+    <busStop id="47540631.3" lane="108899_0" startPos="76.21" endPos="89.21" friendlyPos="true" name="Ellesmere Rd at Birchmount Rd"/>
+    <busStop id="47540631.4" lane="13974855_0" startPos="41.52" endPos="54.52" friendlyPos="true" name="740 Ellesmere Rd at Mondeo Dr"/>
+    <busStop id="47540631.5" lane="108738_0" startPos="118.67" endPos="131.67" friendlyPos="true" name="Ellesmere Rd at Wye Valley Rd"/>
+    <busStop id="47540631.6" lane="30013725_0" startPos="167.51" endPos="180.51" friendlyPos="true" name="Ellesmere Rd at Kennedy Rd"/>
+    <busStop id="47540631.7" lane="108580_0" startPos="9.19" endPos="22.19" friendlyPos="true" name="Ellesmere Rd at West Service Rd East Side"/>
+    <busStop id="47540631.8" lane="108501_0" startPos="174.47" endPos="187.47" friendlyPos="true" name="Ellesmere Rd at East Service Rd"/>
+    <busStop id="47540631.9" lane="108429_0" startPos="94.15" endPos="107.15" friendlyPos="true" name="Ellesmere Rd at Midland Ave"/>
+    <busStop id="47540631.10" lane="108388_0" startPos="163.18" endPos="176.17" friendlyPos="true" name="Ellesmere Rd at Oakley Blvd East Side"/>
+    <busStop id="47540737.0" lane="-108899_0" startPos="11.65" endPos="24.65" friendlyPos="true" name="Ellesmere Rd at Birchmount Rd West Side"/>
+    <busStop id="47540737.1" lane="-108899_0" startPos="86.30" endPos="99.29" friendlyPos="true" name="Ellesmere Rd at Principal Rd"/>
+    <busStop id="47540738.2" lane="-108388_0" startPos="0.00" endPos="13.00" friendlyPos="true" name="Ellesmere Rd at Oakley Blvd"/>
+    <busStop id="47540738.3" lane="-108388_0" startPos="149.42" endPos="162.42" friendlyPos="true" name="Ellesmere Rd at Midland Ave"/>
+    <busStop id="47540738.4" lane="-108429_0" startPos="88.93" endPos="101.93" friendlyPos="true" name="Ellesmere Rd at East Service Rd"/>
+    <busStop id="47540738.5" lane="-6541761_0" startPos="119.74" endPos="132.74" friendlyPos="true" name="Ellesmere Rd at West Service Rd"/>
+    <busStop id="47540738.6" lane="-108622_0" startPos="92.64" endPos="105.64" friendlyPos="true" name="Ellesmere Rd at Kennedy Rd"/>
+    <busStop id="47540738.7" lane="-108738_0" startPos="5.79" endPos="18.79" friendlyPos="true" name="Ellesmere Rd at Dundalk Dr West Side"/>
+    <busStop id="47540738.8" lane="-14663886_0" startPos="104.68" endPos="117.68" friendlyPos="true" name="741 Ellesmere Rd at Mondeo Dr"/>
+</additional>

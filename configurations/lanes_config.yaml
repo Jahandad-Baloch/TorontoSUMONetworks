@@ -1,0 +1,85 @@
+# configurations/lanes.yaml
+# This file contains the configuration for the lanes that will be included in the building of the network.
+
+# Network lanes to include
+local_lanes:
+  - "Expressway"
+  - "Major Arterial"
+  - "Minor Arterial"
+  - "Expressway Ramp"
+  - "Major Arterial Ramp"
+  - "Minor Arterial Ramp"
+  - "Busway"
+  - "Collector"
+  - "Collector Ramp"
+  - "Access Road"
+  - "Local"
+  - "Laneway"
+  - "Walkway"
+  - "Trail"
+  - "Other Ramp"
+
+collector_lanes:
+  - "Expressway"
+  - "Major Arterial"
+  - "Minor Arterial"
+  - "Expressway Ramp"
+  - "Major Arterial Ramp"
+  - "Minor Arterial Ramp"
+  - "Busway"
+  - "Collector"
+  - "Collector Ramp"
+  - "Access Road"
+
+arterial_lanes:
+  - "Expressway"
+  - "Major Arterial"
+  - "Minor Arterial"
+  - "Expressway Ramp"
+  - "Major Arterial Ramp"
+  - "Minor Arterial Ramp"
+  - "Busway"
+  - "Collector"
+  - "Collector Ramp"
+  - "Access Road"
+
+
+valid_arterial_lanes:
+  - "expressway"
+  - "major_arterial"
+  - "minor_arterial"
+  - "expressway_ramp"
+  - "major_arterial_ramp"
+  - "minor_arterial_ramp"
+  - "busway"
+
+valid_collector_lanes:
+  - "expressway"
+  - "major_arterial"
+  - "minor_arterial"
+  - "expressway_ramp"
+  - "major_arterial_ramp"
+  - "minor_arterial_ramp"
+  - "busway"
+  - "collector"
+  - "collector_ramp"
+  - "access_road"
+
+
+valid_local_lanes:
+  - "expressway"
+  - "major_arterial"
+  - "minor_arterial"
+  - "expressway_ramp"
+  - "major_arterial_ramp"
+  - "minor_arterial_ramp"
+  - "busway"
+  - "collector"
+  - "collector_ramp"
+  - "access_road"
+  - "local"
+  - "laneway"
+  - "walkway"
+  - "trail"
+  - "other_ramp"
+

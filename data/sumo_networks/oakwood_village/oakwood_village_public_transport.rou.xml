@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-08-21 14:34:57.894293 by gtfs2pt.py UNKNOWN
+<configuration>
+    <gtfs value="data/raw/ttc-routes-and-schedules/TTC Routes and Schedules Data.zip"/>
+    <date value="20240813"/>
+    <modes value="bus"/>
+    <vtype-output value="data/sumo_networks/oakwood_village/oakwood_village_public_transport_vtype.rou.xml"/>
+    <begin value="28800.0"/>
+    <end value="34200.0"/>
+    <network value="data/sumo_networks/oakwood_village/oakwood_village_arterial.net.xml"/>
+    <route-output value="data/sumo_networks/oakwood_village/oakwood_village_public_transport.rou.xml"/>
+    <additional-output value="data/sumo_networks/oakwood_village/oakwood_village_gtfs_stops_routes.add.xml"/>
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <route id="47508161" edges="8608502">
+        <stop busStop="47508161.0" duration="10" until="0"/> <!-- Eglinton Ave West at Marlee Ave -->
+    </route>
+    <route id="47512878" edges="-14069043 -8539 -8515 -8488 -8463 -8433 -8411 -11129688 -8571266 -9278277 -9278266 -8538 -30119928 -30119927 -14068233 -14068232">
+        <stop busStop="47512878.1" duration="10" until="0"/> <!-- Rogers Rd at Dufferin St -->
+        <stop busStop="47512878.2" duration="10" until="37"/> <!-- Rogers Rd at Northcliffe Blvd -->
+        <stop busStop="47512878.3" duration="10" until="74"/> <!-- Rogers Rd at Glenholme Ave -->
+        <stop busStop="47512878.4" duration="10" until="120"/> <!-- Rogers Rd at Oakwood Ave -->
+        <stop busStop="47512878.5" duration="10" until="171"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47512878.6" duration="10" until="226"/> <!-- Oakwood Ave at Conway Ave -->
+    </route>
+    <route id="47512879" edges="-14069043 -8539 -8515 -8488 -8463 -8433 -8411 -11129688 -8571266 -9278277 -9278266 -8538 -30119928 -30119927 -14068233 -14068232 -8830 -8933 -14015957">
+        <stop busStop="47512878.1" duration="10" until="0"/> <!-- Rogers Rd at Dufferin St -->
+        <stop busStop="47512878.2" duration="10" until="37"/> <!-- Rogers Rd at Northcliffe Blvd -->
+        <stop busStop="47512878.3" duration="10" until="74"/> <!-- Rogers Rd at Glenholme Ave -->
+        <stop busStop="47512878.4" duration="10" until="120"/> <!-- Rogers Rd at Oakwood Ave -->
+        <stop busStop="47512878.5" duration="10" until="171"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47512878.6" duration="10" until="226"/> <!-- Oakwood Ave at Conway Ave -->
+        <stop busStop="47512879.7" duration="10" until="293"/> <!-- Oakwood Ave at St Clair Ave West -->
+    </route>
+    <route id="47512923" edges="-8463 -8433 -8411 -11129688 -8571266 -9278277 -9278266 -8538 -30119928 -30119927 -14068233 -14068232 -8830 -8933 -14015957">
+        <stop busStop="47512878.3" duration="10" until="0"/> <!-- Rogers Rd at Glenholme Ave -->
+        <stop busStop="47512878.4" duration="10" until="46"/> <!-- Rogers Rd at Oakwood Ave -->
+        <stop busStop="47512878.5" duration="10" until="97"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47512878.6" duration="10" until="152"/> <!-- Oakwood Ave at Conway Ave -->
+        <stop busStop="47512879.7" duration="10" until="219"/> <!-- Oakwood Ave at St Clair Ave West -->
+    </route>
+    <route id="47512933" edges="-14015957 14015957 8933 8830 14068232 14068233 30119927 30119928 8538 9278266 9278277 8571266 11129688 8411 8433 8463 8488 8515 8539">
+        <stop busStop="47512879.7" duration="10" until="0"/> <!-- Oakwood Ave at St Clair Ave West -->
+        <stop busStop="47512933.1" duration="10" until="19"/> <!-- Oakwood Ave at St Clair Ave West North Side -->
+        <stop busStop="47512933.2" duration="10" until="62"/> <!-- Oakwood Ave at Conway Ave North Side -->
+        <stop busStop="47512933.3" duration="10" until="100"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47512933.4" duration="10" until="145"/> <!-- Rogers Rd at Oakwood Ave West Side -->
+        <stop busStop="47512933.5" duration="10" until="187"/> <!-- Rogers Rd at Glenholme Ave -->
+        <stop busStop="47512933.6" duration="10" until="250"/> <!-- Rogers Rd at Northcliffe Blvd -->
+        <stop busStop="47512933.7" duration="10" until="302"/> <!-- Rogers Rd at Dufferin St -->
+    </route>
+    <route id="47512937" edges="11129688 8411 8433 8463 8488 8515 8539">
+        <stop busStop="47512933.4" duration="10" until="0"/> <!-- Rogers Rd at Oakwood Ave West Side -->
+        <stop busStop="47512933.5" duration="10" until="42"/> <!-- Rogers Rd at Glenholme Ave -->
+        <stop busStop="47512933.6" duration="10" until="105"/> <!-- Rogers Rd at Northcliffe Blvd -->
+        <stop busStop="47512933.7" duration="10" until="157"/> <!-- Rogers Rd at Dufferin St -->
+    </route>
+    <route id="47516474" edges="-12601268 -20091988 -20091987 -9741259 -30093309 -30093308 -8065 -9781140 -9781088 -9781127 -20042488 -20042487 -14072116 -14072115 -8540 -8539 -8515 -8566075 -8847 8870 8871">
+        <stop busStop="47516474.0" duration="10" until="0"/> <!-- Dufferin St at Bowie Ave -->
+        <stop busStop="47516474.1" duration="10" until="75"/> <!-- Dufferin St at Eglinton Ave West -->
+        <stop busStop="47516474.2" duration="10" until="188"/> <!-- Dufferin St at Rowan Ave -->
+        <stop busStop="47516474.3" duration="10" until="240"/> <!-- Dufferin St at Preston Rd South Side -->
+        <stop busStop="47516474.4" duration="10" until="292"/> <!-- Dufferin St at Holmesdale Rd -->
+        <stop busStop="47516474.5" duration="10" until="345"/> <!-- Dufferin St at Eversfield Rd South Side -->
+        <stop busStop="47516474.6" duration="10" until="386"/> <!-- Dufferin St at Rogers Rd -->
+        <stop busStop="47516474.7" duration="10" until="484"/> <!-- Dufferin St at Hope St -->
+    </route>
+    <route id="47516477" edges="-9781140 -9781088 -9781127 -20042488 -20042487 -14072116 -14072115 -8540 -8539 -8515 -8566075 -8847 8870 8871">
+        <stop busStop="47516474.3" duration="10" until="0"/> <!-- Dufferin St at Preston Rd South Side -->
+        <stop busStop="47516474.4" duration="10" until="52"/> <!-- Dufferin St at Holmesdale Rd -->
+        <stop busStop="47516474.5" duration="10" until="105"/> <!-- Dufferin St at Eversfield Rd South Side -->
+        <stop busStop="47516474.6" duration="10" until="146"/> <!-- Dufferin St at Rogers Rd -->
+        <stop busStop="47516474.7" duration="10" until="244"/> <!-- Dufferin St at Hope St -->
+    </route>
+    <route id="47516483" edges="-12601268 -20091988 -20091987 -9741259 -30093309 -30093308 -8065 -9781140 -9781088 -9781127 -20042488 -20042487 -14072116 -14072115 -8540 -8539 -8515 -8566075 -8847 8870 8871">
+        <stop busStop="47516474.0" duration="10" until="0"/> <!-- Dufferin St at Bowie Ave -->
+        <stop busStop="47516474.1" duration="10" until="67"/> <!-- Dufferin St at Eglinton Ave West -->
+        <stop busStop="47516474.2" duration="10" until="167"/> <!-- Dufferin St at Rowan Ave -->
+        <stop busStop="47516474.3" duration="10" until="214"/> <!-- Dufferin St at Preston Rd South Side -->
+        <stop busStop="47516474.4" duration="10" until="261"/> <!-- Dufferin St at Holmesdale Rd -->
+        <stop busStop="47516474.5" duration="10" until="308"/> <!-- Dufferin St at Eversfield Rd South Side -->
+        <stop busStop="47516474.6" duration="10" until="344"/> <!-- Dufferin St at Rogers Rd -->
+        <stop busStop="47516474.7" duration="10" until="431"/> <!-- Dufferin St at Hope St -->
+    </route>
+    <route id="47516602" edges="8999 8871 8685 8539 -8612 8612 8540 14072115 14072116 20042487 20042488 9781127 9781088 9781140 8065 30093308 30093309 9741259 20091987 20091988">
+        <stop busStop="47516602.0" duration="10" until="0"/> <!-- Dufferin St at Ascot Ave -->
+        <stop busStop="47516602.1" duration="10" until="67"/> <!-- Dufferin St at Hope St -->
+        <stop busStop="47516602.2" duration="10" until="164"/> <!-- Dufferin St at Rogers Rd -->
+        <stop busStop="47516602.3" duration="10" until="205"/> <!-- Dufferin St at Eversfield Rd -->
+        <stop busStop="47516602.4" duration="10" until="255"/> <!-- Dufferin St at Martin St -->
+        <stop busStop="47516602.5" duration="10" until="323"/> <!-- Dufferin St at Gibson St North Side -->
+        <stop busStop="47516602.6" duration="10" until="361"/> <!-- Dufferin St at Rowan Ave -->
+        <stop busStop="47516602.7" duration="10" until="468"/> <!-- Dufferin St at Eglinton Ave West -->
+    </route>
+    <route id="47516606" edges="8065 30093308 30093309 9741259 20091987 20091988">
+        <stop busStop="47516602.6" duration="10" until="0"/> <!-- Dufferin St at Rowan Ave -->
+        <stop busStop="47516602.7" duration="10" until="107"/> <!-- Dufferin St at Eglinton Ave West -->
+    </route>
+    <route id="47516619" edges="8999 8871">
+        <stop busStop="47516602.0" duration="10" until="0"/> <!-- Dufferin St at Ascot Ave -->
+        <stop busStop="47516602.1" duration="10" until="60"/> <!-- Dufferin St at Hope St -->
+    </route>
+    <route id="47517350" edges="-8432383 -30134812 -8649755 -8677495 -20141746 -20141745 -10663483 -8593989 -10663349">
+        <stop busStop="47517350.0" duration="10" until="0"/> <!-- Eglinton Ave West at Dufferin St -->
+        <stop busStop="47517350.1" duration="10" until="83"/> <!-- Eglinton Ave West at Northcliffe Blvd -->
+        <stop busStop="47517350.2" duration="10" until="154"/> <!-- Eglinton Ave West at Glenholme Ave -->
+        <stop busStop="47517350.3" duration="10" until="228"/> <!-- Eglinton Ave West at Oakwood Ave -->
+        <stop busStop="47517350.4" duration="10" until="331"/> <!-- Eglinton Ave West at Marlee Ave -->
+    </route>
+    <route id="47517382" edges="-10663349">
+        <stop busStop="47517350.4" duration="10" until="0"/> <!-- Eglinton Ave West at Marlee Ave -->
+    </route>
+    <route id="47517388" edges="-30134812 -8649755 -8677495 -20141746 -20141745 -10663483 -8593989 -10663349">
+        <stop busStop="47517350.1" duration="10" until="0"/> <!-- Eglinton Ave West at Northcliffe Blvd -->
+        <stop busStop="47517350.2" duration="10" until="71"/> <!-- Eglinton Ave West at Glenholme Ave -->
+        <stop busStop="47517350.3" duration="10" until="145"/> <!-- Eglinton Ave West at Oakwood Ave -->
+        <stop busStop="47517350.4" duration="10" until="248"/> <!-- Eglinton Ave West at Marlee Ave -->
+    </route>
+    <route id="47517431" edges="-8432383 -30134812 -8649755 -8677495">
+        <stop busStop="47517350.0" duration="10" until="0"/> <!-- Eglinton Ave West at Dufferin St -->
+        <stop busStop="47517350.1" duration="10" until="83"/> <!-- Eglinton Ave West at Northcliffe Blvd -->
+        <stop busStop="47517350.2" duration="10" until="154"/> <!-- Eglinton Ave West at Glenholme Ave -->
+    </route>
+    <route id="47517672" edges="10663339 10663385 10663349 8593989 10663483 20141745 20141746 8677495 8649755 30134812">
+        <stop busStop="47517672.0" duration="10" until="0"/> <!-- Eglinton Ave West at Marlee Ave -->
+        <stop busStop="47517672.1" duration="10" until="51"/> <!-- Eglinton Ave West at Oakwood Ave -->
+        <stop busStop="47517672.2" duration="10" until="89"/> <!-- Eglinton Ave West at Glenholme Ave -->
+        <stop busStop="47517672.3" duration="10" until="120"/> <!-- Eglinton Ave West at Jimmy Wisdom Way -->
+        <stop busStop="47517672.4" duration="10" until="164"/> <!-- Eglinton Ave West at Dufferin St -->
+    </route>
+    <route id="47517710" edges="10663339 10663385 10663349 8593989 10663483 20141745 20141746 8677495">
+        <stop busStop="47517672.0" duration="10" until="0"/> <!-- Eglinton Ave West at Marlee Ave -->
+        <stop busStop="47517672.1" duration="10" until="64"/> <!-- Eglinton Ave West at Oakwood Ave -->
+        <stop busStop="47517672.2" duration="10" until="112"/> <!-- Eglinton Ave West at Glenholme Ave -->
+        <stop busStop="47517672.3" duration="10" until="151"/> <!-- Eglinton Ave West at Jimmy Wisdom Way -->
+    </route>
+    <route id="47517757" edges="8677495 8649755 30134812">
+        <stop busStop="47517672.3" duration="10" until="0"/> <!-- Eglinton Ave West at Jimmy Wisdom Way -->
+        <stop busStop="47517672.4" duration="10" until="44"/> <!-- Eglinton Ave West at Dufferin St -->
+    </route>
+    <route id="47529477" edges="8608502">
+        <stop busStop="47508161.0" duration="10" until="0"/> <!-- Eglinton Ave West at Marlee Ave -->
+    </route>
+    <route id="47530152" edges="-14015957">
+        <stop busStop="47512879.7" duration="10" until="0"/> <!-- Oakwood Ave at St Clair Ave West -->
+    </route>
+    <route id="47530153" edges="10663339 10663385 10663349 8593989 -20039583 -20039582 -8593971 -7695 -7748 -7809 -2302307 -2302312 -2302332 -10706173 -7985 -2302411 -8083 -8143 -8163 -8203 -8593793 -8571266 -9278277 -9278266 -8538 -30119928 -30119927 -14068233 -14068232 -8830 -8933 -14015957">
+        <stop busStop="47517672.0" duration="10" until="0"/> <!-- Eglinton Ave West at Marlee Ave -->
+        <stop busStop="47530153.1" duration="10" until="110"/> <!-- Oakwood Ave at Eglinton Ave West South Side -->
+        <stop busStop="47530153.2" duration="10" until="179"/> <!-- Oakwood Ave at Clovelly Ave -->
+        <stop busStop="47530153.3" duration="10" until="277"/> <!-- Oakwood Ave at Vaughan Rd -->
+        <stop busStop="47530153.4" duration="10" until="331"/> <!-- Oakwood Ave at Jesmond Ave -->
+        <stop busStop="47530153.5" duration="10" until="387"/> <!-- Oakwood Ave at Rogers Rd -->
+        <stop busStop="47512878.5" duration="10" until="453"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47512878.6" duration="10" until="526"/> <!-- Oakwood Ave at Conway Ave -->
+        <stop busStop="47512879.7" duration="10" until="615"/> <!-- Oakwood Ave at St Clair Ave West -->
+    </route>
+    <route id="47530157" edges="-10706173 -7985 -2302411 -8083 -8143 -8163 -8203 -8593793 -8571266 -9278277 -9278266 -8538 -30119928 -30119927 -14068233 -14068232 -8830 -8933 -14015957">
+        <stop busStop="47530153.3" duration="10" until="0"/> <!-- Oakwood Ave at Vaughan Rd -->
+        <stop busStop="47530153.4" duration="10" until="54"/> <!-- Oakwood Ave at Jesmond Ave -->
+        <stop busStop="47530153.5" duration="10" until="110"/> <!-- Oakwood Ave at Rogers Rd -->
+        <stop busStop="47512878.5" duration="10" until="176"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47512878.6" duration="10" until="249"/> <!-- Oakwood Ave at Conway Ave -->
+        <stop busStop="47512879.7" duration="10" until="338"/> <!-- Oakwood Ave at St Clair Ave West -->
+    </route>
+    <route id="47530293" edges="10663339 10663385 10663349 8593989 -20039583 -20039582 -8593971 -7695 -7748">
+        <stop busStop="47517672.0" duration="10" until="0"/> <!-- Eglinton Ave West at Marlee Ave -->
+        <stop busStop="47530153.1" duration="10" until="78"/> <!-- Oakwood Ave at Eglinton Ave West South Side -->
+        <stop busStop="47530153.2" duration="10" until="127"/> <!-- Oakwood Ave at Clovelly Ave -->
+    </route>
+    <route id="47530521" edges="-14015957 14015957 8933 8830 14068232 14068233 30119927 30119928 8538 9278266 9278277 8571266 8593793 8203 8163 8143 8083 2302411 7985 10706173 2302332 2302312 2302307 7809 7748 7695 8593971 20039582 20039583 -8593989 -10663349">
+        <stop busStop="47512879.7" duration="10" until="0"/> <!-- Oakwood Ave at St Clair Ave West -->
+        <stop busStop="47512933.1" duration="10" until="24"/> <!-- Oakwood Ave at St Clair Ave West North Side -->
+        <stop busStop="47512933.2" duration="10" until="88"/> <!-- Oakwood Ave at Conway Ave North Side -->
+        <stop busStop="47512933.3" duration="10" until="146"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47530521.4" duration="10" until="183"/> <!-- Oakwood Ave at Rogers Rd -->
+        <stop busStop="47530521.5" duration="10" until="237"/> <!-- Oakwood Ave at Jesmond Ave -->
+        <stop busStop="47530521.6" duration="10" until="300"/> <!-- Oakwood Ave at Vaughan Rd -->
+        <stop busStop="47530521.7" duration="10" until="402"/> <!-- Oakwood Ave at Clovelly Ave -->
+        <stop busStop="47530521.8" duration="10" until="501"/> <!-- Oakwood Ave at Eglinton Ave West -->
+        <stop busStop="47517350.4" duration="10" until="628"/> <!-- Eglinton Ave West at Marlee Ave -->
+    </route>
+    <route id="47530604" edges="-14015957 14015957 8933 8830 14068232 14068233 30119927 30119928 8538 9278266 9278277 8571266 8593793 8203">
+        <stop busStop="47512879.7" duration="10" until="0"/> <!-- Oakwood Ave at St Clair Ave West -->
+        <stop busStop="47512933.1" duration="10" until="24"/> <!-- Oakwood Ave at St Clair Ave West North Side -->
+        <stop busStop="47512933.2" duration="10" until="88"/> <!-- Oakwood Ave at Conway Ave North Side -->
+        <stop busStop="47512933.3" duration="10" until="146"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47530521.4" duration="10" until="183"/> <!-- Oakwood Ave at Rogers Rd -->
+        <stop busStop="47530521.5" duration="10" until="237"/> <!-- Oakwood Ave at Jesmond Ave -->
+    </route>
+    <route id="47530610" edges="-14015957">
+        <stop busStop="47512879.7" duration="10" until="0"/> <!-- Oakwood Ave at St Clair Ave West -->
+    </route>
+    <route id="47530619" edges="10706173 2302332 2302312 2302307 7809 7748 7695 8593971 20039582 20039583 -8593989 -10663349">
+        <stop busStop="47530619.0" duration="10" until="0"/> <!-- Oakwood Ave at Vaughan Rd -->
+        <stop busStop="47530521.7" duration="10" until="66"/> <!-- Oakwood Ave at Clovelly Ave -->
+        <stop busStop="47530521.8" duration="10" until="128"/> <!-- Oakwood Ave at Eglinton Ave West -->
+        <stop busStop="47517350.4" duration="10" until="207"/> <!-- Eglinton Ave West at Marlee Ave -->
+    </route>
+    <route id="47530718" edges="-14015957 14015957 8933 8830 14068232 14068233 30119927 30119928 8538 9278266 9278277 8571266 8593793 8203 8163 8143 8083 2302411 7985 10706173 2302332 2302312 2302307 7809 7748 7695 8593971 20039582">
+        <stop busStop="47512879.7" duration="10" until="0"/> <!-- Oakwood Ave at St Clair Ave West -->
+        <stop busStop="47512933.1" duration="10" until="24"/> <!-- Oakwood Ave at St Clair Ave West North Side -->
+        <stop busStop="47512933.2" duration="10" until="88"/> <!-- Oakwood Ave at Conway Ave North Side -->
+        <stop busStop="47512933.3" duration="10" until="146"/> <!-- Oakwood Ave at Earlsdale Ave -->
+        <stop busStop="47530521.4" duration="10" until="183"/> <!-- Oakwood Ave at Rogers Rd -->
+        <stop busStop="47530521.5" duration="10" until="237"/> <!-- Oakwood Ave at Jesmond Ave -->
+        <stop busStop="47530521.6" duration="10" until="300"/> <!-- Oakwood Ave at Vaughan Rd -->
+        <stop busStop="47530521.7" duration="10" until="402"/> <!-- Oakwood Ave at Clovelly Ave -->
+        <stop busStop="47530521.8" duration="10" until="501"/> <!-- Oakwood Ave at Eglinton Ave West -->
+    </route>
+    <route id="47537308" edges="-14068268 -14068267 -8026 -14067926 -14067925 -8064 -8096 -8128 -30106845 -30106844 -8194 -8198 -11129896 -8219 -10663526">
+        <stop busStop="47537308.0" duration="10" until="0"/> <!-- Vaughan Rd at Oakwood Ave East Side -->
+        <stop busStop="47537308.1" duration="10" until="113"/> <!-- Vaughan Rd at Winona Dr East Side -->
+        <stop busStop="47537308.2" duration="10" until="187"/> <!-- Vaughan Rd at Arlington Ave East Side -->
+    </route>
+    <route id="47537324" edges="-14068268 -14068267 -8026 -14067926 -14067925 -8064 -8096 -8128 -30106845 -30106844 -8194 -8198 -11129896 -8219 -10663526">
+        <stop busStop="47537308.0" duration="10" until="0"/> <!-- Vaughan Rd at Oakwood Ave East Side -->
+        <stop busStop="47537308.1" duration="10" until="99"/> <!-- Vaughan Rd at Winona Dr East Side -->
+        <stop busStop="47537308.2" duration="10" until="164"/> <!-- Vaughan Rd at Arlington Ave East Side -->
+    </route>
+    <route id="47537476" edges="10663526 8219 11129896 8198 8194 30106844 30106845 8128 8125 8144 8162 8163 8143 8083 2302411 12220889 -14068268">
+        <stop busStop="47537476.0" duration="10" until="0"/> <!-- Vaughan Rd at Arlington Ave -->
+        <stop busStop="47537476.1" duration="10" until="97"/> <!-- Vaughan Rd at Winona Dr West Side -->
+        <stop busStop="47537476.2" duration="10" until="122"/> <!-- Jesmond Ave at Cedric Ave -->
+        <stop busStop="47537476.3" duration="10" until="155"/> <!-- Jesmond Ave at Oakwood Ave -->
+        <stop busStop="47537308.0" duration="10" until="252"/> <!-- Vaughan Rd at Oakwood Ave East Side -->
+    </route>
+    <route id="47537485" edges="8128 8125 8144 8162 8163 8143 8083 2302411 12220889 -14068268">
+        <stop busStop="47537476.1" duration="10" until="0"/> <!-- Vaughan Rd at Winona Dr West Side -->
+        <stop busStop="47537476.2" duration="10" until="25"/> <!-- Jesmond Ave at Cedric Ave -->
+        <stop busStop="47537476.3" duration="10" until="58"/> <!-- Jesmond Ave at Oakwood Ave -->
+        <stop busStop="47537308.0" duration="10" until="155"/> <!-- Vaughan Rd at Oakwood Ave East Side -->
+    </route>
+    <route id="47539267" edges="-12601268 -20091988 -20091987 -9741259 -30093309 -30093308 -8065 -9781140 -9781088 -9781127 -20042488 -20042487 -14072116 -14072115 -8540">
+        <stop busStop="47516474.1" duration="10" until="0"/> <!-- Dufferin St at Eglinton Ave West -->
+        <stop busStop="47516474.6" duration="10" until="241"/> <!-- Dufferin St at Rogers Rd -->
+    </route>
+    <route id="47539332" edges="8432383">
+        <stop busStop="47539332.0" duration="10" until="0"/> <!-- Dufferin St at Eglinton Ave West -->
+    </route>
+    <route id="47539383" edges="8612 8540 14072115 14072116 20042487 20042488 9781127 9781088 9781140 8065 30093308 30093309 9741259 20091987 20091988">
+        <stop busStop="47516602.2" duration="10" until="0"/> <!-- Dufferin St at Rogers Rd -->
+        <stop busStop="47516602.7" duration="10" until="239"/> <!-- Dufferin St at Eglinton Ave West -->
+    </route>
+    <route id="47539471" edges="8612">
+        <stop busStop="47516602.2" duration="10" until="0"/> <!-- Dufferin St at Rogers Rd -->
+    </route>
+    <route id="47539479" edges="20091988">
+        <stop busStop="47516602.7" duration="10" until="0"/> <!-- Dufferin St at Eglinton Ave West -->
+    </route>
+    <vehicle id="47512878.0" route="47512878" type="bus" depart="33945" line="47512878">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="EAST - 161 ROGERS RD towards OSSINGTON STATION"/>
+    </vehicle>
+    <vehicle id="47512879.0" route="47512879" type="bus" depart="32985" line="47512879">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="EAST - 161 ROGERS RD towards OSSINGTON STATION"/>
+    </vehicle>
+    <vehicle id="47512925.0" route="47512879" type="bus" depart="31947" line="47512879">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="EAST - 161 ROGERS RD towards OSSINGTON STATION"/>
+    </vehicle>
+    <vehicle id="47512926.0" route="47512879" type="bus" depart="30867" line="47512879">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="EAST - 161 ROGERS RD towards OSSINGTON STATION"/>
+    </vehicle>
+    <vehicle id="47512927.0" route="47512879" type="bus" depart="29787" line="47512879">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="EAST - 161 ROGERS RD towards OSSINGTON STATION"/>
+    </vehicle>
+    <vehicle id="47512933.0" route="47512933" type="bus" depart="33342" line="47512933">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="WEST - 161 ROGERS RD towards JANE"/>
+    </vehicle>
+    <vehicle id="47512934.0" route="47512933" type="bus" depart="32142" line="47512933">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="WEST - 161 ROGERS RD towards JANE"/>
+    </vehicle>
+    <vehicle id="47512935.0" route="47512933" type="bus" depart="30942" line="47512933">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="WEST - 161 ROGERS RD towards JANE"/>
+    </vehicle>
+    <vehicle id="47512936.0" route="47512933" type="bus" depart="29742" line="47512933">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="WEST - 161 ROGERS RD towards JANE"/>
+    </vehicle>
+    <vehicle id="47512937.0" route="47512937" type="bus" depart="28807" line="47512937">
+        <param key="gtfs.route_name" value="161"/>
+        <param key="gtfs.trip_headsign" value="WEST - 161 ROGERS RD towards JANE"/>
+    </vehicle>
+    <vehicle id="47516474.0" route="47516474" type="bus" depart="30026" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516475.0" route="47516474" type="bus" depart="29546" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516476.0" route="47516474" type="bus" depart="29066" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516477.0" route="47516477" type="bus" depart="28826" line="47516477">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516483.0" route="47516483" type="bus" depart="33755" line="47516483">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516484.0" route="47516474" type="bus" depart="33275" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516485.0" route="47516474" type="bus" depart="32786" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516486.0" route="47516474" type="bus" depart="32246" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516487.0" route="47516474" type="bus" depart="31766" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516488.0" route="47516474" type="bus" depart="31346" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516489.0" route="47516474" type="bus" depart="30926" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516490.0" route="47516474" type="bus" depart="30506" line="47516474">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 29 DUFFERIN towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47516602.0" route="47516602" type="bus" depart="30352" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516603.0" route="47516602" type="bus" depart="29872" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516604.0" route="47516602" type="bus" depart="29392" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516605.0" route="47516602" type="bus" depart="28912" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516619.0" route="47516619" type="bus" depart="34065" line="47516619">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516620.0" route="47516602" type="bus" depart="33585" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516621.0" route="47516602" type="bus" depart="33105" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516622.0" route="47516602" type="bus" depart="32625" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516623.0" route="47516602" type="bus" depart="32092" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516624.0" route="47516602" type="bus" depart="31612" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516625.0" route="47516602" type="bus" depart="31312" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47516636.0" route="47516602" type="bus" depart="30832" line="47516602">
+        <param key="gtfs.route_name" value="29"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 29 DUFFERIN towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47517350.0" route="47517350" type="bus" depart="29681" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517352.0" route="47517350" type="bus" depart="28841" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32D EGLINTON WEST towards EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517364.0" route="47517350" type="bus" depart="30761" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32D EGLINTON WEST towards EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517371.0" route="47517350" type="bus" depart="33761" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517372.0" route="47517350" type="bus" depart="33281" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517373.0" route="47517350" type="bus" depart="32801" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517374.0" route="47517350" type="bus" depart="32321" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517375.0" route="47517350" type="bus" depart="31841" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517376.0" route="47517350" type="bus" depart="31361" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517377.0" route="47517350" type="bus" depart="30881" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517378.0" route="47517350" type="bus" depart="30401" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517379.0" route="47517350" type="bus" depart="29921" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517380.0" route="47517350" type="bus" depart="29441" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517381.0" route="47517350" type="bus" depart="28961" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517387.0" route="47517350" type="bus" depart="29201" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517388.0" route="47517388" type="bus" depart="28804" line="47517388">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517406.0" route="47517350" type="bus" depart="29801" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32D EGLINTON WEST towards EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517410.0" route="47517350" type="bus" depart="33641" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32D EGLINTON WEST towards EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517411.0" route="47517350" type="bus" depart="32681" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32D EGLINTON WEST towards EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517412.0" route="47517350" type="bus" depart="31721" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32D EGLINTON WEST towards EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517431.0" route="47517431" type="bus" depart="34001" line="47517431">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517432.0" route="47517350" type="bus" depart="33521" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517433.0" route="47517350" type="bus" depart="33041" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517434.0" route="47517350" type="bus" depart="32561" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517435.0" route="47517350" type="bus" depart="32081" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517436.0" route="47517350" type="bus" depart="31601" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517437.0" route="47517350" type="bus" depart="31121" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517438.0" route="47517350" type="bus" depart="30641" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517439.0" route="47517350" type="bus" depart="30161" line="47517350">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="EAST - 32 EGLINTON WEST towards EGLINTON STATION via EGLINTON WEST STATION"/>
+    </vehicle>
+    <vehicle id="47517672.0" route="47517672" type="bus" depart="29639" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517675.0" route="47517672" type="bus" depart="28920" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517678.0" route="47517672" type="bus" depart="31320" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517689.0" route="47517672" type="bus" depart="33606" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32D EGLINTON WEST towards JANE &amp; EMMETT"/>
+    </vehicle>
+    <vehicle id="47517690.0" route="47517672" type="bus" depart="32646" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32D EGLINTON WEST towards JANE &amp; EMMETT"/>
+    </vehicle>
+    <vehicle id="47517691.0" route="47517672" type="bus" depart="31686" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32D EGLINTON WEST towards JANE &amp; EMMETT"/>
+    </vehicle>
+    <vehicle id="47517692.0" route="47517672" type="bus" depart="30726" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32D EGLINTON WEST towards JANE &amp; EMMETT"/>
+    </vehicle>
+    <vehicle id="47517693.0" route="47517672" type="bus" depart="29766" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32D EGLINTON WEST towards JANE &amp; EMMETT"/>
+    </vehicle>
+    <vehicle id="47517694.0" route="47517672" type="bus" depart="28806" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32D EGLINTON WEST towards JANE &amp; EMMETT"/>
+    </vehicle>
+    <vehicle id="47517706.0" route="47517672" type="bus" depart="33720" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517707.0" route="47517672" type="bus" depart="33240" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517710.0" route="47517710" type="bus" depart="34037" line="47517710">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517711.0" route="47517672" type="bus" depart="33557" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517712.0" route="47517672" type="bus" depart="33077" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517713.0" route="47517672" type="bus" depart="32537" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517714.0" route="47517672" type="bus" depart="32039" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517715.0" route="47517672" type="bus" depart="31559" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517716.0" route="47517672" type="bus" depart="31079" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517717.0" route="47517672" type="bus" depart="30599" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517718.0" route="47517672" type="bus" depart="30119" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47517721.0" route="47517672" type="bus" depart="30840" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517722.0" route="47517672" type="bus" depart="30360" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517723.0" route="47517672" type="bus" depart="29880" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517738.0" route="47517672" type="bus" depart="32760" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517739.0" route="47517672" type="bus" depart="31800" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517740.0" route="47517672" type="bus" depart="32280" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517745.0" route="47517672" type="bus" depart="29400" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32A EGLINTON WEST towards RENFORTH STATION"/>
+    </vehicle>
+    <vehicle id="47517756.0" route="47517672" type="bus" depart="29159" line="47517672">
+        <param key="gtfs.route_name" value="32"/>
+        <param key="gtfs.trip_headsign" value="WEST - 32C EGLINTON WEST towards JANE &amp; TRETHEWEY"/>
+    </vehicle>
+    <vehicle id="47530153.0" route="47530153" type="bus" depart="30919" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530154.0" route="47530153" type="bus" depart="30319" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530155.0" route="47530153" type="bus" depart="29719" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530156.0" route="47530153" type="bus" depart="29119" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530177.0" route="47530153" type="bus" depart="32556" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530286.0" route="47530153" type="bus" depart="31519" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530293.0" route="47530293" type="bus" depart="33996" line="47530293">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530294.0" route="47530153" type="bus" depart="33516" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530295.0" route="47530153" type="bus" depart="33036" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530296.0" route="47530153" type="bus" depart="32119" line="47530153">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 63 OSSINGTON towards KING &amp; RONCESVALLES via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530521.0" route="47530521" type="bus" depart="31543" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530604.0" route="47530604" type="bus" depart="33943" line="47530604">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530609.0" route="47530521" type="bus" depart="32143" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530611.0" route="47530521" type="bus" depart="30943" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530613.0" route="47530521" type="bus" depart="30343" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530615.0" route="47530521" type="bus" depart="29743" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530617.0" route="47530521" type="bus" depart="29143" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530619.0" route="47530619" type="bus" depart="28843" line="47530619">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530718.0" route="47530718" type="bus" depart="33643" line="47530718">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530719.0" route="47530521" type="bus" depart="33343" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530720.0" route="47530521" type="bus" depart="33043" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530721.0" route="47530521" type="bus" depart="32743" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47530722.0" route="47530521" type="bus" depart="32443" line="47530521">
+        <param key="gtfs.route_name" value="63"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 63A OSSINGTON towards EGLINTON WEST STATION via LIBERTY VILLAGE"/>
+    </vehicle>
+    <vehicle id="47537308.0" route="47537308" type="bus" depart="32090" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537309.0" route="47537308" type="bus" depart="31610" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537310.0" route="47537308" type="bus" depart="31070" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537311.0" route="47537308" type="bus" depart="30050" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537312.0" route="47537308" type="bus" depart="29570" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537313.0" route="47537308" type="bus" depart="29030" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537324.0" route="47537324" type="bus" depart="34010" line="47537324">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537341.0" route="47537308" type="bus" depart="30590" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537342.0" route="47537308" type="bus" depart="33530" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537352.0" route="47537308" type="bus" depart="32630" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537353.0" route="47537308" type="bus" depart="33110" line="47537308">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 90C VAUGHAN towards BATHURST STATION"/>
+    </vehicle>
+    <vehicle id="47537476.0" route="47537476" type="bus" depart="33218" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537477.0" route="47537476" type="bus" depart="32798" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537478.0" route="47537476" type="bus" depart="32318" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537479.0" route="47537476" type="bus" depart="31778" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537480.0" route="47537476" type="bus" depart="31298" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537481.0" route="47537476" type="bus" depart="30758" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537482.0" route="47537476" type="bus" depart="30278" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537483.0" route="47537476" type="bus" depart="29738" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537484.0" route="47537476" type="bus" depart="29258" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537485.0" route="47537485" type="bus" depart="28815" line="47537485">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47537509.0" route="47537476" type="bus" depart="33698" line="47537476">
+        <param key="gtfs.route_name" value="90"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 90C VAUGHAN towards OAKWOOD"/>
+    </vehicle>
+    <vehicle id="47539267.0" route="47539267" type="bus" depart="29445" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539268.0" route="47539267" type="bus" depart="28965" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539312.0" route="47539267" type="bus" depart="33165" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539346.0" route="47539267" type="bus" depart="32685" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539347.0" route="47539267" type="bus" depart="32145" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539348.0" route="47539267" type="bus" depart="31665" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539349.0" route="47539267" type="bus" depart="31245" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539350.0" route="47539267" type="bus" depart="30825" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539351.0" route="47539267" type="bus" depart="30405" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539352.0" route="47539267" type="bus" depart="29925" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539354.0" route="47539267" type="bus" depart="33465" line="47539267">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="SOUTH - 929 DUFFERIN EXPRESS towards EXHIBITION (DUFFERIN GATE)"/>
+    </vehicle>
+    <vehicle id="47539383.0" route="47539383" type="bus" depart="32627" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539384.0" route="47539383" type="bus" depart="32147" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539385.0" route="47539383" type="bus" depart="31727" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539419.0" route="47539383" type="bus" depart="31487" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539452.0" route="47539383" type="bus" depart="33587" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539454.0" route="47539383" type="bus" depart="30527" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539467.0" route="47539383" type="bus" depart="33107" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539470.0" route="47539383" type="bus" depart="31007" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539476.0" route="47539383" type="bus" depart="30047" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539477.0" route="47539383" type="bus" depart="29567" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+    <vehicle id="47539478.0" route="47539383" type="bus" depart="29087" line="47539383">
+        <param key="gtfs.route_name" value="929"/>
+        <param key="gtfs.trip_headsign" value="NORTH - 929 DUFFERIN EXPRESS towards WILSON STATION"/>
+    </vehicle>
+</routes>

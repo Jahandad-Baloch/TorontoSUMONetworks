@@ -1,0 +1,16 @@
+# configurations/analysis_config.yaml
+# This file contains the configuration for the results analysis that will be performed on the SUMO simulation results.
+
+analysis_settings:
+  analyze_queue: false
+  analyze_route: false
+  analyze_summary: true
+  analyze_turn_counts: false
+  analyze_stop_infos: false
+  analyze_speed: false
+  edge_traffic_measures: false
+  analyze_vehicle_routes: false
+  analyze_fcd: false
+  analyze_emissions: false
+  analyze_delay: false
+  analyze_tripinfo: false

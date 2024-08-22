@@ -1,0 +1,35 @@
+# configurations/routing.yaml
+# This file contains the configuration for the routing that will be built for the simulation.
+
+# Routing configurations
+routing_settings:
+  generate_random_trips: true
+  sample_routes: true
+  process_gtfs: true
+
+random_trips:
+  use_weights: false
+  begin: 28800
+  end: 34200
+  period: 0.25
+  seed: 42
+  period: 0.25
+  validate: true
+
+route_sampler:
+  use_turn_movement_counts: true
+  use_weights: false
+  use_count: true
+  count_scale: 0.6
+  total_count: 40000
+  begin: 28800
+  end: 34200
+  seed: 42
+  validate: true
+
+gtfs_import:
+  gtfs_dir: "data/raw/gtfs"
+  begin: 28800
+  end: 34200
+  modes: "bus"
+  date: "20240813"

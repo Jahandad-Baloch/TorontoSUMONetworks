@@ -1,0 +1,16 @@
+# configurations/simulation.yaml
+# Simulation configurations
+
+simulation_settings:
+
+  simulate_public_transport: true # for buses
+  use_gui: false
+  begin: 28800 # 8:00 AM
+  end: 34200  # 9:30 AM
+  no_warnings: False
+  save_output: true
+  summary_output: true
+  emmission_output: false # emission values of all vehicles for every simulation step
+  full_output: false # various information for all edges, lanes and vehicles (good for visualization purposes)
+  queue_output: true # lane-based calculation of the actual tailback in front of a junction
+  duration_log: true

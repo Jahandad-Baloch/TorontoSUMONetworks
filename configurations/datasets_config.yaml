@@ -1,0 +1,100 @@
+# configurations/datasets.yaml
+# This file contains the configuration for the datasets that will be fetched from the City of Toronto's Open Data Portal.
+
+# City of Toronto transportation datasets to fetch
+transportation_datasets:
+  traffic-volumes-at-intersections-for-all-modes:
+    fetch_data: true
+    target_files:
+      raw-data-2020-2029:
+        format: csv
+      locations:
+        format: csv
+      count_metadata:
+        format: csv
+
+  city-wards:
+    fetch_data: true
+    target_files:
+      4326:
+        format: geojson
+
+  neighbourhoods:
+    fetch_data: true
+    target_files:
+      4326:
+        format: geojson # options "4326 geojson", "shp", "csv"
+
+  traffic-signal-timing:
+    fetch_data: true
+    target_files:
+      timing:
+        format: csv
+      timing:
+        format: zip
+
+  toronto-centreline-tcl:
+    fetch_data: true
+    target_files:
+      4326:
+        format: geojson
+
+  traffic-signals-tabular:
+    fetch_data: true
+    target_files:
+      4326:
+        format: csv
+      readme:
+        format: xlsx
+
+  road-restrictions:
+    fetch_data: false
+    target_files:
+      restrictions:
+        format: csv
+      readme:
+        format: xlsx
+
+  turn-restrictions:
+    fetch_data: false
+    target_files:
+      restrictions:
+        format: zip
+      restrictions:
+        format: shp
+
+  cycling-network:
+    fetch_data: true
+    target_files:
+      4326:
+        format: geojson
+
+  ttc-routes-and-schedules:
+    fetch_data: true
+    target_files:
+      ttc:
+        format: zip
+
+  bikeways:
+    fetch_data: true
+    target_files:
+      4326:
+        format: geojson
+
+  pedestrian-network:
+    fetch_data: true
+    target_files:
+      4326:
+        format: geojson
+      readme:
+        format: xlsx
+      analysis:
+        format: pdf
+
+  vehicles-utilizing-green-technology:
+    fetch_data: false
+    target_files:
+      green:
+        format: xlsx
+
+
