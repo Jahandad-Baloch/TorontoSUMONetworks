@@ -19,7 +19,7 @@ class EdgeTypesXML:
         201300: {'id': '201300', 'priority': 3, 'numLanes': 2, 'speed': 12.5, 'oneway': 'false', 'name': 'Minor Arterial'}, 
         201201: {'id': '201201', 'priority': 4, 'numLanes': 1, 'speed': 12.5, 'oneway': 'true', 'name': 'Major Arterial Ramp'}, 
         201803: {'id': '201803', 'priority': 1, 'numLanes': 1, 'speed': 5.56, 'oneway': 'false', 'name': 'Access Road'}, 
-        201801: {'id': '201801', 'priority': 2, 'numLanes': 1, 'speed': 11.11, 'oneway': 'false', 'name': 'Busway'}, 
+        201801: {'id': '201801', 'priority': 2, 'numLanes': 1, 'speed': 11.11, 'oneway': 'false', 'name': 'Busway'},
         201601: {'id': '201601', 'priority': 4, 'numLanes': 1, 'speed': 13.89, 'oneway': 'true', 'name': 'Other Ramp'}, 
         201401: {'id': '201401', 'priority': 3, 'numLanes': 1, 'speed': 11.11, 'oneway': 'true', 'name': 'Collector Ramp'}, 
         201301: {'id': '201301', 'priority': 3, 'numLanes': 1, 'speed': 11.11, 'oneway': 'true', 'name': 'Minor Arterial Ramp'}

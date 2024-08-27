@@ -10,7 +10,8 @@ from scripts.common.utils import ConfigLoader, LoggerSetup
 from scripts.fetch_data.fetch_toronto_data import TorontoDataFetcher
 from scripts.traffic_data_processing.main_processor import MainProcessor
 from scripts.build_sumo_net.build_network import SUMONetworkBuilder
-from scripts.simulation.network_manager import SUMONetManager
+from scripts.sumo_tools.detector_generator import DetectorGenerator
+from scripts.sumo_tools.network_manager import SUMONetManager
 from scripts.simulation.sumocfg_composer import SumoConfigComposer
 from scripts.simulation.simulation_manager import SimulationManager
 from scripts.results_analysis.results_analyzer import ResultsAnalyzer
@@ -62,7 +63,14 @@ def main():
         net_manager = SUMONetManager(configurations)
         net_manager.execute_commands()
         logger.info("End of routes generataion process.")
-    
+
+    # Generate detectors
+    if config['execution_settings']['build_detectors']:
+        logger.info("Generating detectors...")
+        detector_generator = DetectorGenerator(configurations)
+        detector_generator.execute_detector_generation()
+        logger.info("End of detector generation process.")
+
     # Compose the SUMO configuration file
     if config['execution_settings']['compose_sumocfg']:
         logger.info("Composing SUMO configuration file...")

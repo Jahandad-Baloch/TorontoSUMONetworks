@@ -7,10 +7,13 @@ simulation_settings:
   use_gui: false
   begin: 28800 # 8:00 AM
   end: 34200  # 9:30 AM
+  add_induction_loops: true
+  add_lanearea_detectors: false
+  add_multi_entry_exit_detectors: false
   no_warnings: False
   save_output: true
   summary_output: true
-  emmission_output: false # emission values of all vehicles for every simulation step
+  emission_output: true # emission values of all vehicles for every simulation step
   full_output: false # various information for all edges, lanes and vehicles (good for visualization purposes)
   queue_output: true # lane-based calculation of the actual tailback in front of a junction
   duration_log: true

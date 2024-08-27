@@ -6,7 +6,6 @@ This script is used to manage the SUMO simulation.
 path: scripts/simulation/simulation_manager.py
 """
 
-
 class SimulationManager(NetworkBase):
     def __init__(self, config_file: str):
         """
@@ -28,19 +27,28 @@ class SimulationManager(NetworkBase):
         if self.simulation_settings['use_gui']:
             sumo_cmd[0] = sumo_cmd[0] + "-gui"
 
+        if self.simulation_settings['save_output']:
+            sumo_cmd = self._extend_output_options(sumo_cmd)
+            
+        return sumo_cmd
+
+    def _extend_output_options(self, sumo_cmd):
+        """Extend the output options for the SUMO command."""
+
         if self.simulation_settings['summary_output']:
-            # summary_file = os.path.join(self.simulation_outputs, f"simulation_summary_{self.timestamp}.xml")
-            summary_file = os.path.join(self.simulation_outputs, f"summary_output.xml")
+            summary_file = os.path.join(self.simulation_outputs, f"summary_output_{self.timestamp}.xml")
             sumo_cmd.extend(["--summary-output", str(summary_file)])
 
         if self.simulation_settings['queue_output']:
-            # queue_file = os.path.join(self.simulation_outputs, f"simulation_queue_{self.timestamp}.xml")
-            queue_file = os.path.join(self.simulation_outputs, f"queue_output.xml")
+            queue_file = os.path.join(self.simulation_outputs, f"queue_output_{self.timestamp}.xml")
             sumo_cmd.extend(["--queue-output", queue_file])
+            
+        if self.simulation_settings['emission_output']:
+            emission_file = os.path.join(self.simulation_outputs, f"emission_output_{self.timestamp}.xml")
+            sumo_cmd.extend(["--emission-output", emission_file])
 
         if self.simulation_settings['full_output']:
-            # output_file = os.path.join(self.simulation_outputs, f"simulation_output_{self.timestamp}.xml")
-            output_file = os.path.join(self.simulation_outputs, f"full_output.xml")
+            output_file = os.path.join(self.simulation_outputs, f"full_output_{self.timestamp}.xml")
             sumo_cmd.extend(["--full-output", output_file])
             
         return sumo_cmd

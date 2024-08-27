@@ -38,6 +38,13 @@ class SumoConfigComposer(NetworkBase):
             route_files_list.append(f"{self.network_name}_public_transport.rou.xml")
             additional_files_list.append(f"{self.network_name}_public_transport_vtype.rou.xml")
             additional_files_list.append(f"{self.network_name}_gtfs_stops_routes.add.xml")
+        if self.simulation_settings['add_induction_loops']:
+            additional_files_list.append("e1_detectors.add.xml")
+        if self.simulation_settings['add_lanearea_detectors']:
+            additional_files_list.append("e2_detectors.add.xml")
+        if self.simulation_settings['add_multi_entry_exit_detectors']:
+            additional_files_list.append("e3_detectors.add.xml")
+
 
         route_files = ET.SubElement(input_elem, "route-files")
         route_files.set("value", ", ".join(route_files_list))

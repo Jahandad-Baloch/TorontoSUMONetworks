@@ -3,6 +3,7 @@ import yaml
 import logging
 from datetime import datetime
 import pandas as pd
+import xml.etree.ElementTree as ET
 
 """
 This module contains utility functions for network building.
@@ -65,7 +66,14 @@ class LoggerSetup:
 
         return logger
 
-
+class XMLFile:
+    @staticmethod
+    def create_xml_file(element_name, file_path: str):
+        root = ET.Element(element_name)
+        root.set("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance")
+        root.set("xsi:noNamespaceSchemaLocation", "http://sumo.dlr.de/xsd/sumoConfiguration.xsd")
+        with open(file_path, "w") as f:
+            f.write(root)
 
 
 

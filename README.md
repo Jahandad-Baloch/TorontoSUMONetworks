@@ -20,7 +20,7 @@ TorontoSUMONetworks is an open-source project designed to facilitate the creatio
 
 Before installing TorontoSUMONetworks, ensure that you have the following software installed on your system:
 - **Python 3.8+**
-- **SUMO 1.8.0 or newer**
+- **SUMO 1.9.0 or newer**
 
 ### To install SUMO on Linux:
 
@@ -136,44 +136,7 @@ execution_settings:
   compose_sumocfg: true
   run_simulation: true
   analyze_results: true
-  network_extent: "by_neighbourhood" # options "city_wide", "by_ward_name", "by_neighbourhood"
-
 ```
-Example of `network_config.yaml`:
-Network configuration settings for building the SUMO network based on the specified network area and type. The network area can be the entire city, specific ward regions, or neighborhoods. The network type can be arterial. Setting collector will include arterial and collector lanes, local includes all types of lanes in the network. Custom lane selection is possible by configuring lanes_config.yaml
-```yaml
-network_settings:
-  city_wide:
-    network_area: "City of Toronto"
-    network_type: "arterial" # "arterial", "collector", "local"
-
-  by_ward_name:
-    network_area: "Scarborough North" # options "Scarborough North", "Don Valley West", "Etobicoke North", "North York", "Toronto Centre" etc.
-    network_type: "arterial" # "arterial", "collector", "local"
-
-  by_neighbourhood:
-    network_area: "Lawrence Park South" # options "North Toronto" "Casa Loma" "Danforth East York" "South Eglinton-Davisville" "Dovercourt Village" 'Junction-Wallace Emerson' etc.
-    network_type: "arterial" # "arterial", "collector", "local"
-
-```
-Executing the main.py with these default settings will download the required datasets, build the SUMO network for "Lawrence Park South", define its traffic lights using traffic signals tabular dataset, process the traffic volume data and use the volume to generate routes, use the bus routes and schedule gtfs dataset to generate bus stops and bus routes, compose the SUMO configuration file, run the SUMO simulation with default tlLogic traffic light programs, save the simulation outputs and analyze the simulation results for the specified network area and type.
-
-## Exploring the Network files
-
-Arterial network for the entire city of Toronto:
-![City Wide Network](data/sumo_networks/city_wide_network.png)
-
-The network files are saved in the `data/sumo_networks/` directory. The network files include the network file (.net.xml), the configuration file (.sumocfg), the route files (.rou.xml), bus stops and other files required for the SUMO simulation. Logs with timestamps are saved in the `logs/` directory. Processed data files are saved in the `data/processed/` directory. Simulation output files are saved in the `data/simulation_output/` directory.
-
-The network files can be visualized using the SUMO netedit tool or the SUMO GUI. 
-
-```bash
-netedit -s data/sumo_networks/city_wide_network.net.xml
-```
-
-Example arterial network built for "Lawrence Park South" neighborhood:
-![Lawrence Park South Network](data/sumo_networks/lawrence_park_south/lawrence_park_south_network.png)
-
 
 ## Upcoming Features
 

@@ -33,6 +33,7 @@ class NetworkBase:
         self.simulation_settings = self.config['simulation_settings']
         self.analysis_settings = self.config['analysis_settings']
         self.traffic_settings = self.config['traffic_settings']
+        self.detector_settings = self.config['detector_settings']
         self.fetch_data_settings = self.config['transportation_datasets']
         self.network_area = self.network_settings['network_area']
         self.network_name = self.network_area.replace(' ', '_').lower()
@@ -45,6 +46,7 @@ class NetworkBase:
         self.simulation_outputs = os.path.join(self.paths['simulation_data'], self.network_name)
         self.shapefile_outputs = os.path.join(self.paths['network_data'], self.network_name, 'arcview')
         self.sumo_cfg_file = os.path.join(self.network_outputs, f"{self.network_name}_sumo_config.sumocfg")
+
 
     def prepare_directories(self):
         """

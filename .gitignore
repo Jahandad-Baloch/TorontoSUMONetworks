@@ -5,3 +5,6 @@ __pycache__/
 tests/
 fcd/
 resources/
+data/raw/
+data/processed/
+data/sumo_networks/

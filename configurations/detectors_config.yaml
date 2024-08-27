@@ -1,0 +1,30 @@
+# Description: Configuration file for the generation of detectors
+# configurations/detectors_config.yaml
+
+detector_settings:
+
+  generate_induction_loops: true
+  generate_lanearea_detectors: true
+  generate_multi_entry_exit_detectors: true
+
+  induction_loop_detectors:
+    detector_type: "E1"
+    distance: 0.2 # Distance of the detector to the traffic light in meters
+    frequency: 5 # Frequency of the detector in seconds
+
+  lanearea_detectors:
+    detector_type: "E2"
+    detector_length: 200 # Length of the detection zone in meters downstream of pos
+    distance: 0.2 # Distance of the detector to the traffic light in meters
+    frequency: 5 # Frequency of the detector in seconds
+    tl_coupled: false # Couple output frequency to traffic light phase
+
+  multi_entry_exit_detectors:
+    detector_type: "E3"
+    distance: 0.2 # Distance of the detector to the traffic light in meters
+    detector_length: 200 # Length of the detection zone in meters downstream of pos
+    min_position: 0.2 # Minimum position of the detector in meters
+    frequency: 5 # Frequency of the detector in seconds
+    joined: false # If enabled, Create one e3Detector per junction
+    interior: false # If enabled, extend measurement area to the junction interior
+    follow_turnaround: false # If enabled, extend entry detectors past turn-around connections
