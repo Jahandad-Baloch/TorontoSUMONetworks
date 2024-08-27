@@ -1,5 +1,5 @@
-# configurations/lanes.yaml
 # This file contains the configuration for the lanes that will be included in the building of the network.
+# configurations/lanes_config.yaml
 
 # Network lanes to include
 local_lanes:

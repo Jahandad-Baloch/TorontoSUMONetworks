@@ -1,5 +1,5 @@
-# configurations/routing.yaml
 # This file contains the configuration for the routing that will be built for the simulation.
+# configurations/routing_config.yaml
 
 # Routing configurations
 routing_settings:

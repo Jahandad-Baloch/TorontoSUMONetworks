@@ -1,5 +1,5 @@
-# configurations/datasets.yaml
 # This file contains the configuration for the datasets that will be fetched from the City of Toronto's Open Data Portal.
+# configurations/datasets_config.yaml
 
 # City of Toronto transportation datasets to fetch
 transportation_datasets:

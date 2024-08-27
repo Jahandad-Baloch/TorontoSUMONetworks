@@ -1,5 +1,5 @@
-# configurations/main.yaml
 # This file contains the main configuration for the simulation.
+# configurations/main.yaml
 
 # Main configuration file
 imports:
@@ -20,7 +20,7 @@ core:
 # Main execution settings
 
 execution_settings:
-  fetch_data: false
+  fetch_data: true
   build_network: true
   network_extent: "by_neighbourhood" # options "city_wide", "by_ward_name", "by_neighbourhood"
   build_detectors: true

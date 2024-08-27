@@ -1,5 +1,5 @@
-# configurations/network.yaml
 # This file contains the configuration for the network that will be built for the simulation.
+# configurations/network.yaml
 
 network_settings:
   city_wide:

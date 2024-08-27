@@ -1,5 +1,5 @@
-# configurations/simulation.yaml
-# Simulation configurations
+# This file contains the configuration for the simulation.
+# configurations/simulation_config.yaml
 
 simulation_settings:
 
