@@ -81,8 +81,8 @@ def main():
     # Execute the SUMO simulation
     if config['execution_settings']['run_simulation']:
         logger.info("Running simulation...")
-        executer = SimulationManager(configurations)
-        executer.execute_simulation()
+        simulation_manager = SimulationManager(configurations)
+        simulation_manager.execute_simulation()
         logger.info("Simulation exectuion ended.")
 
     # Analyze the simulation results

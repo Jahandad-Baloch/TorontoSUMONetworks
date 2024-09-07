@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 from scripts.common.utils import ConfigLoader, LoggerSetup, FileIO
 from scripts.common.command_executor import CommandExecutor
 
@@ -40,7 +39,6 @@ class NetworkBase:
         self.network_type = self.network_settings['network_type']
         self.net_file = os.path.join(self.paths['network_data'], self.network_name, f"{self.network_name}_{self.network_type}.net.xml")
         self.traffic_volume_file = os.path.join(self.paths['traffic_volume_dir'], self.traffic_settings['traffic_volume_file'])
-        self.timestamp = datetime.now().strftime('%m%d_%H%M%S')
         self.network_outputs = os.path.join(self.paths['network_data'], self.network_name)
         self.processing_outputs = os.path.join(self.paths['processed_data'], self.network_name)
         self.simulation_outputs = os.path.join(self.paths['simulation_data'], self.network_name)

@@ -28,7 +28,9 @@ class DetectorGenerator(NetworkBase):
         """
         output_file = os.path.join(self.network_outputs, "e1_detectors.add.xml")
         results_file = os.path.join(self.simulation_outputs, "e1output.xml")
-        XMLFile.create_xml_file(results_file, "additional")
+
+        # Generate XML file
+        XMLFile.create_xml_file("additional", output_file)
 
         distance = self.detector_settings['induction_loop_detectors']['distance']
         frequency = self.detector_settings['induction_loop_detectors']['frequency']

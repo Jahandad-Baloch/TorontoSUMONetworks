@@ -11,7 +11,7 @@ network_settings:
     network_type: "arterial" # "arterial", "collector", "local"
 
   by_neighbourhood:
-    network_area: "Old East York" # options "Lawrence Park South" "Mount Pleasant East" "North Toronto" "Casa Loma" "Danforth East York" "South Eglinton-Davisville" "Dovercourt Village" 'Junction-Wallace Emerson' 'Yonge-Bay Corridor' 'Bay-Cloverhill'
+    network_area: "Keelesdale-Eglinton West" # options "Lawrence Park South" "Beechborough-Greenbrook" "Mount Pleasant East" "North Toronto" "Casa Loma" "Danforth East York" "South Eglinton-Davisville" "Dovercourt Village" 'Junction-Wallace Emerson' 'Yonge-Bay Corridor' 'Bay-Cloverhill'
     network_type: "arterial" # "arterial", "collector", "local"
 
 

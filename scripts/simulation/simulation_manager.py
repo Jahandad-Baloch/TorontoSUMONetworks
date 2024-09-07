@@ -1,5 +1,6 @@
 import os
 from scripts.common.network_base import NetworkBase
+from datetime import datetime
 
 """ 
 This script is used to manage the SUMO simulation.
@@ -16,8 +17,17 @@ class SimulationManager(NetworkBase):
         """
         super().__init__(config_file)
         self.prepare_directories()
+        self.setup_output_dir()
 
-    
+    def setup_output_dir(self):
+        """Setup the output directories."""
+        self.time_stamp = datetime.now().strftime("%m-%d_%H-%M")
+        self.output_prefix = self.time_stamp
+        self.summary_file = os.path.join(self.simulation_outputs, f"summary_output_{self.output_prefix}.xml")
+        self.emission_file = os.path.join(self.simulation_outputs, f"emission_output_{self.output_prefix}.xml")
+        self.queue_file = os.path.join(self.simulation_outputs, f"queue_output_{self.output_prefix}.xml")
+        self.full_output_file = os.path.join(self.simulation_outputs, f"full_output_{self.output_prefix}.xml")
+
     def get_simulation_command(self):
         """Get the simulation command."""
         sumo_cmd = [
@@ -36,20 +46,16 @@ class SimulationManager(NetworkBase):
         """Extend the output options for the SUMO command."""
 
         if self.simulation_settings['summary_output']:
-            summary_file = os.path.join(self.simulation_outputs, f"summary_output_{self.timestamp}.xml")
-            sumo_cmd.extend(["--summary-output", str(summary_file)])
+            sumo_cmd.extend(["--summary-output", str(self.summary_file)])
 
         if self.simulation_settings['queue_output']:
-            queue_file = os.path.join(self.simulation_outputs, f"queue_output_{self.timestamp}.xml")
-            sumo_cmd.extend(["--queue-output", queue_file])
+            sumo_cmd.extend(["--queue-output", self.queue_file])
             
         if self.simulation_settings['emission_output']:
-            emission_file = os.path.join(self.simulation_outputs, f"emission_output_{self.timestamp}.xml")
-            sumo_cmd.extend(["--emission-output", emission_file])
+            sumo_cmd.extend(["--emission-output", self.emission_file])
 
         if self.simulation_settings['full_output']:
-            output_file = os.path.join(self.simulation_outputs, f"full_output_{self.timestamp}.xml")
-            sumo_cmd.extend(["--full-output", output_file])
+            sumo_cmd.extend(["--full-output", self.full_output_file])
             
         return sumo_cmd
 

@@ -10,7 +10,7 @@ simulation_settings:
   add_induction_loops: true
   add_lanearea_detectors: false
   add_multi_entry_exit_detectors: false
-  no_warnings: False
+  no_warnings: false
   save_output: true
   summary_output: true
   emission_output: true # emission values of all vehicles for every simulation step

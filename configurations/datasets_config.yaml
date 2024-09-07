@@ -70,7 +70,7 @@ transportation_datasets:
         format: geojson
 
   ttc-routes-and-schedules:
-    fetch_data: true
+    fetch_data: false
     target_files:
       ttc:
         format: zip

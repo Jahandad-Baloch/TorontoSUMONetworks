@@ -72,8 +72,13 @@ class XMLFile:
         root = ET.Element(element_name)
         root.set("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance")
         root.set("xsi:noNamespaceSchemaLocation", "http://sumo.dlr.de/xsd/sumoConfiguration.xsd")
+        
+        # Convert the ElementTree element to a string
+        xml_str = ET.tostring(root, encoding="unicode")
+        
+        # Write the string to the file
         with open(file_path, "w") as f:
-            f.write(root)
+            f.write(xml_str)
 
 
 

@@ -30,6 +30,19 @@ Whether you are a transportation engineer, urban planner, or researcher, this to
 - **Data-Driven Simulation**: Utilize real-world datasets from the City of Toronto Open Data Portal for accurate traffic volume, signal timing, and route planning.
 - **Extensive Configuration Options**: Customize every aspect of the simulation, from network building to traffic demand generation and simulation parameters.
 
+## Execution Flow
+
+The project follows a structured execution flow to create, simulate, and analyze traffic networks using SUMO:
+
+1. **Data Fetching**: Download and process traffic data from the City of Toronto's Open Data Portal.
+2. **Network Building**: Create the SUMO network based on the selected area and lane types.
+3. **Detector Placement**: Add detectors at traffic light junctions for monitoring traffic flow.
+4. **Traffic Data Processing**: Process traffic volume data to generate turning movements and route files.
+5. **Route Generation**: Create vehicle routes based on processed traffic data and public transit schedules.
+6. **SUMO Configuration**: Compose the SUMO configuration file with input elements for the simulation.
+7. **Simulation Execution**: Run the SUMO simulation and save output files based on the configuration settings.
+8. **Analysis**: Analyze the simulation results, including queue lengths, emissions, and summary statistics.
+
 ## Installation
 
 ### Prerequisites
@@ -201,6 +214,7 @@ With the above configuration settings, running the `main.py` script will trigger
     ```bash
     netedit data/sumo_networks/scarborough_north/scarborough_north_arterial.net.xml
     ```
+    ![scarborough_north_arterial.net.xml](data/scarborough_north_arterial_snap.png)
 
 3. **Detector Placement**: Detectors like induction loops will be placed at the traffic light junctions using the settings provided in the `detectors_config.yaml`. The detector files will be saved in `data/sumo_networks/scarborough_north/`.
 

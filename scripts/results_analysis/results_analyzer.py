@@ -16,7 +16,24 @@ class ResultsAnalyzer(NetworkBase):
         """
         super().__init__(config_file)
         self.prepare_directories()
+        self.get_output_files()
 
+
+    def get_output_files(self):
+        """Get the paths to the output files."""
+        self.summary_file = self.get_latest_file(self.simulation_outputs, 'summary_output')
+        self.emission_file = self.get_latest_file(self.simulation_outputs, 'emission_output')
+        self.queue_file = self.get_latest_file(self.simulation_outputs, 'queue_output')
+        self.full_output_file = self.get_latest_file(self.simulation_outputs, 'full_output')
+        self.stopsinfos_file = self.get_latest_file(self.simulation_outputs, 'stops_infos')
+        
+    def get_latest_file(self, directory, file_prefix):
+        """Get the latest file in the directory."""
+        files = os.listdir(directory)
+        files = [file for file in files if file.startswith(file_prefix)]
+        files.sort()
+        if files:
+            return os.path.join(directory, files[-1])
 
     def setup_tools(self):
         """
@@ -24,7 +41,6 @@ class ResultsAnalyzer(NetworkBase):
         """
 
         self.logger.info("Setting up tools for results analysis.")
-        self.output_prefix = self.config['simulation_settings']['output_prefix']
         self.visualization_dir = os.path.join(self.sumo_tools_path, "visualization")
 
         # Get the paths to the tools
@@ -40,11 +56,10 @@ class ResultsAnalyzer(NetworkBase):
 
     def get_summary_command(self):
         """Get the stop infos command."""
-        summary_file = os.path.join(self.simulation_outputs, f"summary_output_{self.timestamp}.xml")
         summary_file_output = os.path.join(self.simulation_outputs, 'summary_file.png')
 
         summary_cmd = [
-            "python", self.summary_plotter, "-i", summary_file, "-o", summary_file_output,
+            "python", self.summary_plotter, "-i", self.summary_file, "-o", summary_file_output,
             "-m", "halting", "--xlim", "28800,34200", "--ylim", "0,200", "--xlabel", "time", 
             "--ylabel", "halting_vehicles", "--title", "halting vehicles over time"
         ]
@@ -54,36 +69,30 @@ class ResultsAnalyzer(NetworkBase):
     
     def get_emission_command(self):
         """Get the emission command."""
-        emission_file = os.path.join(self.simulation_outputs, f"emission_output_{self.timestamp}.xml")
         emission_output = os.path.join(self.simulation_outputs, 'emission.png')
 
         emission_cmd = [
-            "python", self.xml_plotter, emission_file, "-o", emission_output,
+            "python", self.xml_plotter, self.emission_file, "-o", emission_output,
             "--xattr", "time", "--yattr", "CO2", "--xlabel", "time", "--ylabel", "CO2",
             "--title", "CO2 emissions over time", "--xtime1"
         ]
 
         return emission_cmd
-    
+
     def get_queue_command(self):
         """Get the queue command."""
-        queue_file = os.path.join(self.simulation_outputs, f"queue_output_{self.timestamp}.xml")
         queue_output = os.path.join(self.simulation_outputs, 'queue.png')
 
         queue_cmd = [
-            "python", self.xml_plotter, queue_file, "-i", "queueing_time",
+            "python", self.xml_plotter, self.queue_file, "-i", "queueing_time",
             "--filter-ids", "1138214_0", "-x", "timestep", "-y", "queueing_time", "-o", queue_output
         ]
         return queue_cmd
 
-
-
     def get_stop_infos_command(self):
         """Get the stop infos command."""
-        stopsinfos_file = os.path.join(self.simulation_outputs, f"stopinfos_{self.timestamp}.xml")
-
         stop_infos_cmd = [
-            "python", self.xml_plotter, stopsinfos_file, 
+            "python", self.xml_plotter, self.stopsinfos_file, 
             "busStop", "-x", "loadedPersons", "-y", "delay", "--scatterplot", "--legend"
         ]
 
@@ -137,6 +146,7 @@ class ResultsAnalyzer(NetworkBase):
             commands_to_run.append(self.get_stop_infos_command())
 
         if self.config['analysis_settings']['analyze_queue']:
+            print("Getting queue command")
             commands_to_run.append(self.get_queue_command())
             
         if self.config['analysis_settings']['analyze_route']:
@@ -163,7 +173,10 @@ class ResultsAnalyzer(NetworkBase):
 
         self.logger.info("Results Analysis Started.")
         for command in commands_to_run:
-            self.logger.info(f"Running command: {' '.join(command)}")
+            if type(command) == list:
+                self.logger.info(f"Running command: {' '.join(command)}")
+            elif type(command) == str:
+                self.logger.info(f"Running command: {command}")
             self.executor.run_command(command)
             
         self.logger.info("Results Analysis Ended.")
