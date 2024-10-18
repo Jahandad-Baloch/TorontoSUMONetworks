@@ -3,6 +3,7 @@
 
 # Main configuration file
 imports:
+  - execution_config.yaml
   - network_config.yaml
   - detectors_config.yaml
   - datasets_config.yaml
@@ -19,16 +20,7 @@ core:
 
 # Main execution settings
 
-execution_settings:
-  fetch_data: true
-  build_network: true
-  network_extent: "by_neighbourhood" # options "city_wide", "by_ward_name", "by_neighbourhood"
-  build_detectors: true
-  process_traffic_data: true
-  generate_routes: true
-  compose_sumocfg: true
-  run_simulation: true
-  analyze_results: true
+execution_settings: "settings_4"
 
 # Logging configurations
 logging:

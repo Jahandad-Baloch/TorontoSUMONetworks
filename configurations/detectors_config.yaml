@@ -14,9 +14,12 @@ detector_settings:
 
   lanearea_detectors:
     detector_type: "E2"
-    detector_length: 200 # Length of the detection zone in meters downstream of pos
+    # detector_length: 200 # Length of the detection zone in meters downstream of pos
+    detector_length: -1 # For maximum length
     distance: 0.2 # Distance of the detector to the traffic light in meters
     frequency: 5 # Frequency of the detector in seconds
+    modify_lanearea_detectors: true # If enabled, the detector will be placed at the end of the lane
+    friendly_pos: true # If enabled, the detector will be placed at the end of the lane
     tl_coupled: false # Couple output frequency to traffic light phase
 
   multi_entry_exit_detectors:

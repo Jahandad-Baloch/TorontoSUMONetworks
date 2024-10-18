@@ -17,37 +17,20 @@ class SUMONetManager(NetworkBase):
             config_path (str): Path to the configuration file.
         """
         super().__init__(config_file)
-        self.prepare_directories()
 
-
-    def setup_files(self):
-        """Prepare the paths for the routing files."""
-
-
-        self.edge_types_file = os.path.join(self.network_outputs, f"{self.network_name}_edge_types.typ.xml")
-        self.vtype_output_file = os.path.join(self.network_outputs, f"{self.network_name}_vtype.rou.xml")
-        self.output_route_file = os.path.join(self.network_outputs, f"{self.network_name}_routes.rou.xml")
-
-        self.output_trips_file = os.path.join(self.processing_outputs, f"{self.network_name}.trips.xml")
-        self.initial_route_file = os.path.join(self.processing_outputs, f"initial_route_file.rou.xml")
-        self.turn_counts_file = os.path.join(self.processing_outputs, f"turning_movements.xml")
-
-        self.gtfs_file = os.path.join(self.paths['raw_data'], 'ttc-routes-and-schedules', [f for f in os.listdir(os.path.join(self.paths['raw_data'], 'ttc-routes-and-schedules')) if f.endswith('.zip')][0])
-        self.bus_routes_file = os.path.join(self.network_outputs, f"{self.network_name}_public_transport.rou.xml")
-        self.bus_vtype_file = os.path.join(self.network_outputs, f"{self.network_name}_public_transport_vtype.rou.xml")
-        self.bus_routes_additional = os.path.join(self.network_outputs, f"{self.network_name}_gtfs_stops_routes.add.xml")
-
-    def get_random_trips_command(self):
+    def get_random_trips_command(self, mode):
         """Get the random trips generation command."""
+        files = self.files_by_mode[mode]
+        mode_vclass = {'cars': 'passenger', 'truck': 'truck', 'bus': 'public_transport', 'bike': 'bicycle', 'peds': 'pedestrian'}
         random_trips_settings = self.config['random_trips']
         sumo_tool = os.path.join(self.sumo_tools_path, 'randomTrips.py')
         random_trips_cmd = [
             "python", sumo_tool,
             "-n", str(self.net_file),
-            "-o", str(self.output_trips_file),
-            "-r", str(self.initial_route_file),
-            "--vtype-output", str(self.vtype_output_file),
-            "--vehicle-class", "passenger",
+            "-o", str(files['output_trips_file']),
+            "-r", str(files['initial_route_file']),
+            "--vtype-output", str(files['vtype_output_file']),
+            "--vehicle-class", mode_vclass[mode],
             "-b", str(random_trips_settings['begin']),
             "-e", str(random_trips_settings['end'])
         ]
@@ -60,29 +43,34 @@ class SUMONetManager(NetworkBase):
         if 'period' in random_trips_settings:
             random_trips_cmd.extend(["--period", str(random_trips_settings['period'])])
 
+        self.logger.info(f"Random Trips Command: {' '.join(random_trips_cmd)}")
+
         return random_trips_cmd
 
-    def get_generate_routes_command(self):
+    def get_generate_routes_command(self, mode):
         """Get the generate routes command."""
         route_settings = self.config['route_sampler']
-        input_route_file = self.initial_route_file
+        files = self.files_by_mode[mode]
         sumo_tool = os.path.join(self.sumo_tools_path, 'routeSampler.py')
         generate_routes_cmd = [
             "python", sumo_tool,
-            "-o", str(self.output_route_file),
-            "-r", str(input_route_file),
+            "-o", str(files['output_route_file']),
+            "-r", str(files['initial_route_file']),
             "-b", str(route_settings['begin']),
-            "-e", str(route_settings['end'])
+            "-e", str(route_settings['end']),
+            "--prefix", str(mode)
         ]
 
-        if route_settings['use_count']:
-            interval_counts, total_count = TurningMovementsParser.parse_turn_counts(self.turn_counts_file)
+
+        if route_settings['use_turn_movement_counts']:
+            interval_counts, total_count = TurningMovementsParser.parse_turn_counts(files['turn_counts_file'])
             total_count = int(total_count * route_settings['count_scale'])
             generate_routes_cmd.extend(["--total-count", str(total_count)])
-        if route_settings['use_turn_movement_counts']:
-            generate_routes_cmd.extend(["-t", str(self.turn_counts_file)])
+            generate_routes_cmd.extend(["-t", str(files['turn_counts_file'])])
         if route_settings['use_weights']:
             generate_routes_cmd.append("--weighted")
+            
+        self.logger.info(f"Generate Routes Command: {' '.join(generate_routes_cmd)}")
 
         return generate_routes_cmd
 
@@ -102,27 +90,26 @@ class SUMONetManager(NetworkBase):
             "-b", str(gtfs_settings['begin']),
             "-e", str(gtfs_settings['end'])
         ]
+        
+        self.logger.info(f"GTFS Import Command: {' '.join(gtfs_import_cmd)}")
 
         return gtfs_import_cmd
 
+
     def execute_commands(self):
-        """Prepare the commands to be executed and execute them."""
-        self.setup_files()
-
-        if self.routing_settings['generate_random_trips']:
-            command = self.get_random_trips_command()
-            self.logger.info(f"Executing command: {' '.join(command) if isinstance(command, list) else command}")
-            self.executor.run_command(command)
-
-        if self.routing_settings['sample_routes']:
-            command = self.get_generate_routes_command()
-            self.logger.info(f"Executing command: {' '.join(command) if isinstance(command, list) else command}")
-            self.executor.run_command(command)
-
+        """Execute the routing commands."""
+        for mode in self.modes:
+            if self.routing_settings['generate_random_trips']:
+                random_trips_cmd = self.get_random_trips_command(mode)
+                self.executor.run_command(random_trips_cmd)
+                
+            if self.routing_settings['sample_routes']:
+                route_cmd = self.get_generate_routes_command(mode)
+                self.executor.run_command(route_cmd)
+                
         if self.routing_settings['process_gtfs']:
-            command = self.get_gtfs_import_command()
-            self.logger.info(f"Executing command: {' '.join(command) if isinstance(command, list) else command}")
-            self.executor.run_command(command)
+            gtfs_cmd = self.get_gtfs_import_command()
+            self.executor.run_command(gtfs_cmd)
 
         self.logger.info("Routing Command Executions Completed.")
         self.logger.info(f"\n.......................\n")

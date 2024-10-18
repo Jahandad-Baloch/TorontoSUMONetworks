@@ -1,0 +1,57 @@
+
+settings_1:
+  fetch_data: false
+  build_network: true
+  plot_network: true
+  process_traffic_data: true
+  generate_routes: true
+  build_detectors: true
+  compose_sumocfg: true
+  run_simulation: false
+  analyze_results: false
+  show_snaps: true
+  save_snaps: true
+
+
+settings_2:
+  fetch_data: false
+  build_network: false
+  process_traffic_data: true
+  generate_routes: true
+  build_detectors: true
+  compose_sumocfg: true
+  run_simulation: false
+  analyze_results: false
+
+settings_3:
+  fetch_data: false
+  build_network: true
+  build_detectors: true
+  process_traffic_data: true
+  generate_routes: true
+  compose_sumocfg: true
+  run_simulation: false
+  analyze_results: false
+
+settings_4:
+  fetch_data: false
+  build_network: false
+  build_detectors: false
+  process_traffic_data: false
+  generate_routes: true
+  compose_sumocfg: false
+  run_simulation: false
+  analyze_results: false
+
+settings_5:
+  fetch_data: false
+  build_network: true
+  plot_network: true
+  process_traffic_data: false
+  generate_routes: false
+  build_detectors: false
+  compose_sumocfg: false
+  run_simulation: false
+  analyze_results: false
+  show_snaps: true
+  save_snaps: true

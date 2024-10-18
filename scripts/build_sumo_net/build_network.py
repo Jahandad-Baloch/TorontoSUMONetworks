@@ -1,8 +1,8 @@
 import os
 import pandas as pd
-from scripts.common.centreline_processor import CentrelineProcessor
 from scripts.common.edge_types_xml import EdgeTypesXML
 from scripts.common.network_base import NetworkBase
+from scripts.common.centreline_processor import CentrelineProcessor
 
 """
 This script builds a SUMO network by processing centreline data and traffic signal information.
@@ -18,92 +18,37 @@ class SUMONetworkBuilder(NetworkBase):
             config_path (str): Path to the configuration file.
         """
         super().__init__(config_file)
-        self.prepare_directories()
+        self.centreline_processor = CentrelineProcessor(config_file)
 
-
-    def network_setup(self):
-        """
-        Builds the SUMO network by setting up the network and processing the centreline data.
-        """
-        # Setting up network and processing centreline data       
-
-        self.network_paths = {
-            'net_file': os.path.join(self.network_outputs, f"{self.network_name}_{self.network_type}.net.xml"),
-            'edge_types_file': os.path.join(self.network_outputs, f"{self.network_name}_edge_types.typ.xml"),
-            'shapefile_prefix': os.path.join(self.shapefile_outputs, self.network_name)
-        }
-        self.geojson_file = self.get_geojson_path()
-        self.tls_ids = self.get_tls_ids()
-        self.process_network()
-        self.save_edge_types()
-
-    def get_geojson_path(self):
-        """
-        Locates and returns the path to the geojson file.
-
-        Returns:
-            str: Path to the geojson file.
-        """
-        centreline_dir = os.path.join(self.paths['raw_data'], 'toronto-centreline-tcl')
-        for file in os.listdir(centreline_dir):
-            if file.endswith('4326.geojson'):
-                return os.path.join(centreline_dir, file)
-        self.logger.error("GeoJSON file not found.")
-        return None
-
-    def get_tls_ids(self):
+    def get_tls_ids(self, junction_ids):
         """
         Extracts traffic signal IDs from the traffic signal locations file.
 
         Returns:
             str: Comma-separated string of traffic signal IDs.
         """
-        tls_locations_dir = os.path.join(self.paths['raw_data'], 'traffic-signals-tabular')
-        for file in os.listdir(tls_locations_dir):
+        for file in os.listdir(self.tls_locations_dir):
             if 'Signal' in file and '4326.csv' in file:
-                tls_file = os.path.join(tls_locations_dir, file)
-                traffic_signals = pd.read_csv(tls_file)
-                junction_ids = [int(jid) for jid in traffic_signals['NODE_ID'].tolist() if not pd.isna(jid)]
-                tls_ids = ','.join(map(str, junction_ids))
-                self.logger.info(f"Number of traffic signal IDs: {len(junction_ids)}")
+                tls_file = os.path.join(self.tls_locations_dir, file)
+                tls_df = pd.read_csv(tls_file)
+                node_ids = tls_df['NODE_ID'].tolist()
+
+                # Convert to int and remove 'nan' values
+                node_ids = [int(nid) for nid in node_ids if not pd.isna(nid)]
+                filtered_node_ids = [nid for nid in node_ids if nid in junction_ids]
+
+                tls_ids = ','.join(map(str, filtered_node_ids))
+                self.logger.info(f"Found {len(filtered_node_ids)} traffic signals in the network.")
                 return tls_ids
-        self.logger.error("Traffic signal IDs file not found.")
         return None
 
-    def process_network(self):
-        """
-        Processes and builds the network using the centreline data.
-        """
-        self.logger.info(f"Processing {self.network_name} network.")
-        
-        # Process the centreline data
-        processor = CentrelineProcessor(self.config, self.geojson_file, EdgeTypesXML.type_mappings, self.logger)
-        processed_gdf = processor.process()
-        
-        if processed_gdf is not None:
-            shapefile_path = f"{self.network_paths['shapefile_prefix']}.shp"
-            processor.save_shapefile(processed_gdf, shapefile_path)
-            self.logger.info(f"Processed centreline data and saved to {shapefile_path}")
-            
-
-    def save_edge_types(self):
-        """
-        Generates and saves the edge types XML file.
-        """
-        edge_types_xml = EdgeTypesXML.create(EdgeTypesXML.type_mappings)
-        EdgeTypesXML.save(edge_types_xml, self.network_paths['edge_types_file'])
-        self.logger.info(f"Saved edge types to {self.network_paths['edge_types_file']}")
-
     def get_netconvert_command(self):
-        """
-        Runs the netconvert command to convert the shapefile to a SUMO network file.
-        """
         command = [
             "netconvert",
-            "--output-file", self.network_paths['net_file'],
-            "--shapefile-prefix", self.network_paths['shapefile_prefix'],
+            "--output-file", self.net_file,
+            "--shapefile-prefix", self.shapefile_prefix,
             "--tls.set", self.tls_ids,
-            "--type-files", self.network_paths['edge_types_file'],
+            "--type-files", self.edge_types_file,
             "--shapefile.street-id", "LINK_ID",
             "--shapefile.name", "ST_NAME",
             "--shapefile.from-id", "REF_IN_ID",
@@ -111,20 +56,32 @@ class SUMONetworkBuilder(NetworkBase):
             "--shapefile.type-id", "FUNC_CLASS",
             "--shapefile.laneNumber", "nolanes",
             "--shapefile.speed", "speed",
+            # "--sidewalks.guess", "true",
+            # "--sidewalks.guess.max-speed", "6",
+            # "--sidewalks.guess.from-permissions", "true",
+            # "--bikelanes.guess", "true",
+            # "--bikelanes.guess.max-speed", "6",
+            # "--bikelanes.guess.from-permissions", "true",
             "--remove-edges.isolated",
             "--geometry.min-radius.fix",
-            "--no-turnarounds.tls",
+            # "--geometry.min-radius", "9",  # Set minimum radius for geometry
+            # "--junctions.corner-detail", "1",  # Smaller value for more realistic internal edges
+            "--no-internal-links", "true",
+            "--no-turnarounds",
             "--tls.rebuild"
         ]
-        
+
         return command
+
 
     def build_network(self):
         """
         Builds the SUMO network by running the netconvert command.
         """
         # Load specific settings for processing
-        self.network_setup()
+        active_types = EdgeTypesXML.create(self.network_type, self.edge_types_file)
+        self.centreline_processor.filter_centreline_data(active_types)
+        self.tls_ids = self.get_tls_ids(self.centreline_processor.junction_ids)
 
         self.logger.info(f"Building {self.network_name} network.")
         command = self.get_netconvert_command()

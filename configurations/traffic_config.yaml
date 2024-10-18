@@ -7,7 +7,8 @@ traffic_settings:
   begin_time: 28800
   end_time: 34200
   num_intervals: 6
-  mode: "cars" # "cars", "bike", "peds", "bus", "truck", "other", "all"
+  # mode: "cars" # "cars", "bike", "peds", "bus", "truck", "other", "all"
+  active_modes: ["cars", "truck"]
   traffic_volume_file: "raw-data-2020-2029.csv"
 
 # Traffic volume datasets

@@ -2,6 +2,8 @@ import os
 import pandas as pd
 from scripts.common.network_base import NetworkBase
 from scripts.common.utils import XMLFile
+import xml.etree.ElementTree as ET
+from scripts.traffic_data_processing.network_parser import NetworkParser
 
 
 """  
@@ -18,7 +20,7 @@ class DetectorGenerator(NetworkBase):
             config_path (str): Path to the configuration file.
         """
         super().__init__(config_file)
-        self.prepare_directories()
+        self.network_parser = NetworkParser(self.net_file, self.logger)
 
     # /usr/share/sumo/tools/output/generateTLSE1Detectors.py
 
@@ -30,7 +32,7 @@ class DetectorGenerator(NetworkBase):
         results_file = os.path.join(self.simulation_outputs, "e1output.xml")
 
         # Generate XML file
-        XMLFile.create_xml_file("additional", output_file)
+        XMLFile.create_xml_file("additional", results_file)
 
         distance = self.detector_settings['induction_loop_detectors']['distance']
         frequency = self.detector_settings['induction_loop_detectors']['frequency']
@@ -42,15 +44,17 @@ class DetectorGenerator(NetworkBase):
             "-d", str(distance),
             "-f", str(frequency),
             "-o", output_file,
-            "-r", "e1output.xml"
+            "-r", results_file
         ]
+
+        self.logger.info(f"Induction Loop Command: {' '.join(command)}")
         self.executor.run_command(command)
         
     def generate_lanearea_detectors(self):
         """
         Generate lanearea detectors for the network.
         """
-        output_file = os.path.join(self.network_outputs, "e2_detectors.add.xml")
+        output_file = os.path.join(self.network_outputs, "initial_e2_detectors.add.xml")
         results_file = os.path.join(self.simulation_outputs, "e2output.xml")
         XMLFile.create_xml_file(results_file, "additional")
 
@@ -59,19 +63,22 @@ class DetectorGenerator(NetworkBase):
         frequency = self.detector_settings['lanearea_detectors']['frequency']
         tool_e2 = os.path.join(self.sumo_tools_path, "output", "generateTLSE2Detectors.py")
 
+        # For implicit definition, set endPos = lane length and length = endPos-startPos
+
         command = [
             "python", tool_e2,
             "-n", self.net_file,
-            "-d", str(distance),
-            "-l", str(detector_length),
+            # "-d", str(distance),
+            # "-l", str(detector_length),
             "-f", str(frequency),
             "-o", output_file,
-            "-r", "e2output.xml"
+            "-r", results_file
         ]
         
         if self.detector_settings['lanearea_detectors']['tl_coupled']:
             command.append("--tl-coupled")
         
+        self.logger.info(f"Lanearea Detector Command: {' '.join(command)}")
         self.executor.run_command(command)
         
     def generate_multi_entry_exit_detectors(self):
@@ -85,19 +92,20 @@ class DetectorGenerator(NetworkBase):
         distance = self.detector_settings['multi_entry_exit_detectors']['distance']
         min_position = self.detector_settings['multi_entry_exit_detectors']['min_position']
         frequency = self.detector_settings['multi_entry_exit_detectors']['frequency']
-        junction_ids = self._get_junction_ids()
+        # junction_ids = self._get_junction_ids()
+        # junction_ids = self.network_parser.get_junction_ids()
         tool_e3 = os.path.join(self.sumo_tools_path, "output", "generateTLSE3Detectors.py")
 
 
         command = [
             "python", tool_e3,
             "-n", self.net_file,
-            "-j", junction_ids,
+            "-j", self.junction_ids,
             "-d", str(distance),
             "-f", str(frequency),
             "--min-pos", str(min_position),
             "-o", output_file,
-            "-r", "e3output.xml"
+            "-r", results_file
         ]
         
         if self.detector_settings['multi_entry_exit_detectors']['joined']:
@@ -107,7 +115,74 @@ class DetectorGenerator(NetworkBase):
         if self.detector_settings['multi_entry_exit_detectors']['follow_turnaround']:
             command.append("--follow-turnaround")
         
+        self.logger.info(f"Multi-Entry/Exit Detector Command: {' '.join(command)}")
         self.executor.run_command(command)
+
+    def get_lane_length(self, lane_id):
+        """
+        Get the length of a lane.
+
+        Args:
+            lane_id (str): Lane ID.
+
+        Returns:
+            float: Length of the lane.
+        """
+        edge_id = lane_id.split('_')[0]
+
+        # If it's a negative edge, strip the negative sign to find the matching positive edge
+        is_negative = edge_id.startswith('-')
+        if is_negative:
+            edge_id = edge_id[1:]
+
+        # Check in the edges dictionary (which contains both positive and negative lanes)
+        lane_length = 0
+        if edge_id in self.edges:
+            for lane in self.edges[edge_id]['lanes']:
+                # Adjust lane ID for negative lanes
+                current_lane_id = '-' + lane['id'] if is_negative else lane['id']
+                if current_lane_id == lane_id:
+                    lane_length = lane['length']
+                    break
+
+        return lane_length
+
+
+    def modify_detectors(self):
+        file_path = os.path.join(self.network_outputs, "initial_e2_detectors.add.xml")
+        output_path = os.path.join(self.network_outputs, "e2_detectors.add.xml")
+
+
+
+        tree = ET.parse(file_path)
+        root = tree.getroot()
+
+        for detector in root.findall('.//laneAreaDetector'):
+            # Set the initial position of the detector (0.1 meters from the start of the lane)
+            detector.set('pos', '0.1')
+
+            # Get lane length (assuming this is retrieved or known elsewhere in the code)
+            lane_id = detector.get('lane')
+            lane_length = self.get_lane_length(lane_id)  # Implement this function to fetch lane lengths
+
+            # Calculate maximum detector length based on the lane length
+            pos = float(detector.get('pos'))
+            max_length = round((lane_length - pos), 2)
+            adjusted_length = max_length - 1.0  # Leave a 1 meter buffer
+            # Set a safe detector length (slightly less than the max length)
+            # adjusted_length = min(float(detector.get('length')), max_length) - 1.0  # Leave a 1 meter buffer
+
+            # Cap the adjusted length if needed
+            if adjusted_length > 200:
+                adjusted_length = 200  # Cap the length at 200 meters
+
+            detector.set('length', str(adjusted_length))
+
+            # Ensure friendlyPos is set to 'true' for better error handling
+            detector.set('friendlyPos', 'true')
+
+        tree.write(output_path, encoding='utf-8', xml_declaration=True)
+
 
     def _get_junction_ids(self):
         """
@@ -127,6 +202,12 @@ class DetectorGenerator(NetworkBase):
         """
         Prepate the commands to generate detectors and execute them.
         """
+        self.network_parser.load_network()
+        self.edges = self.network_parser.edges
+        junctions = self.network_parser.junctions
+        junction_ids = list(junctions.keys())
+        self.junction_ids = ','.join(map(str, junction_ids))
+
         if self.detector_settings['generate_induction_loops']:
             self.logger.info("Generating induction loops...")
             self.generate_induction_loops()
@@ -136,6 +217,11 @@ class DetectorGenerator(NetworkBase):
             self.logger.info("Generating lanearea detectors...")
             self.generate_lanearea_detectors()
             self.logger.info("End of lanearea detector generation process.")
+        
+        if self.detector_settings['lanearea_detectors']['modify_lanearea_detectors']:
+            self.logger.info("Modifying lanearea detectors...")
+            self.modify_detectors()
+            self.logger.info("End of lanearea detector modification process.")
             
         if self.detector_settings['generate_multi_entry_exit_detectors']:
             self.logger.info("Generating multi-entry/multi-exit detectors...")
