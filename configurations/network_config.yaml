@@ -2,19 +2,26 @@
 # configurations/network.yaml
 
 network_settings:
+
+  network_extent: "by_neighbourhood" # options "city_wide", "by_ward_name", "by_neighbourhood", "by_junctions"
+
   city_wide:
     network_area: "City of Toronto"
     network_type: "arterial" # "arterial", "collector", "local"
 
   by_ward_name:
-    network_area: "Scarborough North" # options "Scarborough North", "Don Valley West", "Etobicoke North", "North York", "Toronto Centre"
-    network_type: "arterial" # "arterial", "collector", "local"
+    network_area: "Toronto-Danforth" # options "Scarborough North", "Don Valley West", "Etobicoke North", "North York", "Toronto Centre"
+    network_type: "local" # "arterial", "collector", "local"
 
   by_neighbourhood:
-    network_area: "Keelesdale-Eglinton West" # options "Lawrence Park South" "Beechborough-Greenbrook" "Mount Pleasant East" "North Toronto" "Casa Loma" "Danforth East York" "South Eglinton-Davisville" "Dovercourt Village" 'Junction-Wallace Emerson' 'Yonge-Bay Corridor' 'Bay-Cloverhill'
-    network_type: "arterial" # "arterial", "collector", "local"
+    network_area: "Bendale-Glen Andrew" # options "Lawrence Park South" "Brookhaven-Amesbury" "Beechborough-Greenbrook" "Keelesdale-Eglinton West" "Mount Pleasant East" "North Toronto" "Casa Loma" "Danforth East York" "South Eglinton-Davisville" "Dovercourt Village" 'Junction-Wallace Emerson' 'Yonge-Bay Corridor' 'Bay-Cloverhill'
+    network_type: "local" # "arterial", "collector", "local"
 
-
+  by_junctions:
+    network_area: "selected_junctions"
+    network_type: "junction_based"
+    junction_ids: [13447816, 13447843, 13447955, 13448023, 13448086, 13448106, 13448133, 13448199, 13448245, 13448326, 13974857, 14070158, 20054776]
+    junction_ids_str: ['13447816', '13447843', '13447955', '13448023', '13448086', '13448106', '13448133', '13448199', '13448245', '13448326', '13974857', '14070158', '20054776']
 
 
 

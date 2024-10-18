@@ -1,6 +1,10 @@
 import math
 import pandas as pd
 
+""" 
+Description: This script contains the class for calculating the directions of the edges in the network.
+"""
+
 class DirectionCalculator:
     def __init__(self, edges: dict, traffic_settings: float, logger):
         self.edges = edges

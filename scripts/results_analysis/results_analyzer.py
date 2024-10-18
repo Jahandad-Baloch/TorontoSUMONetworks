@@ -50,8 +50,52 @@ class ResultsAnalyzer(NetworkBase):
         self.speed_plotter = os.path.join(self.visualization_dir, "plot_speeds.py")
         self.tls_plotter = os.path.join(self.visualization_dir, "plot_net_trafficLights.py")
         self.summary_plotter = os.path.join(self.visualization_dir, "plot_summary.py")
+        # sumo/tools/createScreenshotSequence.py
+        self.screen_shot_creator = os.path.join(self.sumo_tools_path, "createScreenshotSequence.py")
 
         self.logger.info("Tools setup completed.")
+
+    """ 
+    sumo/tools/createScreenshotSequence.py
+        argParser = sumolib.options.ArgumentParser(
+            description="Run SUMO simulation and take screenshots of chosen time intervals")
+        argParser.add_argument("--sumocfg", category="input", dest="sumocfg",
+                            help="define the sumocfg to be loaded")
+        argParser.add_argument("-o", "--output-dir", category="output", dest="outdir",
+                            default="screenshots", help="define the output directory to write the screenshots to")
+        argParser.add_argument("--begin", category="input", type=float,
+                            help="simulation time the recording begins")
+        argParser.add_argument("--end", category="input", type=float,
+                            help="simulation time the recording ends")
+        argParser.add_argument("--view", category="input", type=str, default="View #0",
+                            help="View ID to use for the screenshots")
+        argParser.add_argument("-p", "--prefix", category="input", dest="prefix",
+                            default="", help="define a prefix of the screenshot filename")
+        argParser.add_argument("--zoom",
+                            help="linear interpolation of zoom values given the key frames syntax t1:v1[;t2:v2 ...]")
+        argParser.add_argument("--rotate",
+                            help="linear interpolation to rotation values in degrees (around Z axis) given the key frames \
+                            syntax t1:v1[;t2:v2 ...]")
+        argParser.add_argument("--translate",
+                            help="linear interpolation to the given view center points with the key frames syntax \
+                            t1:p1[;t2:p2 ...] where p1 is \"x,y\"")
+        argParser.add_argument("--include-time", dest="includeTime", category="processing", action="store_true",
+                            default=False,
+                            help="whether to include the system time at simulation begin in the file name")
+        argParser.add_argument("--image-format", category="processing", dest="imageFormat",
+                            default="png", help="image format to use")
+    """
+    
+    def get_screenshots_command(self):
+        """Get the screenshots command."""
+        screenshots_output = os.path.join(self.simulation_outputs, 'screenshots')
+
+        screenshots_cmd = [
+            "python", self.screen_shot_creator, "--sumocfg", self.sumo_cfg_file, "-o", screenshots_output,
+            "--begin", "28800", "--end", "34200", "--view", "View #0", "--prefix", "screenshot"
+        ]
+
+        return screenshots_cmd
 
 
     def get_summary_command(self):

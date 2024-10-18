@@ -3,6 +3,7 @@
 
 # Main configuration file
 imports:
+  - execution_config.yaml
   - network_config.yaml
   - detectors_config.yaml
   - datasets_config.yaml
@@ -15,20 +16,11 @@ imports:
 
 core:
   project_name: "Toronto Traffic Simulation"
-  version: "1.0.0"
+  version: "2.0.0"
 
 # Main execution settings
 
-execution_settings:
-  fetch_data: true
-  build_network: true
-  network_extent: "by_neighbourhood" # options "city_wide", "by_ward_name", "by_neighbourhood"
-  build_detectors: true
-  process_traffic_data: true
-  generate_routes: true
-  compose_sumocfg: true
-  run_simulation: true
-  analyze_results: true
+execution_settings: "settings_4"
 
 # Logging configurations
 logging:

@@ -58,14 +58,4 @@ class CommandExecutor:
                 self.logger.error(f"Command stderr: {e.stderr}")
             raise
 
-    def get_sumo_tools_path(self):
-        """
-        Get the path to the SUMO tools directory.
-
-        Returns:
-            str: Path to the SUMO tools directory.
-        """
-        sumo_home = os.environ.get('SUMO_HOME')
-        if sumo_home is None:
-            raise EnvironmentError("SUMO_HOME environment variable not set.")
-        return os.path.join(sumo_home, 'tools') 
+ 

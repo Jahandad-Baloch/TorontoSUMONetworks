@@ -8,7 +8,7 @@ simulation_settings:
   begin: 28800 # 8:00 AM
   end: 34200  # 9:30 AM
   add_induction_loops: true
-  add_lanearea_detectors: false
+  add_lanearea_detectors: true
   add_multi_entry_exit_detectors: false
   no_warnings: false
   save_output: true
