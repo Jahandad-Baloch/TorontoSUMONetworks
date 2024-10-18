@@ -16,7 +16,7 @@ imports:
 
 core:
   project_name: "Toronto Traffic Simulation"
-  version: "1.0.0"
+  version: "2.0.0"
 
 # Main execution settings
 
