@@ -20,7 +20,8 @@ route_sampler:
   use_turn_movement_counts: true
   use_weights: false
   use_count: true
-  count_scale: 0.7 # 70% of the total count
+  count_scale: 0.6 # 60% of the total count
+  # count_scale: 1
   # total_count: 40000
   begin: 28800
   end: 34200

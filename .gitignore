@@ -2,9 +2,9 @@ __pycache__/
 *.pyc
 *.log
 .venv/
-backups/
 data/simulation_output/
 data/processed/
 data/sumo_networks/
 data/raw/
+.vscode/
 

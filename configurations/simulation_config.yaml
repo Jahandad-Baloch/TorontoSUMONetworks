@@ -16,4 +16,4 @@ simulation_settings:
   emission_output: true # emission values of all vehicles for every simulation step
   full_output: false # various information for all edges, lanes and vehicles (good for visualization purposes)
   queue_output: true # lane-based calculation of the actual tailback in front of a junction
-  duration_log: true
+  # duration_log: false

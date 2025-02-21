@@ -2,84 +2,52 @@
 # configurations/lanes_config.yaml
 
 # Network lanes to include
-local_lanes:
-  - "Expressway"
-  - "Major Arterial"
-  - "Minor Arterial"
-  - "Expressway Ramp"
-  - "Major Arterial Ramp"
-  - "Minor Arterial Ramp"
-  - "Busway"
-  - "Collector"
-  - "Collector Ramp"
-  - "Access Road"
-  - "Local"
-  - "Laneway"
-  - "Walkway"
-  - "Trail"
-  - "Other Ramp"
+lanes:
 
-collector_lanes:
-  - "Expressway"
-  - "Major Arterial"
-  - "Minor Arterial"
-  - "Expressway Ramp"
-  - "Major Arterial Ramp"
-  - "Minor Arterial Ramp"
-  - "Busway"
-  - "Collector"
-  - "Collector Ramp"
-  - "Access Road"
+  # Arterial exclude the secondary and local roads in the network
+  arterial:
+    - "Expressway"
+    - "Major Arterial"
+    - "Minor Arterial"
+    - "Expressway Ramp"
+    - "Major Arterial Ramp"
+    - "Minor Arterial Ramp"
+    - "Busway"
+    - "Collector"
+    - "Collector Ramp"
+    - "Access Road"
 
-arterial_lanes:
-  - "Expressway"
-  - "Major Arterial"
-  - "Minor Arterial"
-  - "Expressway Ramp"
-  - "Major Arterial Ramp"
-  - "Minor Arterial Ramp"
-  - "Busway"
-  - "Collector"
-  - "Collector Ramp"
-  - "Access Road"
+  # Collector exclude the local roads in the network
+  collector:
+    - "Expressway"
+    - "Major Arterial"
+    - "Minor Arterial"
+    - "Expressway Ramp"
+    - "Major Arterial Ramp"
+    - "Minor Arterial Ramp"
+    - "Busway"
+    - "Collector"
+    - "Collector Ramp"
+    - "Access Road"
 
-
-valid_arterial_lanes:
-  - "expressway"
-  - "major_arterial"
-  - "minor_arterial"
-  - "expressway_ramp"
-  - "major_arterial_ramp"
-  - "minor_arterial_ramp"
-  - "busway"
-
-valid_collector_lanes:
-  - "expressway"
-  - "major_arterial"
-  - "minor_arterial"
-  - "expressway_ramp"
-  - "major_arterial_ramp"
-  - "minor_arterial_ramp"
-  - "busway"
-  - "collector"
-  - "collector_ramp"
-  - "access_road"
+  # Local include all the roads in the network
+  local:
+    - "Expressway"
+    - "Major Arterial"
+    - "Minor Arterial"
+    - "Expressway Ramp"
+    - "Major Arterial Ramp"
+    - "Minor Arterial Ramp"
+    - "Busway"
+    - "Collector"
+    - "Collector Ramp"
+    - "Access Road"
+    - "Local"
+    - "Laneway"
+    - "Walkway"
+    - "Trail"
+    - "Other Ramp"
 
 
-valid_local_lanes:
-  - "expressway"
-  - "major_arterial"
-  - "minor_arterial"
-  - "expressway_ramp"
-  - "major_arterial_ramp"
-  - "minor_arterial_ramp"
-  - "busway"
-  - "collector"
-  - "collector_ramp"
-  - "access_road"
-  - "local"
-  - "laneway"
-  - "walkway"
-  - "trail"
-  - "other_ramp"
+
 
