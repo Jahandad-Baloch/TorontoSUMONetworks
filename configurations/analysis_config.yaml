@@ -2,6 +2,10 @@
 # configurations/analysis_config.yaml
 
 analysis_settings:
+
+  external_analysis: true # statistical analysis 
+  inmemory_analysis: true # analysis using sumo tools
+
   analyze_queue: true
   analyze_summary: true
   analyze_turn_counts: false

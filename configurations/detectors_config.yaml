@@ -5,7 +5,7 @@ detector_settings:
 
   generate_induction_loops: true
   generate_lanearea_detectors: true
-  generate_multi_entry_exit_detectors: true
+  generate_multi_entry_exit_detectors: false
 
   induction_loop_detectors:
     detector_type: "E1"

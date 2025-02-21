@@ -1,0 +1,123 @@
+Below is a detailed design proposal for integrating an interactive dashboard and map visualizations into TorontoSUMONetworks. This design aims to boost usability, accessibility, and stakeholder engagement by presenting simulation results and configuration options in an interactive, intuitive GUI.
+
+Overall Design Concept
+Objective:
+To create a unified, web-based interactive dashboard that integrates multiple visualization components, including an interactive map, animated simulation outputs, data analysis charts, and a configuration GUI. This dashboard will allow users to:
+
+Explore the traffic network through dynamic maps.
+View animated vehicle movements and real-time simulation metrics.
+Analyze processed and simulation output data with interactive charts.
+Select and adjust simulation configurations through an integrated settings panel.
+Dashboard Structure and Tabs
+1. Dashboard Home
+Overview Panel:
+Display key performance metrics (e.g., total vehicles simulated, average halting time, CO₂ emissions).
+A quick status summary of the simulation pipeline (build network, run simulation, analysis status).
+Real-Time Notifications:
+Show progress updates or alerts (e.g., “Network built”, “Simulation completed”, “New data available”).
+2. Interactive Map Tab
+Dynamic Network Map:
+Map Features:
+Visualize the SUMO network by overlaying geo-referenced road networks (using data from the processed and raw geojson files such as the centreline and neighbourhood data).
+Include zoom, pan, and tooltips with intersection details and live simulation stats (e.g., congestion level, queue lengths).
+Implementation:
+Use Plotly’s Mapbox or Folium to render interactive maps.
+Integrate layers for roads, traffic signals, and detectors using the corresponding geojson and CSV files.
+Vehicle Movement Animation:
+Animate vehicle trajectories over time using time-series data from simulation output files (e.g., trips and turning movements).
+Leverage Plotly’s animation framework or Dash’s interval components to update the map dynamically.
+3. Data Analysis Tab
+Interactive Charts & Graphs:
+Time-Series Visualizations:
+Plot halting vehicles, queue lengths, and emission data using interactive line charts.
+Enable zooming, hovering for details, and dynamic filtering by mode (cars, trucks, etc.).
+Comparative Analytics:
+Compare simulation scenarios (e.g., current vs. enhanced signal timing) with side-by-side charts.
+Implementation:
+Use Plotly (integrated within Dash) to build interactive graphs.
+Process XML/CSV simulation outputs with pandas and geopandas as needed.
+4. Configuration and Control Tab
+GUI for Simulation Settings:
+Present a user-friendly form for selecting or modifying configuration options (e.g., execution profiles, simulation time intervals, active modes).
+Options could include dropdowns, sliders, and text inputs, all pre-populated from the YAML configuration files.
+Run/Reset Simulation:
+Include buttons to apply the configuration changes and trigger (or re-run) the simulation pipeline.
+Implementation:
+Build the control panel using Dash components (e.g., dcc.Dropdown, dcc.Slider, dcc.Input).
+On submission, save the new configuration (e.g., update the YAML file or a temporary settings object) and optionally trigger back-end tasks using Python subprocesses or REST API calls.
+5. Reporting and Export Tab
+Exportable Reports:
+Allow users to download current visualizations, raw simulation data, or summary reports in PDF/CSV formats.
+Snapshot Gallery:
+Display historical snapshots (images and plots) generated during simulation runs for review.
+Implementation Details
+Frameworks and Libraries
+Dash by Plotly:
+
+Dashboard Framework: For building the web application, handling multi-tab layouts, and creating interactive components.
+Graphing: Utilize Plotly’s powerful graphing capabilities for animated and interactive charts.
+Plotly Express / Plotly Graph Objects:
+
+Create interactive maps and animations (using Mapbox integration for geographical data and animation frames for time-series vehicle movement).
+Folium (Optional):
+
+Alternatively, use Folium for interactive maps if a lightweight mapping solution is preferred. Folium maps can be embedded in a Dash app via an iframe or custom component.
+Pandas and GeoPandas:
+
+Process simulation output files (XML, CSV) and geospatial data (GeoJSON files) to feed interactive charts and maps.
+YAML and ConfigParser:
+
+Parse existing configuration files to dynamically load and update simulation settings through the dashboard.
+Flask (Built into Dash):
+
+Use Flask as the underlying server if additional REST endpoints are needed to trigger simulation tasks or data refreshes.
+Integration and Module Design
+New Module: modules/visualization/dashboard.py
+
+Entry Point: A standalone Python script (dashboard.py) to launch the interactive dashboard.
+Layout:
+Use Dash’s layout components to structure the navigation (tabs, sidebar, header).
+Separate callbacks for updating each component (map, charts, configuration panel).
+Data Loading:
+Read processed simulation outputs from the relevant directories (data/processed/, data/simulation_output/, etc.).
+Implement caching or live file-watching (using Dash’s dcc.Interval) to refresh visualizations when new simulation outputs are available.
+Interactivity:
+Design callbacks that respond to user input (e.g., changing configuration options, selecting time intervals on the animated map).
+Use dynamic components to update the interactive map and charts based on real-time data selections.
+Configuration Integration:
+
+Create a helper function to load and update configuration settings from YAML files.
+Integrate this with the Configuration Tab so that changes can be saved and applied to the simulation pipeline.
+Example Workflow
+Launch Dashboard:
+
+User starts the dashboard via python modules/visualization/dashboard.py.
+The dashboard loads current simulation outputs and configuration settings.
+Explore Interactive Map:
+
+User navigates to the map tab.
+The map shows the traffic network overlaid on a geographic map, with animated vehicle positions and tooltips displaying live metrics.
+Analyze Simulation Data:
+
+In the Data Analysis tab, users interact with time-series charts to inspect trends in halting vehicles, emissions, or queue lengths.
+Filtering options allow comparison between different modes (cars vs. trucks).
+Configure Simulation:
+
+In the Configuration tab, users adjust parameters (time intervals, active modes, etc.) using interactive controls.
+Changes are saved and can be used to re-run the simulation pipeline.
+Export Reports:
+
+Users download high-resolution snapshots or full reports summarizing the simulation outcomes.
+Benefits and Impact
+Enhanced Usability:
+The interactive dashboard makes it easier for both technical and non-technical users to explore, analyze, and understand simulation outputs.
+
+Increased Engagement:
+Dynamic maps and animated visualizations capture attention, making presentations to senior management and stakeholders more impactful.
+
+Improved Accessibility:
+A unified GUI centralizes access to simulation data and configuration controls, reducing the learning curve for new users.
+
+Rapid Iteration:
+Users can tweak configurations in real time and immediately see the impact on simulation outputs, enabling more agile decision-making.
+

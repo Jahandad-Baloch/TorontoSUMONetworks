@@ -1,10 +1,29 @@
+# Python
 __pycache__/
 *.pyc
+
+# Logs
 *.log
+
+# Virtual Environment
 .venv/
-backups/
+
+# Data directories
 data/simulation_output/
 data/processed/
 data/sumo_networks/
 data/raw/
 
+# IDE
+.vscode/
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+
+# Additional patterns for large files
+*.pem
+*.csv
+*.json
+*.geojson

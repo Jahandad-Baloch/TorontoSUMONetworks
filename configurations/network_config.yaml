@@ -1,28 +1,16 @@
-# This file contains the configuration for the network that will be built for the simulation.
-# configurations/network.yaml
+# Network configuration for building the SUMO network.
 
-network_settings:
+network:
+  # Determines the geographical scope for the network.
+  extent: "by_ward_name"  # Options: city_wide, by_ward_name, by_neighbourhood, by_junctions
+  type: "arterial"        # Options: arterial, collector, local, junctions
 
-  network_extent: "by_neighbourhood" # options "city_wide", "by_ward_name", "by_neighbourhood", "by_junctions"
-
-  city_wide:
-    network_area: "City of Toronto"
-    network_type: "arterial" # "arterial", "collector", "local"
-
-  by_ward_name:
-    network_area: "Toronto-Danforth" # options "Scarborough North", "Don Valley West", "Etobicoke North", "North York", "Toronto Centre"
-    network_type: "local" # "arterial", "collector", "local"
-
-  by_neighbourhood:
-    network_area: "Bendale-Glen Andrew" # options "Lawrence Park South" "Brookhaven-Amesbury" "Beechborough-Greenbrook" "Keelesdale-Eglinton West" "Mount Pleasant East" "North Toronto" "Casa Loma" "Danforth East York" "South Eglinton-Davisville" "Dovercourt Village" 'Junction-Wallace Emerson' 'Yonge-Bay Corridor' 'Bay-Cloverhill'
-    network_type: "local" # "arterial", "collector", "local"
-
-  by_junctions:
-    network_area: "selected_junctions"
-    network_type: "junction_based"
-    junction_ids: [13447816, 13447843, 13447955, 13448023, 13448086, 13448106, 13448133, 13448199, 13448245, 13448326, 13974857, 14070158, 20054776]
-    junction_ids_str: ['13447816', '13447843', '13447955', '13448023', '13448086', '13448106', '13448133', '13448199', '13448245', '13448326', '13974857', '14070158', '20054776']
-
-
-
-
+  # Specific area definitions for each mode.
+  area:
+    city_wide: "City of Toronto"
+    by_ward_name: "Scarborough-Agincourt"
+    by_neighbourhood: "Woburn North"
+    by_junctions:
+      name: "selected_junctions"
+      junction_ids: [13447816, 13447843, 13447955, 13448023, 13448086, 13448106,
+                     13448133, 13448199, 13448245, 13448326, 13974857, 14070158, 20054776]

@@ -1,8 +1,13 @@
-# This file contains the main configuration for the simulation.
-# configurations/main.yaml
+# Main configuration file for the Toronto Traffic Simulation project.
+core:
+  project_name: "Toronto Traffic Simulation"
+  version: "2.0.0"
+  
+# Specify which execution profile to use.
+active_execution_profile: settings_1
 
-# Main configuration file
-imports:
+# List of configuration files to import.
+includes:
   - execution_config.yaml
   - network_config.yaml
   - detectors_config.yaml
@@ -14,21 +19,9 @@ imports:
   - traffic_config.yaml
   - analysis_config.yaml
 
-core:
-  project_name: "Toronto Traffic Simulation"
-  version: "2.0.0"
-
-# Main execution settings
-
-execution_settings: "settings_4"
-
-# Logging configurations
+# Logging configuration.
 logging:
-  save_logs: true
-  console_output: true
+  enable_console: true
+  enable_file: true
   log_dir: "logs"
   log_level: "INFO" # "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
-
-
-
-

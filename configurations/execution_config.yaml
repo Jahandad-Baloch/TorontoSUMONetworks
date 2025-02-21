@@ -1,57 +1,69 @@
+# Execution configuration for controlling which simulation tasks run.
+execution:
+  settings_1:
+    fetch_data: false
+    build_network: true
+    plot_network: true
+    integrate_traffic: true
+    generate_routes: true
+    generate_detectors: true
+    compose_sumocfg: true
+    run_simulation: false
+    analyze_results: false
+    run_dashboard: false
 
-settings_1:
-  fetch_data: false
-  build_network: true
-  plot_network: true
-  process_traffic_data: true
-  generate_routes: true
-  build_detectors: true
-  compose_sumocfg: true
-  run_simulation: false
-  analyze_results: false
-  show_snaps: true
-  save_snaps: true
+  settings_2:
+    fetch_data: false
+    build_network: false
+    generate_snapshots: false
+    integrate_traffic: false
+    generate_routes: false
+    generate_detectors: false
+    compose_sumocfg: false
+    run_simulation: false
+    analyze_results: true
+    run_dashboard: false
 
+  settings_3:
+    fetch_data: false
+    build_network: true
+    generate_detectors: true
+    integrate_traffic: true
+    generate_routes: true
+    compose_sumocfg: true
+    run_simulation: false
+    analyze_results: false
+    run_dashboard: false
 
-settings_2:
-  fetch_data: false
-  build_network: false
-  process_traffic_data: true
-  generate_routes: true
-  build_detectors: true
-  compose_sumocfg: true
-  run_simulation: false
-  analyze_results: false
+  settings_4:
+    fetch_data: false
+    build_network: false
+    generate_detectors: false
+    integrate_traffic: false
+    generate_routes: false
+    compose_sumocfg: false
+    run_simulation: true
+    analyze_results: false
 
-settings_3:
-  fetch_data: false
-  build_network: true
-  build_detectors: true
-  process_traffic_data: true
-  generate_routes: true
-  compose_sumocfg: true
-  run_simulation: false
-  analyze_results: false
+  settings_5:
+    fetch_data: false
+    build_network: true
+    plot_network: true
+    integrate_traffic: false
+    generate_routes: false
+    generate_detectors: false
+    compose_sumocfg: false
+    run_simulation: false
+    analyze_results: false
+    show_snaps: true
+    save_snaps: true
 
-settings_4:
-  fetch_data: false
-  build_network: false
-  build_detectors: false
-  process_traffic_data: false
-  generate_routes: true
-  compose_sumocfg: false
-  run_simulation: false
-  analyze_results: false
-
-settings_5:
-  fetch_data: false
-  build_network: true
-  plot_network: true
-  process_traffic_data: false
-  generate_routes: false
-  build_detectors: false
-  compose_sumocfg: false
-  run_simulation: false
-  analyze_results: false
-  show_snaps: true
-  save_snaps: true
+  settings_6:
+    fetch_data: false
+    build_network: true
+    generate_detectors: true
+    integrate_traffic: false
+    generate_routes: false
+    compose_sumocfg: true
+    run_simulation: false
+    analyze_results: false
