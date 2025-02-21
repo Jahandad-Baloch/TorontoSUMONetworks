@@ -7,4 +7,6 @@ data/processed/
 data/sumo_networks/
 data/raw/
 .vscode/
-
+*.zip
+*.gz
+*.tar
