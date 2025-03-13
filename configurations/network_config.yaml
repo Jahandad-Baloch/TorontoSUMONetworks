@@ -8,7 +8,7 @@ network:
   # Specific area definitions for each mode.
   area:
     city_wide: "City of Toronto"
-    by_ward_name: "Scarborough-Agincourt"
+    by_ward_name: "Beaches-East York"
     by_neighbourhood: "Woburn North"
     by_junctions:
       name: "selected_junctions"

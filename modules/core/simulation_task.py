@@ -1,13 +1,11 @@
 # modules/core/simulation_task.py
 from abc import ABC, abstractmethod
-# from modules.core.app_context import AppContext
 
 class SimulationTask(ABC):
     """Abstract base class representing a single simulation pipeline task.
 
     Each subclass must implement the execute() method.
     """
-    # def __init__(self, app_context: AppContext) -> None:
     def __init__(self, app_context) -> None:
         """
         Initializes the SimulationTask.

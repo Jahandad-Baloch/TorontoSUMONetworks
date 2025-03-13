@@ -4,12 +4,14 @@
 traffic_settings:
   threshold_value: 0.00016 # 16 meters
   epsilon_value: 5
-  begin_time: 28800
-  end_time: 34200
+  begin_time: 28800 # 8:00 AM
+  end_time: 34200 # 9:30 AM
   num_intervals: 6
   # mode: "cars" # "cars", "bike", "peds", "bus", "truck", "other", "all"
   active_modes: ["cars", "truck"] # ["cars", "truck", "peds", "bike"]
   traffic_volume_file: "raw-data-2020-2029.csv"
+  tmc_data_file: "tmc_raw_data_2020_2029.csv"  # New intersection dataset
+  svc_data_file: "svc_raw_data_volume_2020_2024.csv"  # New midblock dataset
 
 # Traffic volume datasets
 traffic_volume_2020s: "raw-data-2020-2029.csv"

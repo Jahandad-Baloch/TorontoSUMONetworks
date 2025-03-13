@@ -28,7 +28,7 @@ class CentrelineProcessor:
 
     def filter_centreline_data(self, active_types: dict, network_area: str,
                                network_extent: str, paths: dict,
-                               shapefile_path: Optional[str] = None,
+                               shapefiles: Optional[str] = None,
                                junction_ids: Optional[list] = None) -> Optional[gpd.GeoDataFrame]:
         """
         Processes and filters the centreline data based on active types and network extent.
@@ -70,9 +70,13 @@ class CentrelineProcessor:
             
             if centreline_gdf is not None:
                 processed_gdf = self.process_gdf(centreline_gdf, active_types)
-                if shapefile_path:
-                    processed_gdf.to_file(shapefile_path)
-                    self.logger.info(f"Processed centreline data saved to {shapefile_path}")
+                if shapefiles:
+                    # Save the shapefile
+                    processed_gdf.to_file(shapefiles)
+                    self.logger.info(f"Processed centreline data saved to {shapefiles}")
+                else:
+                    self.logger.info("Shapefile path not provided. Skipping save.")
+
                 self.centreline_gdf = processed_gdf
                 return processed_gdf
         except Exception as e:
@@ -121,8 +125,8 @@ class CentrelineProcessor:
         self.logger.info("Filtering and processing centreline GeoDataFrame.")
         mask = gdf['FEATURE_CODE'].isin(active_types.keys())
         processed_gdf = gdf.loc[mask].copy()
-        processed_gdf['nolanes'] = processed_gdf['FEATURE_CODE'].map(lambda x: active_types[x]['numLanes'])
-        processed_gdf['speed'] = processed_gdf['FEATURE_CODE'].map(lambda x: active_types[x]['speed'])
+        # processed_gdf['nolanes'] = processed_gdf['FEATURE_CODE'].map(lambda x: active_types[x]['numLanes'])
+        # processed_gdf['speed'] = processed_gdf['FEATURE_CODE'].map(lambda x: active_types[x]['speed'])
         processed_gdf['DIR_TRAVEL'] = processed_gdf.apply(
             lambda row: 'B' if row['ONEWAY_DIR_CODE'] == 0 else ('F' if row['ONEWAY_DIR_CODE'] == 1 else 'T'),
             axis=1
@@ -133,6 +137,8 @@ class CentrelineProcessor:
             'FROM_INTERSECTION_ID': 'REF_IN_ID',
             'TO_INTERSECTION_ID': 'NREF_IN_ID',
             'FEATURE_CODE': 'FUNC_CLASS',
+            'NUMBER_OF_LANES': 'nolanes',
+            'SPEED_LIMIT': 'speed'
         }
         processed_gdf.rename(columns=rename_dict, inplace=True)
         required_fields = ['LINK_ID', 'ST_NAME', 'REF_IN_ID', 'NREF_IN_ID',

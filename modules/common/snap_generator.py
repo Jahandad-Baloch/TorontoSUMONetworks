@@ -37,13 +37,6 @@ class SnapGenerator(SimulationTask):
         self.network_parser = NetworkParser(self.net_file, self.logger)
         self.executor = CommandExecutor(logger=self.logger)
 
-    def execute(self) -> None:
-        """
-        Executes the snapshot generation task.
-        """
-        self.logger.info("Starting snapshot generation task.")
-        self.network_parser.load_network()
-        self.plot_network()
 
     def plot_network(self) -> None:
         """
@@ -90,46 +83,10 @@ class SnapGenerator(SimulationTask):
         plt.close()
         self.logger.info("Snapshot generation completed.")
 
-
-    def generate_sumo_snaps(self) -> None:
+    def execute(self) -> None:
         """
-        Generates snapshots using SUMO tools.
+        Executes the snapshot generation task.
         """
-        self.logger.info("Generating snapshots using SUMO tools.")
-        network_outputs = self.config['paths'].get('network_data', '')
-        net_file = str(self.config['paths'].get('net_file', ''))
-        output_file = os.path.join(network_outputs, "network_snaps.xml")
-        # tool_snaps = os.path.join(self.config['paths'].get('sumo_tools', ''), "output", "generateNetworkSnaps.py")
-        tool_snaps = os.path.join(self.sumo_tools_path, "output", "generateNetworkSnaps.py")
-        command = [
-            "python", tool_snaps,
-            "-n", net_file,
-            "-o", output_file
-        ]
-        self.executor.run_command(command)
-
-    # def plot_network(self) -> None:
-    #     """
-    #     Generates a network snapshot using matplotlib.
-    #     """
-    #     self.logger.info("Plotting network snapshot using matplotlib.")
-    #     nodes = self.network_parser.junctions
-    #     edges = self.network_parser.edges
-
-    #     plt.figure(figsize=(10, 10))
-    #     for edge_id, edge_data in edges.items():
-    #         from_node = nodes.get(edge_data['from'])
-    #         to_node = nodes.get(edge_data['to'])
-    #         if from_node and to_node:
-    #             plt.plot([from_node['x'], to_node['x']],
-    #                      [from_node['y'], to_node['y']], 'b-')
-    #     execution_settings = self.config.get('execution_settings', {})
-    #     if execution_settings.get('show_snaps', False):
-    #         plt.show()
-    #     if execution_settings.get('save_snaps', False):
-    #         network_outputs = self.config['paths'].get('network_data', '')
-    #         snap_path = os.path.join(network_outputs, "network_snaps.png")
-    #         plt.savefig(snap_path)
-    #         plt.close()
-    #         self.logger.info(f"Snapshot saved to {snap_path}.")
-    #     self.logger.info("Snapshot generation completed.")
+        self.logger.info("Starting snapshot generation task.")
+        self.network_parser.load_network()
+        self.plot_network()

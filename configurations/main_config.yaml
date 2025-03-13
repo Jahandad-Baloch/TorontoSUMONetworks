@@ -4,7 +4,7 @@ core:
   version: "2.0.0"
   
 # Specify which execution profile to use.
-active_execution_profile: settings_1
+active_execution_profile: settings_3
 
 # List of configuration files to import.
 includes:

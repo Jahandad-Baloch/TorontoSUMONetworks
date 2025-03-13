@@ -9,16 +9,13 @@ __pycache__/
 .venv/
 
 # Data directories
-data/simulation_output/
-data/processed/
-data/sumo_networks/
-data/raw/
+backups/
 
 # IDE
 .vscode/
 
 # Compressed files
-*.zip
+# *.zip
 *.gz
 *.tar
 

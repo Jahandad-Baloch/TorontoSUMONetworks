@@ -22,18 +22,6 @@ class DatasetDownloader(SimulationTask):
         self.api_base_url = "https://ckan0.cf.opendata.inter.prod-toronto.ca/api/3/action/package_show"
         os.makedirs(self.download_dir, exist_ok=True)
 
-    def execute(self):
-        """Executes the task to download all configured datasets."""
-        try:
-            self.logger.info("Starting data download process")
-            for dataset_name, details in self.config['transportation_datasets'].items():
-                if details['fetch_data']:
-                    self.download_dataset(dataset_name, details['target_files'])
-            self.logger.info("Data download completed successfully")
-        except Exception as e:
-            self.logger.error(f"Failed to download data: {e}")
-            raise
-
     def fetch_dataset_metadata(self, dataset_name):
         """Fetches metadata for a dataset from Toronto Open Data.
 
@@ -102,3 +90,14 @@ class DatasetDownloader(SimulationTask):
                     self.download_resource(resource, dataset_dir)
                     break
 
+    def execute(self):
+        """Executes the task to download all configured datasets."""
+        try:
+            self.logger.info("Starting data download process")
+            for dataset_name, details in self.config['transportation_datasets'].items():
+                if details['fetch_data']:
+                    self.download_dataset(dataset_name, details['target_files'])
+            self.logger.info("Data download completed successfully")
+        except Exception as e:
+            self.logger.error(f"Failed to download data: {e}")
+            raise

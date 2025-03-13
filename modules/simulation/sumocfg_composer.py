@@ -79,7 +79,6 @@ class SumoConfigComposer(NetworkBase, SimulationTask):
         with open(file_path, "w") as f:
             f.write(self.prettify(root))
         self.logger.info(f"XML configuration saved to {file_path}")
-        self.logger.info(f"\n.......................\n")
 
     def prettify(self, elem: ET.Element) -> str:
         """Returns a pretty-printed XML string.

@@ -1,14 +1,13 @@
 # modules/route/route_manager.py
 import os
+import xml.etree.ElementTree as ET
 from modules.core.simulation_task import SimulationTask
 from modules.core.network_base import NetworkBase
-from modules.common.turning_movements_parser import TurningMovementsParser
 
 """ 
 This script is used to manage the SUMO network.
 path: scripts/simulation/route_manager.py
 """
-
 
 class SumoRouteManager(NetworkBase, SimulationTask):
     """Manages the SUMO network routing tasks.
@@ -25,6 +24,21 @@ class SumoRouteManager(NetworkBase, SimulationTask):
             app_context (AppContext): Central application context.
         """
         super().__init__(app_context)
+
+    def parse_turn_counts(self, turn_counts_file):
+        tree = ET.parse(turn_counts_file)
+        root = tree.getroot()
+        intervals = root.findall('interval')
+        interval_counts = {}
+        total_count = 0
+        for interval in intervals:
+            interval_id = interval.get('id')
+            count = 0
+            for edge_relation in interval:
+                count += int(edge_relation.get('count'))
+            interval_counts[interval_id] = count
+            total_count += count
+        return interval_counts, total_count
 
     def get_random_trips_command(self, mode: str) -> list:
         """Returns the random trips generation command.
@@ -88,7 +102,7 @@ class SumoRouteManager(NetworkBase, SimulationTask):
             generate_routes_cmd.append('--verbose')
         elif mode in ['cars', 'truck']:
             if route_settings['use_turn_movement_counts']:
-                interval_counts, total_count = TurningMovementsParser.parse_turn_counts(files['turn_counts_file'])
+                interval_counts, total_count = self.parse_turn_counts(files['turn_counts_file'])
                 total_count = int(total_count * route_settings['count_scale'])
                 generate_routes_cmd.extend(["--total-count", str(total_count)])
                 generate_routes_cmd.extend(["-t", str(files['turn_counts_file'])])

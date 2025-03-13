@@ -26,13 +26,26 @@ class TrafficNetworkCreation(SimulationTask):
         """
         super().__init__(app_context)
         self.app_context = app_context
+
+        # Set up directories and file paths
+        self.setup_directories()
+
+        self.geojson_file = "data/raw/toronto-centreline-tcl/centreline_-_version_2_-_4326.geojson"
+
         # Initialize centreline processor for processing geojson data.
         self.centreline_processor = CentrelineProcessor(
-            self.app_context.config['paths']['centreline_geojson'], 
+            self.geojson_file,
             self.app_context.logger
         )
-        # Set up network-related properties from configuration.
-        self.paths = self.app_context.config['paths']
+
+        # Initialize command executor.
+        self.executor = CommandExecutor(logger=self.app_context.logger)
+        self.tls_ids = ""
+
+    def setup_directories(self):
+        """
+        Sets up directories and file paths for the network creation process.
+        """
         # Updated network configuration reading
         network_config = self.app_context.config['network']
         self.network_extent = network_config['extent']
@@ -44,46 +57,30 @@ class TrafficNetworkCreation(SimulationTask):
             self.network_name = network_config['area'][self.network_extent].replace(' ', '_').lower()
             self.junction_ids_config = None
 
-        self.network_outputs = os.path.join(self.paths['network_data'], self.network_name)
-        self.net_file = os.path.join(self.network_outputs, f"{self.network_name}_{self.network_type}.net.xml")
-        self.shapefile_prefix = os.path.join(self.network_outputs, self.network_name)
-        self.shapefile_path = f"{self.shapefile_prefix}.shp"
-        self.edge_types_file = os.path.join(self.network_outputs, f"{self.network_name}_edge_types.typ.xml")
+        # Set up the network area and name
+        self.paths = self.app_context.config['paths']
         self.tls_locations_dir = os.path.join(self.paths['raw_data'], 'traffic-signals-tabular')
 
-        # Initialize command executor.
-        self.executor = CommandExecutor(logger=self.app_context.logger)
-        self.tls_ids = ""
+        centreline_dir = os.path.join(self.paths['raw_data'], 'toronto-centreline-tcl')
+        for file in os.listdir(centreline_dir):
+            if file.endswith('4326.geojson'):
+                self.geojson_file = os.path.join(centreline_dir, file)
 
-    def execute(self):
-        """
-        Executes the task to build the SUMO network.
+        # Create the network outputs directory if it doesn't exist
+        self.network_outputs = os.path.join(self.paths['network_data'], self.network_name)
+        self.shapefile_path = os.path.join(self.paths['network_data'], self.network_name, 'arcview')
+        if not os.path.exists(self.network_outputs):
+            os.makedirs(self.network_outputs)
+        if not os.path.exists(self.shapefile_path):
+            os.makedirs(self.shapefile_path)
 
-        Steps:
-          1. Create edge types XML.
-          2. Process centreline data to produce a shapefile.
-          3. Extract traffic signal IDs.
-          4. Build and execute the netconvert command.
-        """
-        # 1. Generate edge types XML.
-        active_types = EdgeTypesXML.create(self.network_type, self.edge_types_file)
-        # 2. Process centreline data.
-        self.centreline_processor.filter_centreline_data(
-            active_types, 
-            self.network_name, 
-            self.network_extent, 
-            self.paths, 
-            self.shapefile_path, 
-            junction_ids=self.junction_ids_config
-        )
-        # 3. Get the traffic signal IDs.
-        self.tls_ids = self.get_tls_ids(self.centreline_processor.junction_ids)
+        # Create shapefile Pathlink string for storing the shapefiles
+        self.shapefiles = os.path.join(self.shapefile_path, f"{self.network_name}.shp")
+        self.shapefile_prefix = os.path.join(self.shapefile_path, self.network_name)
 
-        # 4. Build and run netconvert command.
-        command = self.get_netconvert_command()
-        self.app_context.logger.info(f"Executing command: {' '.join(command)}")
-        self.executor.run_command(command)
-        self.app_context.logger.info("SUMO network built successfully.")
+        self.edge_types_file = os.path.join(self.network_outputs, f"{self.network_name}_edge_types.typ.xml")
+        self.net_file = os.path.join(self.network_outputs, f"{self.network_name}_{self.network_type}.net.xml")
+
 
     def get_tls_ids(self, junction_ids):
         """
@@ -98,7 +95,7 @@ class TrafficNetworkCreation(SimulationTask):
 
         try:
             for file in os.listdir(self.tls_locations_dir):
-                if 'Signal' in file and '4326.csv' in file:
+                if 'signal' in file and '4326.csv' in file:
                     self.logger.info(f"Reading TLS file: {file}")
                     tls_file = os.path.join(self.tls_locations_dir, file)
                     tls_df = pd.read_csv(tls_file)
@@ -134,8 +131,39 @@ class TrafficNetworkCreation(SimulationTask):
             "--shapefile.laneNumber", "nolanes",
             "--shapefile.speed", "speed",
             "--remove-edges.isolated",
+            # "--opposites.guess", "true",
             "--geometry.min-radius.fix",
             "--no-turnarounds.except-turnlane", "true",
             "--tls.rebuild"
         ]
         return [arg for arg in command if arg]
+
+    def execute(self):
+        """
+        Executes the task to build the SUMO network.
+
+        Steps:
+          1. Create edge types XML.
+          2. Process centreline data to produce a shapefile.
+          3. Extract traffic signal IDs.
+          4. Build and execute the netconvert command.
+        """
+        # 1. Generate edge types XML.
+        active_types = EdgeTypesXML.create(self.network_type, self.edge_types_file)
+        # 2. Process centreline data.
+        self.centreline_processor.filter_centreline_data(
+            active_types, 
+            self.network_name, 
+            self.network_extent, 
+            self.paths, 
+            self.shapefiles, 
+            junction_ids=self.junction_ids_config
+        )
+        # 3. Get the traffic signal IDs.
+        self.tls_ids = self.get_tls_ids(self.centreline_processor.junction_ids)
+
+        # 4. Build and run netconvert command.
+        command = self.get_netconvert_command()
+        self.app_context.logger.info(f"Executing command: {' '.join(command)}")
+        self.executor.run_command(command)
+        self.app_context.logger.info("SUMO network built successfully.")

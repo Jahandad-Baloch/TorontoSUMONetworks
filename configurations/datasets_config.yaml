@@ -1,16 +1,38 @@
 # This file contains the configuration for the datasets that will be fetched from the City of Toronto's Open Data Portal.
 # configurations/datasets_config.yaml
 
+
 # City of Toronto transportation datasets to fetch
 transportation_datasets:
+
+  # 1. Traffic volumes at intersections for all modes
   traffic-volumes-at-intersections-for-all-modes:
     fetch_data: true
     target_files:
-      raw-data-2020-2029:
+      tmc_raw_data_2020_2029:
         format: csv
-      locations:
+      tmc_data_dictionary:
         format: csv
-      count_metadata:
+      tmc_summary_data:
+        format: csv
+      tmc_data_dictionary:
+        format: xlsx
+
+  # 2. Traffic volumes midblock vehicle speed, volume, and classification counts
+  traffic-volumes-midblock-vehicle-speed-volume-and-classification-counts:
+    fetch_data: true
+    target_files:
+      svc_raw_data_volume_2020_2024:
+        format: csv
+      svc_raw_data_volume_2015_2019:
+        format: csv
+      fwha_classification:
+        format: csv
+      svc_data_dictionary:
+        format: csv
+      svc_most_recent_summary_data:
+        format: csv
+      svc_summary_data:
         format: csv
 
   city-wards:
@@ -98,3 +120,15 @@ transportation_datasets:
         format: xlsx
 
 
+# Old version of traffic volumes dataset
+# # City of Toronto transportation datasets to fetch
+# transportation_datasets:
+#   traffic-volumes-at-intersections-for-all-modes:
+#     fetch_data: true
+#     target_files:
+#       raw-data-2020-2029:
+#         format: csv
+#       locations:
+#         format: csv
+#       count_metadata:
+#         format: csv

@@ -74,13 +74,11 @@ class NetworkBase:
         self.network_outputs = os.path.join(self.paths['network_data'], self.network_name)
         self.sumo_cfg_file = os.path.join(self.network_outputs, f"{self.network_name}_sumo_config.sumocfg")
         self.edge_types_file = os.path.join(self.network_outputs, f"{self.network_name}_edge_types.typ.xml")
-        self.shapefile_outputs = os.path.join(self.paths['network_data'], self.network_name, 'arcview')
-        self.shapefile_prefix = os.path.join(self.shapefile_outputs, self.network_name)
-        self.shapefile_path = f"{self.shapefile_prefix}.shp"
-
 
         # Paths for the traffic data processing outputs
-        self.traffic_volume_file = os.path.join(self.paths['traffic_volume_dir'], self.traffic_settings['traffic_volume_file'])
+        self.tmc_data_file = os.path.join(self.paths['tmc_data_dir'], self.traffic_settings['tmc_data_file'])
+        self.svc_data_file = os.path.join(self.paths['svc_data_dir'], self.traffic_settings['svc_data_file'])
+
         self.processing_outputs = os.path.join(self.paths['processed_data'], self.network_name)
         self.edge_directions_path = os.path.join(self.processing_outputs, f'edge_directions.csv')
         self.node_junction_mapping_path = os.path.join(self.processing_outputs, f'node_junction_mapping.csv')
@@ -107,11 +105,14 @@ class NetworkBase:
         self.bus_vtype_file = os.path.join(self.network_outputs, f"{self.network_name}_public_transport_vtype.rou.xml")
         self.bus_routes_additional = os.path.join(self.network_outputs, f"{self.network_name}_gtfs_stops_routes.add.xml")
 
-        # paths to the raw data
+        # Paths to the raw data. We will use the updated geojson file if it exists. Otherwise, we will use the original geojson file.
         centreline_dir = os.path.join(self.paths['raw_data'], 'toronto-centreline-tcl')
         for file in os.listdir(centreline_dir):
-            if file.endswith('4326.geojson'):
+            if file.endswith('updated.geojson'):
                 self.geojson_file = os.path.join(centreline_dir, file)
+            elif file.endswith('4326.geojson'):
+                self.geojson_file = os.path.join(centreline_dir, file)
+
 
         self.gtfs_file = os.path.join(self.paths['raw_data'], 'ttc-routes-and-schedules', [f for f in os.listdir(os.path.join(self.paths['raw_data'], 'ttc-routes-and-schedules')) if f.endswith('.zip')][0])
         self.tls_locations_dir = os.path.join(self.paths['raw_data'], 'traffic-signals-tabular')
@@ -121,6 +122,5 @@ class NetworkBase:
         os.makedirs(self.network_outputs, exist_ok=True)
         os.makedirs(self.processing_outputs, exist_ok=True)
         os.makedirs(self.simulation_outputs, exist_ok=True)
-        os.makedirs(self.shapefile_outputs, exist_ok=True)
-        os.makedirs(self.shapefile_outputs, exist_ok=True)
+
 
