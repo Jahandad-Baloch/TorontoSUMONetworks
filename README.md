@@ -1,181 +1,171 @@
-TorontoSUMONetworks
-TorontoSUMONetworks is an open-source simulation framework built on top of the Simulation of Urban MObility (SUMO) tool. It enables researchers, urban planners, and transportation engineers to create, manipulate, simulate, and analyze realistic traffic networks with real-world data. Whether you are exploring adaptive traffic signal control (ATSC) via multiagent reinforcement learning (MARL) or investigating comprehensive urban traffic management strategies, TorontoSUMONetworks provides a robust, modular platform for your research and planning needs.
+# TorontoSUMONetworks
+
+[![Toronto Open Data Award](https://img.shields.io/badge/Toronto_Open_Data_Award-2024_Winner_(Student)-FFD700?style=for-the-badge&logo=trophy&logoColor=black)](https://open.toronto.ca/announcing-the-2024-toronto-open-data-award-winners/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![SUMO](https://img.shields.io/badge/Eclipse_SUMO-1.9.0%2B-007ACC?style=for-the-badge)](https://eclipse.dev/sumo/)
+
+> 🏆 **Winner: 2024 Toronto Open Data Award (Student Category)**  
+> Recognized by the City of Toronto for civic innovation and urban mobility simulation using municipal open datasets.  
+> 🔗 **[Read the Official City of Toronto Announcement →](https://open.toronto.ca/announcing-the-2024-toronto-open-data-award-winners/)**
+
+---
+
+**TorontoSUMONetworks** is an open-source geospatial simulation framework built on top of [Eclipse SUMO (Simulation of Urban MObility)](https://eclipse.dev/sumo/). It provides an end-to-end pipeline to extract, transform, simulate, and analyze large-scale, multi-modal urban traffic networks using real-world municipal datasets. 
+
+Whether evaluating adaptive traffic signal control (ATSC) through Multi-Agent Reinforcement Learning (MARL), routing algorithms, or network-level transit performance, TorontoSUMONetworks bridges the gap between raw open spatial data and production-grade traffic simulation.
+
+---
+
+## 🏆 Awards & Recognition
+
+This framework was awarded the **2024 Toronto Open Data Award (Student Category)** by the City of Toronto, with official presentation at the Open Data Day celebration in **March 2025**.
+
+* **Official Announcement:** [City of Toronto Open Data Winners](https://open.toronto.ca/announcing-the-2024-toronto-open-data-award-winners/)
+* **Project Showcase:** Recognized for combining City of Toronto Centreline data, traffic volumes, and GTFS transit schedules to model large-scale urban infrastructure.
+
+<p align="center">
+  <!-- Place your certificate and event photo inside an /assets folder in your repo -->
+  <img src="assets/award_certificate.jpg" alt="2024 Toronto Open Data Award Certificate" width="450"/>
+  <img src="assets/awards_ceremony.jpg" alt="Award Presentation Event" width="450"/>
+</p>
+
+---
 
 ## Table of Contents
-1.  [Introduction](#introduction)
-2.  [Features](#features)
-3.  [Project Architecture and Modules](#project-architecture-and-modules)
-4.  [Installation and Setup](#installation-and-setup)
-5.  [Configuration](#configuration)
-6.  [Usage](#usage)
-7.  [Troubleshooting](#troubleshooting)
-8.  [Upcoming Features](#upcoming-features)
-9.  [Contributing](#contributing)
+1. [Key Features](#key-features)
+2. [Data Integration & Geospatial Pipeline](#data-integration--geospatial-pipeline)
+3. [Project Architecture](#project-architecture)
+4. [Installation and Setup](#installation-and-setup)
+5. [Configuration](#configuration)
+6. [Usage](#usage)
+7. [Simulation Workflow](#simulation-workflow)
+8. [Troubleshooting](#troubleshooting)
+9. [Contributing](#contributing)
 10. [License](#license)
 11. [Contact](#contact)
 
-## Introduction
-Urban mobility and efficient traffic management are essential in modern cities. TorontoSUMONetworks provides a flexible, end-to-end platform to simulate and analyze urban traffic networks using SUMO. The project supports various research areas, including:
+---
 
-*   Intelligent Transportation Systems (ITS)
-*   Multiagent Reinforcement Learning (MARL) for Adaptive Traffic Signal Control (ATSC)
-*   Multi-modal transportation analysis
+## Key Features
 
-By integrating real-world data—from city boundaries and centreline geojsons to traffic volumes and GTFS schedules—the framework delivers realistic simulations that help optimize urban traffic flow, reduce congestion, and improve public transport performance.
+* **Real-World Civic Data Pipeline:** Automates ingestion and cleaning of OpenStreetMap (OSM) geometries, City of Toronto Centreline GeoJSONs, municipal boundaries, and official traffic volume records.
+* **Multi-Modal Network Simulation:** Microscopic simulation of private passenger vehicles, public transit (bus and streetcar networks via GTFS integration), trucks, cyclists, and pedestrians.
+* **Network-Scale Routing & Demand:** Integrated trip generation, origin-destination routing matrices, dynamic traffic assignment, and turn-movement ratio calculations.
+* **Traffic Signal Control & MARL-Ready:** Supports Adaptive Traffic Signal Control (ATSC) and Multi-Agent Reinforcement Learning experiments with configurable E1/E2 loop detectors and TraCI API interfaces.
+* **High Configurability:** Modular YAML-based pipeline controlling network boundaries (city-wide, ward-specific, or custom junction clusters), vehicle definitions, and output analytics.
 
-## Features
-*   **Realistic Traffic Simulation**: Build and simulate detailed networks encompassing major arterials, local streets, intersections, and public transit routes.
-*   **Multi-Modal Transport Support**: Simulate various transportation modes such as private vehicles, buses, trucks, bicycles, and pedestrians.
-*   **Extensive Configurability**: Tailor every aspect of the simulation via YAML configuration files—network extent, traffic parameters, detector setups, routing, and analysis options.
-*   **Advanced Data Integration**: Process real-world datasets (e.g., City of Toronto Open Data) alongside centreline and boundary data to generate accurate networks.
-*   **Adaptive Traffic Signal Control (ATSC)**: Experiment with MARL-based ATSC strategies using configurable traffic detectors and dynamic simulation outputs.
-*   **Modular and Extensible**: With clearly separated modules for network building, traffic data integration, route management, and simulation analysis, the project can be easily extended for additional research scenarios.
+---
 
-## Project Architecture and Modules
-The project is organized into several key directories:
+## Data Integration & Geospatial Pipeline
 
-*   **configurations/**:
-    Contains YAML files to control simulation parameters, network settings, traffic data processing, routing, and analysis. Key files include:
-    *   `main_config.yaml`
-    *   `network_config.yaml`
-    *   `traffic_config.yaml`
-    *   `simulation_config.yaml`
-    *   `detectors_config.yaml`
-    *   `paths_config.yaml`
-    *   `routing_config.yaml`
-    *   `analysis_config.yaml`
-    *   (and others as needed)
-*   **data/**:
-    Structured into:
-    *   `raw/`: Original datasets (e.g., geojsons, CSVs, GTFS).
-    *   `processed/`: Data processed for simulation inputs.
-    *   `simulation_output/`: Output from SUMO simulations including emission and summary reports.
-    *   `sumo_networks/`: Generated SUMO network files and related XML configurations.
-*   **modules/**:
-    Houses the source code, divided into:
-    *   `common/`: Shared utilities such as command execution, XML generation, and plotting.
-    *   `core/`: Fundamental classes and simulation task definitions.
-    *   `download/`: Modules to download and update datasets.
-    *   `network/`: Tools for processing centreline data, building the network, and handling boundaries.
-    *   `route/`: Modules for managing vehicle routes and random trip generation.
-    *   `simulation/`: Scripts for running simulations and analyzing outputs.
-    *   `traffic/`: Integration and processing of traffic data, detector configuration, and turning movements.
-*   **docs/**: Additional documentation.
-*   **logs/**: Log files for tracking simulation processes.
-*   `main.py`: The primary script that orchestrates the simulation workflow.
-*   `requirements.txt`: Lists Python dependencies.
-*   `.gitignore`, `LICENSE`, etc.
+TorontoSUMONetworks ingests and transforms several spatial layers:
+* **Road Network Geometry:** City of Toronto Open Data Centreline GeoJSON & OpenStreetMap vector networks.
+* **Administrative Boundaries:** Ward and neighborhood boundaries for localized bounding-box extractions.
+* **Signal Timing & Detectors:** Municipal traffic signal program definitions converted to SUMO-compliant net configurations.
+* **Public Transit:** GTFS (General Transit Feed Specification) schedule and shape data for surface transit modeling.
+
+---
+
+## Project Architecture
+
+```plaintext
+TorontoSUMONetworks/
+├── assets/                    # Award certificates, diagrams, and project visuals
+├── configurations/            # Modular YAML execution configs
+│   ├── main_config.yaml       # Master execution pipeline
+│   ├── network_config.yaml    # Boundary & network extent definitions
+│   ├── traffic_config.yaml    # Demand & volume flow settings
+│   ├── detectors_config.yaml  # E1/E2 loop detector placements
+│   ├── routing_config.yaml    # Dynamic trip generation & turning weights
+│   └── simulation_config.yaml # SUMO runtime parameters
+├── data/
+│   ├── raw/                   # Raw GeoJSON, GTFS, and CSV datasets
+│   ├── processed/             # Cleaned spatial nodes, edges, and flow matrices
+│   ├── simulation_output/     # Trajectory outputs, emissions, and queue data
+│   └── sumo_networks/         # Generated .net.xml and route files
+├── modules/
+│   ├── core/                  # Core simulation orchestrator classes
+│   ├── network/               # Centreline processor and SUMO netbuilder
+│   ├── route/                 # Trips, routes, and GTFS import managers
+│   ├── traffic/               # Traffic volume & turning movement integrators
+│   └── common/                # XML generation, spatial transformations, utilities
+├── main.py                    # Orchestration CLI entry point
+├── requirements.txt           # Python environment dependencies
+└── LICENSE                    # MIT License
+```
+
+---
 
 ## Installation and Setup
 
 ### Prerequisites
-*   Python: Version 3.8 or newer.
-*   SUMO: Version 1.9.0 or later.
+* **Python:** 3.8 or higher
+* **Eclipse SUMO:** 1.9.0 or higher ([Installation Guide](https://eclipse.dev/sumo/))
 
 ### Step-by-Step Installation
-1.  **Clone the Repository**
-    ```bash
-    git clone https://github.com/your-username/TorontoSUMONetworks.git
-    cd TorontoSUMONetworks
-    ```
-2.  **Set Up a Virtual Environment (Recommended)**
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-    # If on Windows, connecting to WSL is recommended
-    ```
-3.  **Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-4.  **Configure SUMO Environment Variables**
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Jahandad-Baloch/TorontoSUMONetworks.git
+   cd TorontoSUMONetworks
+   ```
 
-    Ensure that SUMO is installed and set the environment variables:
-    ```bash
-    export SUMO_HOME="/path/to/sumo"  # Example: export SUMO_HOME="/usr/share/sumo"
-    export PATH="$PATH:$SUMO_HOME/bin"
-    ```
-5.  **Verify Installation**
+2. **Set up a virtual environment:**
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate  # Windows: .venv\Scripts\activate
+   ```
 
-    Run `sumo --version` to check that SUMO is correctly installed.
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Verify SUMO environment:**
+   Ensure the `SUMO_HOME` variable is exported and points to your installation directory:
+   ```bash
+   export SUMO_HOME="/usr/share/sumo"  # Adjust to your SUMO path
+   export PATH="$PATH:$SUMO_HOME/bin"
+   sumo --version
+   ```
+
+---
 
 ## Configuration
-Before running a simulation, review the YAML configuration files in the `configurations/` folder. Key files include:
 
-*   `main_config.yaml`: Controls the overall simulation process (data fetching, network building, simulation execution, etc.).
-*   `network_config.yaml`: Defines the simulation area, extent (e.g., `city_wide`, `by_ward_name`, or `by_junctions`), and network type.
-*   `traffic_config.yaml`: Sets parameters for traffic demand and data processing.
-*   `simulation_config.yaml`: Specifies simulation time frames, output options, and performance metrics.
-*   `detectors_config.yaml`: Configures the placement of traffic detectors (E1, E2, etc.).
-*   `routing_config.yaml`: Adjusts vehicle routing options and random trip generation settings.
-*   `analysis_config.yaml`: Details the analysis metrics for simulation outputs.
+Control the pipeline by editing files in `configurations/`:
+* `main_config.yaml`: Toggle pipeline phases (`fetch_data`, `build_network`, `generate_routes`, `run_simulation`, `analyze_results`).
+* `network_config.yaml`: Define target bounding extents (`city_wide`, `by_ward_name`, or target intersection clusters).
+* `routing_config.yaml`: Set vehicle mix ratios, departure rates, and random trip parameters.
 
-Make sure that directory paths (set in `paths_config.yaml`) correctly point to your raw data, processed data, and output folders.
+---
 
 ## Usage
-### Running a Simulation
-The primary entry point is `main.py`, which orchestrates the entire simulation workflow:
+
+Run the entire pipeline or specific stages using `main.py`:
 
 ```bash
+# Execute standard pipeline configured via main_config.yaml
 python main.py --config configurations/main_config.yaml
 ```
 
-### Execution Flow Overview
-1. **Data Fetching**: (Optional) Downloads raw datasets if enabled.
-2. **Network Building**: Processes centreline data and boundaries (using modules in `modules/network/`) to create a SUMO network.
-3. **Detector Placement**: Configures and integrates traffic detectors based on your settings.
-4. **Traffic Data Processing**: Processes traffic volume data to generate turning movements and edge weight files.
-5. **Route Generation**: Creates vehicle routes, including options for random trip generation and GTFS-based public transport routes.
-6. **Simulation Execution**: Runs the SUMO simulation using a composed configuration file.
-7. **Analysis**: Processes simulation outputs to compute key metrics such as queue lengths and emissions.
-
-### Example Configuration Excerpt
-An excerpt from `configurations/main_config.yaml`:
-
-```yaml
-execution_settings:
-  fetch_data: false
-  build_network: true
-  network_extent: "by_ward_name"
-  build_detectors: true
-  process_traffic_data: true
-  generate_routes: true
-  compose_sumocfg: true
-  run_simulation: true
-  analyze_results: true
-```
-
 ### Module Highlights
-- **TrafficNetworkCreation** (in `modules/network/`): Builds the SUMO network by processing centreline geojson data, applying area filters, and extracting junction and traffic signal information.
-- **CentrelineProcessor** (in `modules/network/`): Filters and processes centreline data based on active types and area boundaries.
-- **TrafficDataIntegrator** (in `modules/traffic/`): Integrates processed traffic volume data with the SUMO network, generating XML files for turning movements and edge weights.
-- **SumoRouteManager** (in `modules/route/`): Manages the generation of random trips and vehicle routes, including GTFS import for public transport routes.
+* **`TrafficNetworkCreation`** (`modules/network/`): Builds network topologies using `netconvert` from sanitized spatial data.
+* **`CentrelineProcessor`** (`modules/network/`): Applies spatial clipping and lane categorization to City of Toronto GeoJSONs.
+* **`TrafficDataIntegrator`** (`modules/traffic/`): Produces dynamic turning-ratio files and edge weight definitions.
+* **`SumoRouteManager`** (`modules/route/`): Compiles multi-modal schedules and random trips into validated route XMLs.
 
-## Troubleshooting
-If you encounter issues during installation or simulation, consider the following steps:
-
-1. **SUMO Environment**: Double-check that the `SUMO_HOME` variable is set correctly and that the SUMO binaries are in your `PATH`.
-2. **Configuration Files**: Ensure that all YAML configuration files are properly formatted and that file paths are accurate.
-3. **Dependencies**: Reinstall or update dependencies by running `pip install -r requirements.txt` again.
-4. **Logs**: Inspect the `logs/` directory for detailed error messages.
-5. **Data Availability**: Confirm that raw datasets are present in `data/raw/` and accessible to the scripts.
-6. **Module-Specific Errors**: Check the logging output from modules such as `TrafficDataProcessor` or `CentrelineProcessor` for hints on missing data or misconfigurations.
-
-## Upcoming Features
-- Real-time incident management and lane closure simulation
-- Integration of emergency vehicle routing
-- Enhanced X2X communication scenario modeling
-- Additional routing algorithms and traffic signal programs
-- Improved visualization tools for simulation outputs
+---
 
 ## Contributing
-Contributions are welcome! If you have suggestions, bug reports, or feature enhancements, please open an issue or submit a pull request. For guidelines on contributing, refer to the `CONTRIBUTING.md` file.
+Contributions and collaborative research initiatives are welcome. Please open an issue or submit a pull request.
 
 ## License
-This project is licensed under the MIT License.
+This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
-For questions, suggestions, or support, please contact the project maintainer:
-
-**Jahandad Baloch**
-- GitHub: [@Jahandad-Baloch](https://github.com/Jahandad-Baloch)
+**Jahandad Baloch**  
+* Creator & Maintainer*  
+* **GitHub:** [@Jahandad-Baloch](https://github.com/Jahandad-Baloch)  
+* **LinkedIn:** [linkedin.com/in/jahandad-baloch](https://www.linkedin.com/in/jahandad-baloch)  
+* **Email:** [jahandadbaloch@gmail.com](mailto:jahandadbaloch@gmail.com)
